@@ -231,12 +231,12 @@ footer{font-size:14px;color:var(--mute);padding:16px 0 40px}
         </div>
         <div class="area">
           <h3>Grounded GenAI retrieval platforms</h3>
-          <p>Hybrid retrieval over FHIR records, graphs and document indexes; multi-agent routing across enterprise sources; a cite-every-sentence contract enforced after generation, not hoped for.</p>
+          <p>Hybrid retrieval over FHIR records, graphs and document indexes; multi-agent routing across enterprise sources; citations checked against sources after generation, not assumed.</p>
           <div class="stack">GraphRAG · hybrid dense + sparse retrieval · reranking · multi-agent frameworks · provider-agnostic LLM layer</div>
         </div>
         <div class="area">
           <h3>Agent tooling, identity &amp; the security boundary</h3>
-          <p>MCP tool surfaces designed so agents orchestrate and servers guarantee: typed traversal templates instead of free-form queries, per-backend token exchange, minimum-necessary scopes, fail-closed audit.</p>
+          <p>Tool surfaces for clinical agents built on open standards: MCP authorization, OAuth 2.1 token exchange, SMART on FHIR scopes for minimum-necessary access, and FHIR AuditEvent for every access.</p>
           <div class="stack">MCP · OAuth 2.1 · SMART on FHIR v2 · RFC 8693 / 8707 / 9728 · FHIR AuditEvent / IHE BALP</div>
         </div>
         <div class="area">
@@ -264,26 +264,7 @@ footer{font-size:14px;color:var(--mute);padding:16px 0 40px}
         <article class="case">
           <div class="k">Boundaries</div>
           <div>
-            <p>Agents orchestrate; servers guarantee. The model never writes a graph query — typed, parameter-bound templates do, which closes the injection class by construction. Guideline logic lives in CPG-on-FHIR and CQL and runs in code; the model reads the result, it doesn't decide it. Scopes enforce minimum necessary on the request side, and audit is fail-closed.</p>
-            <svg class="bd" viewBox="0 0 560 170" role="img" aria-label="Boundary diagram: the agent calls governed tools on a server; the server, not the model, runs typed graph templates, scoped FHIR reads and fail-closed audit.">
-              <rect class="box" x="8" y="60" width="110" height="50" rx="2"/>
-              <text x="63" y="81" text-anchor="middle">Agent / LLM</text>
-              <text class="m" x="63" y="97" text-anchor="middle">orchestrates</text>
-              <path class="ln" d="M118 85 L190 85"/>
-              <text class="m" x="154" y="78" text-anchor="middle">tool call</text>
-              <rect class="box g" x="190" y="14" width="150" height="142" rx="2"/>
-              <text x="265" y="36" text-anchor="middle">Tool server</text>
-              <text class="m" x="265" y="52" text-anchor="middle">guarantees</text>
-              <text x="265" y="80" text-anchor="middle">scope check</text>
-              <text x="265" y="104" text-anchor="middle">typed template</text>
-              <text x="265" y="128" text-anchor="middle">audit (fail-closed)</text>
-              <path class="ln" d="M340 70 L410 50"/><rect class="box" x="410" y="30" width="140" height="38" rx="2"/><text x="480" y="53" text-anchor="middle">Knowledge graph</text>
-              <path class="ln" d="M340 95 L410 95"/><rect class="box" x="410" y="76" width="140" height="38" rx="2"/><text x="480" y="99" text-anchor="middle">FHIR store (scoped)</text>
-              <path class="ln" d="M340 120 L410 140"/><rect class="box" x="410" y="122" width="140" height="38" rx="2"/><text x="480" y="145" text-anchor="middle">Audit log</text>
-              <path class="ln no" d="M63 60 C 100 4, 380 4, 470 28"/>
-              <text class="m" x="63" y="130" text-anchor="middle">never writes a graph query</text>
-              <text class="m" x="63" y="144" text-anchor="middle">(dashed path does not exist)</text>
-            </svg>
+            <p>The model is an untrusted caller. Prompt injection is the top-ranked risk in the OWASP Top 10 for LLM applications, so anything the model emits is treated as input to be validated, never as a query to be executed. Access follows the standards the ecosystem already agreed on: SMART on FHIR v2 scopes for minimum-necessary data access, OAuth 2.1 and the MCP authorization specification for tool servers, and FHIR AuditEvent so every access is recorded.</p>
           </div>
         </article>
         <article class="case">
@@ -374,10 +355,7 @@ footer{font-size:14px;color:var(--mute);padding:16px 0 40px}
           <a href="https://www.linkedin.com/in/senthilkumar-palaniappan">Why clinical AI needs a knowledge graph, not just a vector database</a><small>In progress</small>
           <p class="sum">Subsumption is set membership; similarity is a guess. What that difference means for recall, explainability and governance.</p>
         </li>
-        <li>
-          <a href="https://www.linkedin.com/in/senthilkumar-palaniappan">Agents orchestrate, servers guarantee</a><small>In progress</small>
-          <p class="sum">How to split an agent tool surface into primitives and composed tools without giving up minimum-necessary, audit or CDS posture.</p>
-        </li>
+        
       </ul>
     </div>
   </div>
