@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Senthilkumar Palaniappan — Clinical AI & Knowledge Graph Architecture</title>
+<meta name="description" content="Senior data and AI architect. Clinical knowledge graphs, GenAI retrieval platforms, FHIR interoperability, and AI readiness for health systems. 22+ years at Mayo Clinic and the World Bank.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EEF1F3; --paper-2:#E4E9ED; --ink:#152238; --ink-2:#3E4C5E; --mute:#6B7788;
+  --teal:#1E6B68; --teal-2:#2A8C87; --ochre:#B8862B; --rule:#C9D1D8;
+  --serif:"Literata",Georgia,serif; --mono:"JetBrains Mono",ui-monospace,monospace;
+  --w:1080px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:18px;line-height:1.6;font-weight:400;-webkit-font-smoothing:antialiased}
+a{color:var(--teal);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--teal-2)}
+:focus-visible{outline:2px solid var(--ochre);outline-offset:3px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:#fff;padding:8px 12px}
+.skip:focus{left:8px;z-index:10}
+
+header{position:sticky;top:0;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);z-index:5}
+.nav{max-width:var(--w);margin:0 auto;padding:14px 24px;display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.brand{font-weight:600;font-size:17px;color:var(--ink);text-decoration:none;letter-spacing:.01em}
+.nav ul{list-style:none;margin:0;padding:0;display:flex;gap:26px;font-size:16px}
+.nav ul a{color:var(--ink-2);text-decoration:none}
+.nav ul a:hover{color:var(--teal)}
+
+.wrap{max-width:var(--w);margin:0 auto;padding:0 24px}
+section{padding:72px 0;border-bottom:1px solid var(--rule)}
+.grid{display:grid;grid-template-columns:200px 1fr;gap:40px}
+.rail{font-size:15px;color:var(--mute);font-style:italic;padding-top:6px}
+h1,h2,h3{font-weight:500;line-height:1.15;margin:0}
+h2{font-size:34px;margin-bottom:28px;letter-spacing:-.01em}
+h3{font-size:22px;margin-bottom:8px}
+p{margin:0 0 18px;max-width:64ch}
+.lede{font-size:21px;color:var(--ink-2);max-width:58ch}
+
+/* hero */
+.hero{padding:84px 0 64px}
+.hero .grid{grid-template-columns:1.05fr 1fr;align-items:center;gap:56px}
+.hero h1{font-size:50px;font-weight:300;letter-spacing:-.015em;margin-bottom:22px}
+.hero h1 em{font-style:italic;font-weight:400}
+.hero .who{font-size:17px;color:var(--mute);margin-bottom:34px}
+.cta{display:inline-flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 20px;border:1.5px solid var(--ink);color:var(--ink);text-decoration:none;font-size:16px;border-radius:2px}
+.btn.primary{background:var(--ink);color:#fff}
+.btn:hover{border-color:var(--teal);color:var(--teal)}
+.btn.primary:hover{background:var(--teal);color:#fff}
+
+.graph{width:100%;height:auto;display:block}
+.graph .edge{stroke:var(--ochre);stroke-width:1.5;fill:none;stroke-dasharray:400;stroke-dashoffset:400;animation:draw 1.1s ease-out forwards}
+.graph .edge.isa{stroke:var(--teal)}
+.graph .node{fill:var(--paper);stroke:var(--ink);stroke-width:1.5;opacity:0;animation:pop .5s ease-out forwards}
+.graph .node.code{stroke:var(--ochre)}
+.graph .lbl{font-family:var(--serif);font-size:14px;fill:var(--ink);opacity:0;animation:pop .5s ease-out forwards}
+.graph .code-lbl{font-family:var(--mono);font-size:12.5px;fill:var(--ink-2);opacity:0;animation:pop .5s ease-out forwards}
+.graph .elbl{font-family:var(--mono);font-size:10.5px;fill:var(--mute);opacity:0;animation:pop .5s ease-out forwards;letter-spacing:.04em}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes pop{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.graph .edge{stroke-dashoffset:0;animation:none}.graph .node,.graph .lbl,.graph .code-lbl,.graph .elbl{opacity:1;animation:none}}
+.caption{font-size:14px;color:var(--mute);font-style:italic;margin-top:10px;max-width:none}
+
+/* practice areas — ruled list */
+.areas{display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+.area{padding:22px 0;border-top:1px solid var(--rule)}
+.area p{font-size:17px;color:var(--ink-2);margin:0}
+.area .stack{font-family:var(--mono);font-size:12.5px;color:var(--mute);margin-top:10px;line-height:1.7}
+
+/* work */
+.work{display:grid;gap:36px}
+.case{display:grid;grid-template-columns:160px 1fr;gap:28px;padding-top:24px;border-top:1px solid var(--rule)}
+.case .k{font-size:15px;color:var(--mute);line-height:1.5}
+.case p{font-size:17px}
+.case ul{margin:0;padding-left:18px;color:var(--ink-2);font-size:16.5px}
+.case li{margin-bottom:6px}
+
+/* writing */
+.posts{list-style:none;margin:0;padding:0}
+.posts li{padding:18px 0;border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:20px;align-items:baseline}
+.posts a{text-decoration:none;color:var(--ink);font-size:20px}
+.posts a:hover{color:var(--teal);text-decoration:underline}
+.posts small{color:var(--mute);font-size:14px;white-space:nowrap}
+.posts .sum{grid-column:1/-1;color:var(--ink-2);font-size:16px;margin:0}
+
+/* timeline */
+.tl{list-style:none;margin:0;padding:0;border-left:1.5px solid var(--rule);margin-left:4px}
+.tl li{position:relative;padding:0 0 26px 28px}
+.tl li::before{content:"";position:absolute;left:-6px;top:10px;width:10px;height:10px;border-radius:50%;background:var(--paper);border:1.5px solid var(--teal)}
+.tl .yr{font-family:var(--mono);font-size:12.5px;color:var(--mute);display:block;margin-bottom:2px}
+.tl b{font-weight:500}
+.tl p{font-size:16px;color:var(--ink-2);margin:4px 0 0}
+
+/* contact */
+.contact{padding:72px 0 56px;border-bottom:none}
+.contact .links{display:flex;gap:28px;flex-wrap:wrap;font-size:18px}
+footer{font-size:14px;color:var(--mute);padding:16px 0 40px}
+
+@media (max-width:860px){
+  body{font-size:17px}
+  .grid,.hero .grid{grid-template-columns:1fr;gap:16px}
+  .rail{padding-top:0}
+  .hero{padding:48px 0}
+  .hero h1{font-size:36px}
+  h2{font-size:28px}
+  section{padding:52px 0}
+  .areas{grid-template-columns:1fr}
+  .case{grid-template-columns:1fr;gap:6px}
+  .nav{flex-direction:column;gap:6px;align-items:flex-start;padding:12px 20px}
+  .nav ul{gap:14px;font-size:14px;flex-wrap:wrap}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header>
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="#">Senthilkumar Palaniappan</a>
+    <ul>
+      <li><a href="#work">What I work on</a></li>
+      <li><a href="#selected">Selected work</a></li>
+      <li><a href="#writing">Writing</a></li>
+      <li><a href="#path">Path</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+<section class="hero">
+  <div class="wrap grid">
+    <div>
+      <h1>Clinical AI that can show <em>why</em> it answered.</h1>
+      <p class="lede">I design the retrieval, knowledge-graph and security architecture that lets a health system put generative AI in front of clinicians — grounded in FHIR data and clinical terminology, with every answer traceable to its source.</p>
+      <p class="who">Senior data &amp; AI architect · 22 years in regulated enterprise systems, 18 of them at Mayo Clinic · Rochester, MN</p>
+      <div class="cta">
+        <a class="btn primary" href="https://www.linkedin.com/in/senthilkumar-palaniappan" rel="me">Connect on LinkedIn</a>
+        <a class="btn" href="#selected">See the work</a>
+      </div>
+    </div>
+    <div>
+      <svg class="graph" viewBox="0 0 520 360" role="img" aria-labelledby="gt gd">
+        <title id="gt">A clinical knowledge graph</title>
+        <desc id="gd">A clinician's shorthand "MI" expands through IS_A edges to myocardial infarction and STEMI, maps to ICD-10 codes I21.0–I21.9, and connects by FINDING_SITE to the coronary artery.</desc>
+        <!-- edges -->
+        <path class="edge isa" d="M110 70 L250 70" style="animation-delay:.2s"/>
+        <path class="edge isa" d="M250 70 L250 180" style="animation-delay:.7s"/>
+        <path class="edge isa" d="M250 180 L140 270" style="animation-delay:1.2s"/>
+        <path class="edge" d="M250 180 L400 270" style="animation-delay:1.2s"/>
+        <path class="edge" d="M250 70 L430 130" style="animation-delay:1.6s"/>
+        <path class="edge" d="M140 270 L400 270" style="animation-delay:1.8s"/>
+        <!-- edge labels -->
+        <text class="elbl" x="150" y="62" style="animation-delay:.6s">SYNONYM_OF</text>
+        <text class="elbl" x="258" y="130" style="animation-delay:1.1s">IS_A ⟵</text>
+        <text class="elbl" x="160" y="222" style="animation-delay:1.6s">IS_A ⟵</text>
+        <text class="elbl" x="330" y="218" style="animation-delay:1.6s">MAPS_TO</text>
+        <text class="elbl" x="330" y="92" style="animation-delay:2s">FINDING_SITE</text>
+        <text class="elbl" x="232" y="286" style="animation-delay:2.2s">MAPS_TO</text>
+        <!-- nodes -->
+        <circle class="node" cx="110" cy="70" r="7" style="animation-delay:0s"/>
+        <text class="lbl" x="30" y="100" style="animation-delay:.1s">“MI”</text>
+        <text class="code-lbl" x="30" y="118" style="animation-delay:.1s">clinician query</text>
+
+        <circle class="node" cx="250" cy="70" r="7" style="animation-delay:.9s"/>
+        <text class="lbl" x="196" y="42" style="animation-delay:1s">Myocardial infarction</text>
+        <text class="code-lbl" x="196" y="30" style="animation-delay:1s">SNOMED 22298006</text>
+
+        <circle class="node" cx="250" cy="180" r="7" style="animation-delay:1.4s"/>
+        <text class="lbl" x="266" y="185" style="animation-delay:1.5s">Acute MI</text>
+        <text class="code-lbl" x="266" y="200" style="animation-delay:1.5s">SNOMED 57054005</text>
+
+        <circle class="node" cx="140" cy="270" r="7" style="animation-delay:1.9s"/>
+        <text class="lbl" x="60" y="300" style="animation-delay:2s">STEMI</text>
+        <text class="code-lbl" x="60" y="316" style="animation-delay:2s">SNOMED 401303003</text>
+
+        <circle class="node code" cx="400" cy="270" r="7" style="animation-delay:2.1s"/>
+        <text class="lbl" x="360" y="300" style="animation-delay:2.2s">ICD-10-CM</text>
+        <text class="code-lbl" x="360" y="316" style="animation-delay:2.2s">I21.0 – I21.9</text>
+
+        <circle class="node" cx="430" cy="130" r="7" style="animation-delay:2.3s"/>
+        <text class="lbl" x="380" y="160" style="animation-delay:2.4s">Coronary artery</text>
+        <text class="code-lbl" x="380" y="175" style="animation-delay:2.4s">body structure</text>
+      </svg>
+      <p class="caption">A clinician types “MI”. Vector search finds documents that say “MI”. A governed graph finds the ones coded STEMI or I21.x — and can show the path it took.</p>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap grid">
+    <div class="rail">What I work on</div>
+    <div>
+      <h2>Four problems health systems keep hitting on the way from AI pilot to production.</h2>
+      <div class="areas">
+        <div class="area">
+          <h3>Clinical knowledge graphs &amp; ontology engineering</h3>
+          <p>SNOMED CT, ICD-10-CM, RxNorm and LOINC as a governed, versioned graph that expands clinician shorthand, resolves codes across vocabularies, and explains every traversal.</p>
+          <div class="stack">Neo4j · Memgraph · Cypher · UMLS · FHIR ConceptMap · dbt crosswalks</div>
+        </div>
+        <div class="area">
+          <h3>Grounded GenAI retrieval platforms</h3>
+          <p>Hybrid retrieval over FHIR records, graphs and document indexes; multi-agent routing across enterprise sources; a cite-every-sentence contract enforced after generation, not hoped for.</p>
+          <div class="stack">GraphRAG · hybrid dense + BM25 + RRF · reranking · Google ADK · NVIDIA NIM · Gemini · Claude</div>
+        </div>
+        <div class="area">
+          <h3>Agent tooling, identity &amp; the security boundary</h3>
+          <p>MCP tool surfaces designed so agents orchestrate and servers guarantee: typed traversal templates instead of free-form queries, per-backend token exchange, minimum-necessary scopes, fail-closed audit.</p>
+          <div class="stack">MCP · OAuth 2.1 · SMART on FHIR v2 · RFC 8693 / 8707 / 9728 · FHIR AuditEvent / IHE BALP</div>
+        </div>
+        <div class="area">
+          <h3>AI readiness &amp; evaluation for regulated delivery</h3>
+          <p>The evidence that lets a CTO say yes: evaluation harnesses, adversarial corpora, gate criteria, HIPAA and FDA CDS posture mapped to the architecture, and security sign-off actually obtained.</p>
+          <div class="stack">MedAgentBench · τ-bench pass^k · ALCE · CDS Hooks · CPG-on-FHIR / CQL · HIPAA 164.312 · FDA CDS guidance</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="selected">
+  <div class="wrap grid">
+    <div class="rail">Selected work</div>
+    <div>
+      <h2>Three pieces of work, described by what they decided rather than what they used.</h2>
+      <div class="work">
+        <article class="case">
+          <div class="k">Clinical AI retrieval platform<br>Mayo Clinic, 2026<br>Architecture &amp; design review lead</div>
+          <div>
+            <p>A clinically grounded question-answering platform over a longitudinal patient record. I designed the hybrid retrieval architecture (FHIR store, clinical knowledge graph, document vectors with graph-first routing), the nine-tool MCP pipeline for cited answers, and the security boundary — then led the vendor design review and wrote the CTO-facing design and delivery plan.</p>
+            <ul>
+              <li>Closed the LLM-to-graph injection class by design: five typed, parameter-bound traversal templates replace free-form Cypher; guideline logic lives in CPG-on-FHIR and CQL, evaluated in code.</li>
+              <li>Resolved a four-way leadership disagreement on service boundaries with a decision record — agents orchestrate, servers guarantee — that kept minimum-necessary, audit and non-device CDS posture intact.</li>
+              <li>Defined the pilot gate: agent benchmarks, citation precision and recall, a synthetic-conflict patient set, and an adversarial corpus with zero-leakage targets.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="case">
+          <div class="k">Clinical knowledge graph<br>Mayo Clinic, 2024–25<br>Design &amp; production</div>
+          <div>
+            <p>A production Neo4j graph of SNOMED CT and ICD-10-CM with IS_A, FINDING_SITE and CAUSATIVE_AGENT relationships, a SNOMED-to-ICD crossmap, and sub-100 ms term expansion that turns “MI” into its full ontology footprint. In controlled evaluation, ontology-grounded retrieval measurably outperformed the vector-only baseline — the reproducible result that secured executive investment.</p>
+          </div>
+        </article>
+        <article class="case">
+          <div class="k">Enterprise GenAI platform<br>Mayo Clinic, 2023–25<br>Architecture &amp; production hardening</div>
+          <div>
+            <p>An NVIDIA RAG Blueprint deployment on GKE with a six-phase evaluation framework and Go/No-Go gates; a provider-agnostic LLM layer with zero-downtime model swaps; a multi-agent pipeline routing cited answers across enterprise sources; and an MCP tool server proposed as the enterprise standard for AI tool interoperability. Promoted across four environments with dual-region HA, IAP/OAuth2, VPC Service Controls and Vault — to formal security sign-off.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="writing">
+  <div class="wrap grid">
+    <div class="rail">Writing</div>
+    <div>
+      <h2>Notes from the work, for people doing similar work.</h2>
+      <ul class="posts">
+        <li>
+          <a href="https://www.linkedin.com/in/senthilkumar-palaniappan">Clinical RAG fails on vocabulary, not on the model</a><small>LinkedIn</small>
+          <p class="sum">Why a retrieval system that can't expand “MI” to STEMI and I21.x will miss the chart no matter which model sits behind it.</p>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/senthilkumar-palaniappan">Why clinical AI needs a knowledge graph, not just a vector database</a><small>In progress</small>
+          <p class="sum">Subsumption is set membership; similarity is a guess. What that difference means for recall, explainability and governance.</p>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/senthilkumar-palaniappan">Agents orchestrate, servers guarantee</a><small>In progress</small>
+          <p class="sum">A way to settle the “thin MCP vs. composed tools” argument without giving up minimum-necessary, audit or CDS posture.</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="path">
+  <div class="wrap grid">
+    <div class="rail">Path</div>
+    <div>
+      <h2>Each stop added a layer the next one needed.</h2>
+      <ul class="tl">
+        <li><span class="yr">2023 – present</span><b>Mayo Clinic — Technical Lead &amp; Architect, Enterprise GenAI Data Platform</b><p>Clinical knowledge graph, GenAI retrieval platform, MCP tooling, security hardening, CTO-facing architecture.</p></li>
+        <li><span class="yr">2021 – 2023</span><b>Mayo Clinic — Architect, Radiology AI</b><p>FHIR R4 and cloud data architecture for radiology AI model training and deployment; DICOM pipelines; third-party AI platform governance.</p></li>
+        <li><span class="yr">2015 – 2020</span><b>Mayo Clinic — Technical Lead, Revenue Cycle</b><p>Migration of 70+ legacy systems to Epic; re-architected a mission-critical billing message engine for a 30× throughput gain.</p></li>
+        <li><span class="yr">2012 – 2015</span><b>Mayo Clinic — Solutions Architect, Nursing Informatics</b><p>Clinical situational-awareness dashboard across three sites with the Chief Nursing Informatics Officer; HL7 integration at scale.</p></li>
+        <li><span class="yr">2008 – 2012</span><b>Mayo Clinic — ICU, Emergency &amp; Infectious Disease systems</b><p>AWARE ICU awareness platform data layer; infection-surveillance system with HL7 interfaces.</p></li>
+        <li><span class="yr">2004 – 2008</span><b>The World Bank — Treasury analytics</b><p>Portfolio analytics and trade-simulation models for member central banks.</p></li>
+      </ul>
+      <p style="margin-top:18px;font-size:16px;color:var(--ink-2)">MBA, Systems Management (NIT Warangal) · BE (University of Madras) · Google Cloud Professional Cloud Architect · HL7 FHIR R4 · Certified ScrumMaster</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap grid">
+    <div class="rail">Contact</div>
+    <div>
+      <h2>If you're taking clinical AI from pilot to production, I'd like to hear what's in the way.</h2>
+      <div class="links">
+        <a href="https://www.linkedin.com/in/senthilkumar-palaniappan" rel="me">LinkedIn</a>
+        <a href="https://github.com/sengoms">GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer><div class="wrap">© 2026 Senthilkumar Palaniappan. Views are my own.</div></footer>
+</body>
+</html>
