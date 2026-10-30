@@ -81,6 +81,31 @@ p{margin:0 0 18px;max-width:64ch}
 .case ul{margin:0;padding-left:18px;color:var(--ink-2);font-size:16.5px}
 .case li{margin-bottom:6px}
 
+/* evidence */
+.ev{display:grid;grid-template-columns:1fr 1fr;gap:40px 48px}
+.ev figure{margin:0;padding-top:20px;border-top:1px solid var(--rule)}
+.ev svg{width:100%;height:auto;display:block}
+.ev figcaption{font-size:15px;color:var(--ink-2);margin-top:10px;line-height:1.5}
+.ev figcaption a{font-size:13.5px;color:var(--mute);display:block;margin-top:4px}
+.ev .big{font-size:40px;font-weight:300;letter-spacing:-.02em;line-height:1;margin:0 0 6px}
+.ev .big small{font-size:16px;color:var(--mute);letter-spacing:0;margin-left:8px;font-weight:400}
+.chart text{font-family:var(--serif);font-size:13px;fill:var(--ink-2)}
+.chart .v{font-family:var(--mono);font-size:12px;fill:var(--ink)}
+.chart .bar{fill:var(--teal)}
+.chart .bar.dim{fill:var(--rule)}
+.chart .bar.oc{fill:var(--ochre)}
+.bd{width:100%;height:auto;display:block;margin:14px 0 4px}
+.bd text{font-family:var(--serif);font-size:12.5px;fill:var(--ink)}
+.bd .m{font-family:var(--mono);font-size:10.5px;fill:var(--mute)}
+.bd .box{fill:var(--paper);stroke:var(--ink);stroke-width:1.2}
+.bd .box.g{stroke:var(--teal)}
+.bd .ln{stroke:var(--ink-2);stroke-width:1.2;fill:none}
+.bd .ln.no{stroke:var(--ochre);stroke-dasharray:4 3}
+.lit{list-style:none;margin:0;padding:0}
+.lit li{padding:14px 0;border-top:1px solid var(--rule);font-size:16px;color:var(--ink-2)}
+.lit a{color:var(--ink)}
+@media (max-width:860px){.ev{grid-template-columns:1fr}}
+
 /* writing */
 .posts{list-style:none;margin:0;padding:0}
 .posts li{padding:18px 0;border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:20px;align-items:baseline}
@@ -125,6 +150,7 @@ footer{font-size:14px;color:var(--mute);padding:16px 0 40px}
     <ul>
       <li><a href="#work">What I work on</a></li>
       <li><a href="#selected">Approach</a></li>
+      <li><a href="#evidence">Evidence</a></li>
       <li><a href="#writing">Writing</a></li>
       <li><a href="#path">Path</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -239,6 +265,25 @@ footer{font-size:14px;color:var(--mute);padding:16px 0 40px}
           <div class="k">Boundaries</div>
           <div>
             <p>Agents orchestrate; servers guarantee. The model never writes a graph query — typed, parameter-bound templates do, which closes the injection class by construction. Guideline logic lives in CPG-on-FHIR and CQL and runs in code; the model reads the result, it doesn't decide it. Scopes enforce minimum necessary on the request side, and audit is fail-closed.</p>
+            <svg class="bd" viewBox="0 0 560 170" role="img" aria-label="Boundary diagram: the agent calls governed tools on a server; the server, not the model, runs typed graph templates, scoped FHIR reads and fail-closed audit.">
+              <rect class="box" x="8" y="60" width="110" height="50" rx="2"/>
+              <text x="63" y="81" text-anchor="middle">Agent / LLM</text>
+              <text class="m" x="63" y="97" text-anchor="middle">orchestrates</text>
+              <path class="ln" d="M118 85 L190 85"/>
+              <text class="m" x="154" y="78" text-anchor="middle">tool call</text>
+              <rect class="box g" x="190" y="14" width="150" height="142" rx="2"/>
+              <text x="265" y="36" text-anchor="middle">Tool server</text>
+              <text class="m" x="265" y="52" text-anchor="middle">guarantees</text>
+              <text x="265" y="80" text-anchor="middle">scope check</text>
+              <text x="265" y="104" text-anchor="middle">typed template</text>
+              <text x="265" y="128" text-anchor="middle">audit (fail-closed)</text>
+              <path class="ln" d="M340 70 L410 50"/><rect class="box" x="410" y="30" width="140" height="38" rx="2"/><text x="480" y="53" text-anchor="middle">Knowledge graph</text>
+              <path class="ln" d="M340 95 L410 95"/><rect class="box" x="410" y="76" width="140" height="38" rx="2"/><text x="480" y="99" text-anchor="middle">FHIR store (scoped)</text>
+              <path class="ln" d="M340 120 L410 140"/><rect class="box" x="410" y="122" width="140" height="38" rx="2"/><text x="480" y="145" text-anchor="middle">Audit log</text>
+              <path class="ln no" d="M63 60 C 100 4, 380 4, 470 28"/>
+              <text class="m" x="63" y="130" text-anchor="middle">never writes a graph query</text>
+              <text class="m" x="63" y="144" text-anchor="middle">(dashed path does not exist)</text>
+            </svg>
           </div>
         </article>
         <article class="case">
@@ -248,6 +293,69 @@ footer{font-size:14px;color:var(--mute);padding:16px 0 40px}
           </div>
         </article>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="evidence">
+  <div class="wrap grid">
+    <div class="rail">What the evidence says</div>
+    <div>
+      <h2>Four published results behind those positions.</h2>
+      <div class="ev">
+        <figure>
+          <p class="big">15.1%<small>of real clinician searches match a term</small></p>
+          <svg class="chart" viewBox="0 0 400 44" role="img" aria-label="Of 54,986 SNOMED CT browser queries, 15.1 percent matched a concept term lexically; 84.9 percent did not.">
+            <rect class="bar" x="0" y="8" width="60" height="18"/>
+            <rect class="bar dim" x="62" y="8" width="338" height="18"/>
+            <text class="v" x="0" y="42">lexical match</text>
+            <text class="v" x="400" y="42" text-anchor="end">out-of-vocabulary: 84.9%</text>
+          </svg>
+          <figcaption>Of 54,986 real queries typed into the SNOMED CT browser, only 15.1% matched any concept term. Clinicians don't type the ontology's words — which is why retrieval has to resolve meaning, not strings.
+            <a href="https://arxiv.org/abs/2511.16698">Dilworth et al., Hierarchical Retrieval with Out-of-Vocabulary Queries: A Case Study on SNOMED CT (arXiv 2511.16698)</a></figcaption>
+        </figure>
+        <figure>
+          <p class="big">0.98<small>recall for "myocardial infarction" by hierarchy</small></p>
+          <svg class="chart" viewBox="0 0 400 120" role="img" aria-label="Recall of SNOMED hierarchy-based queries: myocardial infarction 0.979, hypertension 0.979, heart failure 0.921, coronary artery disease 0.893, type 1 diabetes 0.741.">
+            <text x="0" y="14">Myocardial infarction</text><rect class="bar" x="150" y="4" width="215" height="12"/><text class="v" x="370" y="14">.979</text>
+            <text x="0" y="36">Hypertension</text><rect class="bar" x="150" y="26" width="215" height="12"/><text class="v" x="370" y="36">.979</text>
+            <text x="0" y="58">Heart failure</text><rect class="bar" x="150" y="48" width="203" height="12"/><text class="v" x="370" y="58">.921</text>
+            <text x="0" y="80">Coronary artery disease</text><rect class="bar" x="150" y="70" width="196" height="12"/><text class="v" x="370" y="80">.893</text>
+            <text x="0" y="102">Type 1 diabetes</text><rect class="bar oc" x="150" y="92" width="163" height="12"/><text class="v" x="370" y="102">.741</text>
+          </svg>
+          <figcaption>Querying a clinical warehouse by SNOMED subsumption instead of hand-built code lists kept precision above 0.97 and recall above 0.89 for most concepts — and the misses were traceable to specific hierarchy gaps, which is the point: a graph fails explainably.
+            <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1480260">Lieberman, Ricciardi, Masarie, Spackman — AMIA Annu Symp Proc 2003</a></figcaption>
+        </figure>
+        <figure>
+          <p class="big">50–90%<small>of LLM answers not fully supported by their own citations</small></p>
+          <svg class="chart" viewBox="0 0 400 44" role="img" aria-label="Between 50 and 90 percent of LLM medical responses were not fully supported by the sources they cited.">
+            <rect class="bar dim" x="0" y="8" width="400" height="18"/>
+            <rect class="bar oc" x="200" y="8" width="160" height="18"/>
+            <text class="v" x="200" y="42">50%</text><text class="v" x="360" y="42" text-anchor="end">90%</text>
+          </svg>
+          <figcaption>Across seven commercial LLMs on 800 medical questions, half to nine-tenths of responses were not fully supported — sometimes contradicted — by the sources they cited; search-enabled models still failed nearly half the time. Citations have to be enforced after generation, not requested in the prompt.
+            <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12003634/">Wu et al., An automated framework for assessing how well LLMs cite relevant medical references — Nature Communications 16:3615 (2025)</a></figcaption>
+        </figure>
+        <figure>
+          <p class="big">≈70%<small>best agent success rate on FHIR tasks</small></p>
+          <svg class="chart" viewBox="0 0 400 44" role="img" aria-label="Best large language model agent achieved roughly 70 percent success on MedAgentBench FHIR tasks.">
+            <rect class="bar dim" x="0" y="8" width="400" height="18"/>
+            <rect class="bar" x="0" y="8" width="279" height="18"/>
+            <text class="v" x="0" y="42">best model ≈ 69.7%</text><text class="v" x="400" y="42" text-anchor="end">300 physician-written tasks</text>
+          </svg>
+          <figcaption>On 300 clinician-written tasks against a FHIR server for 100 synthetic patients, the best frontier model succeeded about seven times in ten. An unsaturated benchmark is exactly what a pilot gate should be built on.
+            <a href="https://arxiv.org/abs/2501.14654">Jiang et al., MedAgentBench: A Realistic Virtual EHR Environment to Benchmark Medical LLM Agents (Stanford, 2025)</a></figcaption>
+        </figure>
+      </div>
+
+      <h3 style="margin-top:48px">In the literature</h3>
+      <p style="font-size:16.5px;color:var(--ink-2)">Early in my Mayo Clinic years I worked as a consultant on the data and business layer of AWARE, the ICU clinical-awareness viewer built by the Acute Care Informatics group. It went on to be studied, trialed and published — the kind of evidence trail I think every clinical system should leave.</p>
+      <ul class="lit">
+        <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3632280">Pickering, Herasevich, Ahmed, Gajic — Novel representation of clinical information in the ICU. Appl Clin Inform 2010;1:116–131</a></li>
+        <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5354075">Severe sepsis alert acknowledgement through AWARE vs. paging — PeerJ 2017</a></li>
+        <li><a href="https://clinicaltrials.gov/study/NCT02039297">ProCCESs AWARE multicenter study, NCT02039297 (Mayo Clinic, CMS-funded)</a></li>
+        <li><a href="https://www.mayo.edu/research/labs/acute-care-informatics">Mayo Clinic Acute Care Informatics Laboratory — AWARE, AMP and CEDAR</a></li>
+      </ul>
     </div>
   </div>
 </section>
