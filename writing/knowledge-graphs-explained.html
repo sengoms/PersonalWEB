@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Knowledge Graphs, Explained From Zero — Senthilkumar Palaniappan</title>
+<meta name="description" content="A beginner's guide to knowledge graphs: nodes, edges, traversal, why vocabulary matters, where graphs fit into AI retrieval, and a Python example you can run.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#EEF1F3;--ink:#152238;--ink-2:#3E4C5E;--mute:#6B7788;--teal:#1E6B68;--teal-2:#2A8C87;--ochre:#B8862B;--rule:#C9D1D8;--serif:"Literata",Georgia,serif;--mono:"JetBrains Mono",ui-monospace,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:18.5px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--teal);text-decoration-thickness:1px;text-underline-offset:3px}a:hover{color:var(--teal-2)}
+:focus-visible{outline:2px solid var(--ochre);outline-offset:3px}
+header{position:sticky;top:0;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);z-index:5}
+.nav{max-width:1080px;margin:0 auto;padding:14px 24px;display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.brand{font-weight:600;font-size:17px;color:var(--ink);text-decoration:none}
+.nav a.back{font-size:16px;color:var(--ink-2);text-decoration:none}.nav a.back:hover{color:var(--teal)}
+article{max-width:720px;margin:0 auto;padding:56px 24px 80px}
+h1{font-size:44px;font-weight:300;letter-spacing:-.015em;line-height:1.1;margin:0 0 10px}
+.sub{font-size:21px;font-style:italic;color:var(--ink-2);margin:0 0 10px}
+.by{font-size:15px;color:var(--mute);margin:0 0 40px;padding-bottom:24px;border-bottom:1px solid var(--rule)}
+h2{font-size:28px;font-weight:500;letter-spacing:-.01em;line-height:1.2;margin:48px 0 14px}
+p{margin:0 0 18px}
+ul,ol{padding-left:22px;margin:0 0 18px}li{margin-bottom:6px}
+code{font-family:var(--mono);font-size:.82em;background:#E4E9ED;padding:1px 5px;border-radius:3px}
+pre{background:#E4E9ED;border-left:3px solid var(--teal);padding:14px 16px;overflow-x:auto;margin:0 0 20px;font-size:14px;line-height:1.55}
+pre code{background:none;padding:0;font-size:inherit}
+table{border-collapse:collapse;width:100%;margin:0 0 20px;font-size:16.5px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--rule)}th{font-weight:600;color:var(--ink-2)}
+.fig{margin:8px 0 28px}.fig svg{width:100%;height:auto;display:block;font-family:var(--serif);font-size:13px}
+.fig .n circle{fill:var(--paper);stroke:var(--ink);stroke-width:1.5}.fig .n text{fill:var(--ink)}
+.fig .e text{font-family:var(--mono);font-size:10.5px;fill:var(--mute);letter-spacing:.04em}
+.fig figcaption{font-size:15px;color:var(--mute);font-style:italic;margin-top:8px}
+footer{max-width:720px;margin:0 auto;padding:0 24px 40px;font-size:14px;color:var(--mute)}
+@media(max-width:700px){body{font-size:17px}h1{font-size:32px}h2{font-size:24px}article{padding:36px 20px 60px}}
+</style>
+</head>
+<body>
+<header><nav class="nav" aria-label="Primary"><a class="brand" href="../">Senthilkumar Palaniappan</a><a class="back" href="../#writing">← All writing</a></nav></header>
+<article>
+<h1>Knowledge Graphs, Explained From Zero</h1>
+<p class="sub">A beginner's guide to connected data, with a Python example you can run</p>
+<p class="by">Senthilkumar Palaniappan · 30 October 2026</p>
+<p>Imagine a friend asks, “Do you know anyone who works at a hospital and plays tennis?”</p>
+<p>You think of Priya. She works at City Hospital, and you’ve heard her talk about tennis. You’ve connected a few things you know about her and come up with an answer.</p>
+<p>Now imagine asking software the same question. It needs those connections written down.</p>
+<p>That’s the starting point for a knowledge graph: record the people, places, or concepts you care about, then describe how they connect. Once those relationships are explicit, you can ask questions about them.</p>
+<h2>Start with things and relationships</h2>
+<p>Let’s give our fictional example a little more detail:</p>
+<table>
+<thead>
+<tr>
+<th>From</th>
+<th>Relationship</th>
+<th>To</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>You</td>
+<td>KNOWS</td>
+<td>Priya</td>
+</tr>
+<tr>
+<td>You</td>
+<td>KNOWS</td>
+<td>Sam</td>
+</tr>
+<tr>
+<td>Priya</td>
+<td>WORKS_AT</td>
+<td>City Hospital</td>
+</tr>
+<tr>
+<td>Priya</td>
+<td>PLAYS</td>
+<td>Tennis</td>
+</tr>
+<tr>
+<td>Sam</td>
+<td>PLAYS</td>
+<td>Tennis</td>
+</tr>
+<tr>
+<td>City Hospital</td>
+<td>LOCATED_IN</td>
+<td>Atlanta</td>
+</tr>
+</tbody>
+</table>
+<p>In graph terminology, the things are <strong>nodes</strong>, and the connections are <strong>edges</strong>. The label on an edge tells you what it means. <code>WORKS_AT</code> says something quite different from <code>PLAYS</code>.</p>
+<p>The arrows matter, too. <code>You → KNOWS → Priya</code> records that you know Priya. It doesn’t automatically record that Priya knows you. That may feel fussy in a social example, but think of <code>MANAGES</code> or <code>OWNS</code>: reversing the arrow changes the meaning.</p>
+<p>You can attach details as well. Priya might have a birth year; her employment relationship might have a start date. In a property graph, these details are called <strong>properties</strong>.</p>
+<p>You’ll also encounter RDF, another way of representing graph data. It uses subject–predicate–object statements, often called triples. We’ll stick with property graphs here. If you want to explore RDF later, the W3C’s <a href="https://www.w3.org/TR/rdf11-primer/">RDF primer</a> is a useful introduction.</p>
+<p>So what makes this a <em>knowledge</em> graph? Definitions vary, but usually the aim is to give the connections a consistent meaning: use stable identifiers, define the relationships, and keep enough context to interpret the facts.</p>
+<h2>Couldn’t a table do this?</h2>
+<p>Yes. A relational database can combine records about people, employers, and activities to answer our opening question efficiently.</p>
+<p>The appeal of a graph is how directly you can express the question:</p>
+<ul>
+<li>Find someone you know.</li>
+<li>Check that they work at a hospital.</li>
+<li>Check that they play tennis.</li>
+</ul>
+<figure class="fig">
+<svg viewBox="0 60 760 220" role="img" aria-label="One pattern, three checks: Priya passes, Sam fails the hospital check">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#6B7788"/></marker></defs>
+<g fill="none" stroke="#6B7788" stroke-width="1.25">
+<path d="M116 110H264" marker-end="url(#a)"/><path d="M108 128L272 202" marker-end="url(#a)"/><path d="M316 110H474" marker-end="url(#a)"/><path d="M308 128L482 202" marker-end="url(#a)"/><path d="M316 220H474" marker-end="url(#a)"/><path d="M526 110H664" marker-end="url(#a)" stroke-dasharray="4 3"/>
+</g>
+<g class="n"><circle cx="90" cy="110" r="26" fill="#1E6B68" fill-opacity=".12" stroke="#1E6B68" stroke-width="2"/><text x="90" y="114" text-anchor="middle" font-weight="600">You</text></g>
+<g class="n"><circle cx="290" cy="110" r="26"/><text x="290" y="114" text-anchor="middle" font-weight="600">Priya</text></g>
+<g class="n"><circle cx="290" cy="220" r="26"/><text x="290" y="224" text-anchor="middle" font-weight="600">Sam</text></g>
+<g class="n"><circle cx="500" cy="110" r="26"/><text x="500" y="114" text-anchor="middle" font-size="11.5">Hospital</text></g>
+<g class="n"><circle cx="500" cy="220" r="26"/><text x="500" y="224" text-anchor="middle" font-size="11.5">Tennis</text></g>
+<g class="n"><circle cx="690" cy="110" r="26"/><text x="690" y="114" text-anchor="middle" font-size="11.5">Atlanta</text></g>
+<g class="e"><text x="190" y="100" text-anchor="middle">KNOWS</text><text x="150" y="212">KNOWS</text><text x="395" y="100" text-anchor="middle">WORKS_AT</text><text x="407" y="153">PLAYS</text><text x="395" y="238" text-anchor="middle">PLAYS</text><text x="595" y="100" text-anchor="middle">LOCATED_IN</text>
+<text x="24" y="266">check 1: You KNOWS p</text><text x="200" y="266">check 2: p WORKS_AT a Hospital</text><text x="420" y="266">check 3: p PLAYS Tennis</text><text x="736" y="266" text-anchor="end">dashed: not in pattern</text></g>
+</svg>
+<figcaption>One query pattern, three checks. Priya passes all three; Sam fails the hospital check. The dashed edge exists in the data but isn't part of this question.</figcaption>
+</figure>
+
+<p>Here’s how that looks in Cypher, a graph query language:</p>
+<pre><code class="language-cypher">MATCH (:Person {name: 'You'})-[:KNOWS]-&gt;(p:Person)
+MATCH (p)-[:WORKS_AT]-&gt;(:Hospital)
+MATCH (p)-[:PLAYS]-&gt;(:Activity {name: 'Tennis'})
+RETURN DISTINCT p.name
+</code></pre>
+<p>The arrows describe the connections we want to find. Assuming the database contains the labels and relationships shown here, Priya matches.</p>
+<p>Sam doesn’t match. We know he plays tennis, but we haven’t recorded a hospital job for him. He might have one. Our graph just doesn’t say.</p>
+<p>Following connections is called a <strong>traversal</strong>. Each edge crossed is a <strong>hop</strong>. The route from You to Atlanta has three hops:</p>
+<pre><code class="language-text">You → Priya → City Hospital → Atlanta
+</code></pre>
+<p>Our tennis question is a little different: it checks several branches around the same person.</p>
+<p>Graphs become useful when your questions keep following connections. Which suppliers do two companies share? What depends on this service? Who owns the company that owns this building? A graph can make those patterns easier to write and inspect.</p>
+<p>Whether it will be faster is a separate question. Relational databases can use indexes and efficient query plans. Graph searches can get expensive when a node has many connections or a query explores long paths. Before choosing a database, try your actual questions on data that resembles yours.</p>
+<h2>The words have to mean something</h2>
+<p>Connecting records won’t help much if you’re unclear about what they mean.</p>
+<p>Think about healthcare. A clinician writes an abbreviation, a patient uses an everyday phrase, and a record stores an identifier. A search system needs to work out when those refer to the same thing, when one is more specific, and when they mean something different.</p>
+<p><a href="https://www.snomed.org/what-is-snomed-ct">SNOMED CT</a> is a clinical terminology that represents concepts and their relationships. Its hierarchy can help a search include more specific concepts beneath a broader one.</p>
+<p>We can see the basic idea in a fictional equipment catalogue:</p>
+<table>
+<thead>
+<tr>
+<th>Specific category</th>
+<th>Relationship</th>
+<th>Broader category</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Portable monitor</td>
+<td>IS_A</td>
+<td>Monitor</td>
+</tr>
+<tr>
+<td>Bedside monitor</td>
+<td>IS_A</td>
+<td>Monitor</td>
+</tr>
+<tr>
+<td>Monitor</td>
+<td>IS_A</td>
+<td>Equipment</td>
+</tr>
+</tbody>
+</table>
+<p>Here, <code>IS_A</code> points from specific to broad. To find the narrower categories beneath <code>Monitor</code>, we follow those connections in the opposite direction.</p>
+<p>A search for monitors can then include portable and bedside monitors, even if the records use those more specific labels.</p>
+<p>Clinical data takes more care. An abbreviation may have several meanings, and a diagnosis code may cover more or less than a clinical concept. A mapping between systems can depend on context, edition, and rules. Drawing a connection doesn’t make the two ends equivalent.</p>
+<p>Our equipment catalogue is an invented teaching example, rather than a clinical hierarchy. If you use actual SNOMED CT content, check its <a href="https://www.snomed.org/get-snomed">licensing arrangements</a>.</p>
+<h2>Where AI comes in</h2>
+<p>If you’ve used AI tools, you may have come across <strong>RAG</strong>, short for retrieval-augmented generation.</p>
+<p>The idea is to find relevant material and give it to a language model to use when writing an answer. That search might use keywords, vector similarity, database queries, or several methods together.</p>
+<p>Vector search uses numerical representations called <strong>embeddings</strong> to find related content. It can connect passages that use different wording, but it may miss an exact dependency or fail to retrieve every member of a category.</p>
+<p>A graph gives the system another route. In our catalogue example, it could start at <code>Monitor</code>, find the narrower categories, and fetch documents about those items. Keeping the paths and source records would also let someone check how the system found the material.</p>
+<p>Approaches that bring graphs into retrieval and generation are often called <strong>GraphRAG</strong>. Microsoft’s implementation, for example, combines graph information with source text in its <a href="https://microsoft.github.io/graphrag/query/local_search/">local search method</a>.</p>
+<p>Of course, the graph can be wrong. A relationship may be out of date, extracted incorrectly, or taken from a weak source. The model can also misread what it retrieves. You still need evidence for the connections and a way to check the answer against that evidence.</p>
+<h2>Build one in Python</h2>
+<p>Let’s build the people-and-hospital example using <a href="https://networkx.org/">NetworkX</a>, a Python library for working with graphs.</p>
+<p>Install it first:</p>
+<pre><code class="language-bash">python -m pip install networkx
+</code></pre>
+<p>We’ll use <code>MultiDiGraph</code>, which gives us directed edges and allows more than one relationship between the same two nodes.</p>
+<pre><code class="language-python">import networkx as nx
+
+G = nx.MultiDiGraph()
+G.add_node(&quot;You&quot;, kind=&quot;Person&quot;)
+G.add_node(&quot;Priya&quot;, kind=&quot;Person&quot;)
+G.add_node(&quot;Sam&quot;, kind=&quot;Person&quot;)
+G.add_node(&quot;City Hospital&quot;, kind=&quot;Hospital&quot;)
+G.add_node(&quot;Tennis&quot;, kind=&quot;Activity&quot;)
+G.add_node(&quot;Atlanta&quot;, kind=&quot;City&quot;)
+
+relationships = [
+    (&quot;You&quot;, &quot;Priya&quot;, &quot;KNOWS&quot;),
+    (&quot;You&quot;, &quot;Sam&quot;, &quot;KNOWS&quot;),
+    (&quot;Priya&quot;, &quot;City Hospital&quot;, &quot;WORKS_AT&quot;),
+    (&quot;Priya&quot;, &quot;Tennis&quot;, &quot;PLAYS&quot;),
+    (&quot;Sam&quot;, &quot;Tennis&quot;, &quot;PLAYS&quot;),
+    (&quot;City Hospital&quot;, &quot;Atlanta&quot;, &quot;LOCATED_IN&quot;),
+]
+
+for source, target, relationship in relationships:
+    G.add_edge(source, target, rel=relationship)
+
+
+def targets(node, relationship):
+    return {
+        target
+        for _, target, data in G.out_edges(node, data=True)
+        if data[&quot;rel&quot;] == relationship
+    }
+
+
+for person in sorted(targets(&quot;You&quot;, &quot;KNOWS&quot;)):
+    hospitals = {
+        employer
+        for employer in targets(person, &quot;WORKS_AT&quot;)
+        if G.nodes[employer].get(&quot;kind&quot;) == &quot;Hospital&quot;
+    }
+
+    if hospitals and &quot;Tennis&quot; in targets(person, &quot;PLAYS&quot;):
+        print(
+            person,
+            &quot;works at&quot;,
+            &quot;, &quot;.join(sorted(hospitals)),
+            &quot;and plays tennis&quot;,
+        )
+
+print(nx.shortest_path(G, &quot;You&quot;, &quot;Atlanta&quot;))
+</code></pre>
+<p>Expected output:</p>
+<pre><code class="language-text">Priya works at City Hospital and plays tennis
+['You', 'Priya', 'City Hospital', 'Atlanta']
+</code></pre>
+<p>The <code>targets</code> function collects the things connected to a node by a particular relationship. We use it to find people you know, check their employers, and check whether they play tennis.</p>
+<p>The final line asks a different question: what is a shortest route from You to Atlanta? That call treats every edge as one step, whatever its label. In another application, you might want to allow only certain relationship types.</p>
+<p>Now let’s build the catalogue hierarchy. Run this after the first example:</p>
+<pre><code class="language-python">catalogue = nx.DiGraph()
+catalogue.add_edges_from([
+    (&quot;Portable monitor&quot;, &quot;Monitor&quot;),
+    (&quot;Bedside monitor&quot;, &quot;Monitor&quot;),
+    (&quot;Monitor&quot;, &quot;Equipment&quot;),
+])
+
+category = &quot;Monitor&quot;
+matches = {category} | nx.ancestors(catalogue, category)
+
+print(sorted(matches))
+</code></pre>
+<p>Expected output:</p>
+<pre><code class="language-text">['Bedside monitor', 'Monitor', 'Portable monitor']
+</code></pre>
+<p>The function name <code>ancestors</code> can be confusing here. Our arrows point from a specific category towards a broader one, so the nodes that can reach <code>Monitor</code> are its narrower categories.</p>
+<p>Every edge in this second graph means <code>IS_A</code>. The lesson is worth remembering: check what the arrow direction means in your data before choosing an algorithm.</p>
+<h2>Five habits worth keeping</h2>
+<ol>
+<li>
+<p><strong>Start with a question.</strong> Write down what you need to answer before designing the graph. A few useful queries will give you somewhere concrete to begin.</p>
+</li>
+<li>
+<p><strong>Name relationships carefully.</strong> <code>RELATED_TO</code> may be enough while you’re exploring. More precise labels help when you need precise answers.</p>
+</li>
+<li>
+<p><strong>Give things stable identifiers.</strong> Two people can have the same name. One organisation can change its name. A name alone is rarely a dependable identifier.</p>
+</li>
+<li>
+<p><strong>Keep the evidence.</strong> Record where each relationship came from and whether it has been checked. A connection proposed by a language model still needs validation.</p>
+</li>
+<li>
+<p><strong>Remember that data changes.</strong> Track the edition and date of any terminology you import. SNOMED CT’s International Edition has monthly releases; other editions and products follow their own <a href="https://www.snomed.org/releases">release schedules</a>.</p>
+</li>
+</ol>
+<p>For a first project, go back to one question you care about. Write down the things involved, connect them, and try the query. Then check the answer.</p>
+<p>That small exercise will tell you more about whether you need a knowledge graph than starting with a grand model of everything.</p>
+<h2>Further reading</h2>
+<ul>
+<li><a href="https://www.w3.org/TR/rdf11-primer/">W3C: RDF 1.1 Primer</a> — an introduction to RDF statements and identifiers.</li>
+<li><a href="https://networkx.org/documentation/stable/">NetworkX documentation</a> — graph structures and algorithms in Python.</li>
+<li><a href="https://www.snomed.org/what-is-snomed-ct">SNOMED International</a> — clinical terminology and its uses.</li>
+<li><a href="https://microsoft.github.io/graphrag/">Microsoft GraphRAG documentation</a> — an example of graph-based retrieval in practice.</li>
+</ul>
+</article>
+<footer>© 2026 Senthilkumar Palaniappan. Views are my own.</footer>
+</body>
+</html>
