@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Senthilkumar Palaniappan — Clinical AI & Knowledge Graph Architecture</title>
-<meta name="description" content="Senior data and AI architect. Clinical knowledge graphs, GenAI retrieval platforms, FHIR interoperability, and AI readiness for health systems. 22+ years at Mayo Clinic and the World Bank.">
+<meta name="description" content="Senior data and AI architect. Clinical knowledge graphs, grounded GenAI retrieval, FHIR interoperability, and AI readiness for health systems.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -124,7 +124,7 @@ footer{font-size:14px;color:var(--mute);padding:16px 0 40px}
     <a class="brand" href="#">Senthilkumar Palaniappan</a>
     <ul>
       <li><a href="#work">What I work on</a></li>
-      <li><a href="#selected">Selected work</a></li>
+      <li><a href="#selected">Approach</a></li>
       <li><a href="#writing">Writing</a></li>
       <li><a href="#path">Path</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -138,10 +138,10 @@ footer{font-size:14px;color:var(--mute);padding:16px 0 40px}
     <div>
       <h1>Clinical AI that can show <em>why</em> it answered.</h1>
       <p class="lede">I design the retrieval, knowledge-graph and security architecture that lets a health system put generative AI in front of clinicians — grounded in FHIR data and clinical terminology, with every answer traceable to its source.</p>
-      <p class="who">Senior data &amp; AI architect · 22 years in regulated enterprise systems, 18 of them at Mayo Clinic · Rochester, MN</p>
+      <p class="who">Senior data &amp; AI architect · 22 years in regulated enterprise systems, most of them in academic medicine · Rochester, MN</p>
       <div class="cta">
         <a class="btn primary" href="https://www.linkedin.com/in/senthilkumar-palaniappan" rel="me">Connect on LinkedIn</a>
-        <a class="btn" href="#selected">See the work</a>
+        <a class="btn" href="#selected">How I work</a>
       </div>
     </div>
     <div>
@@ -201,12 +201,12 @@ footer{font-size:14px;color:var(--mute);padding:16px 0 40px}
         <div class="area">
           <h3>Clinical knowledge graphs &amp; ontology engineering</h3>
           <p>SNOMED CT, ICD-10-CM, RxNorm and LOINC as a governed, versioned graph that expands clinician shorthand, resolves codes across vocabularies, and explains every traversal.</p>
-          <div class="stack">Neo4j · Memgraph · Cypher · UMLS · FHIR ConceptMap · dbt crosswalks</div>
+          <div class="stack">Property graphs · Cypher · UMLS · FHIR ConceptMap · versioned crosswalks</div>
         </div>
         <div class="area">
           <h3>Grounded GenAI retrieval platforms</h3>
           <p>Hybrid retrieval over FHIR records, graphs and document indexes; multi-agent routing across enterprise sources; a cite-every-sentence contract enforced after generation, not hoped for.</p>
-          <div class="stack">GraphRAG · hybrid dense + BM25 + RRF · reranking · Google ADK · NVIDIA NIM · Gemini · Claude</div>
+          <div class="stack">GraphRAG · hybrid dense + sparse retrieval · reranking · multi-agent frameworks · provider-agnostic LLM layer</div>
         </div>
         <div class="area">
           <h3>Agent tooling, identity &amp; the security boundary</h3>
@@ -215,7 +215,7 @@ footer{font-size:14px;color:var(--mute);padding:16px 0 40px}
         </div>
         <div class="area">
           <h3>AI readiness &amp; evaluation for regulated delivery</h3>
-          <p>The evidence that lets a CTO say yes: evaluation harnesses, adversarial corpora, gate criteria, HIPAA and FDA CDS posture mapped to the architecture, and security sign-off actually obtained.</p>
+          <p>Evaluation harnesses, adversarial corpora, gate criteria, and HIPAA and FDA CDS posture mapped to the architecture — the evidence that lets leadership, security and compliance say yes.</p>
           <div class="stack">MedAgentBench · τ-bench pass^k · ALCE · CDS Hooks · CPG-on-FHIR / CQL · HIPAA 164.312 · FDA CDS guidance</div>
         </div>
       </div>
@@ -225,31 +225,26 @@ footer{font-size:14px;color:var(--mute);padding:16px 0 40px}
 
 <section id="selected">
   <div class="wrap grid">
-    <div class="rail">Selected work</div>
+    <div class="rail">How I approach it</div>
     <div>
-      <h2>Three pieces of work, described by the design decisions rather than the tools.</h2>
+      <h2>Three design positions I hold, whatever the stack.</h2>
       <div class="work">
         <article class="case">
-          <div class="k">Grounded clinical question answering<br>Architecture pattern</div>
+          <div class="k">Retrieval</div>
           <div>
-            <p>A clinically grounded question-answering architecture over a longitudinal patient record: hybrid retrieval across a FHIR store, a clinical knowledge graph and document vectors, with graph-first routing and every answer resolved to provenance-carrying sources. The tool surface is designed so that agents orchestrate and servers guarantee.</p>
-            <ul>
-              <li>The LLM never writes a graph query. Typed, parameter-bound traversal templates replace free-form Cypher, closing the model-to-graph injection class by construction.</li>
-              <li>Guideline and label logic lives in CPG-on-FHIR and CQL and is evaluated in code — the model reads the result, it does not decide it.</li>
-              <li>The evaluation gate is defined before the pilot: agent-task benchmarks, citation precision and recall, a synthetic-conflict patient set, and an adversarial corpus with zero-leakage targets.</li>
-            </ul>
+            <p>Clinical questions are answered from a structured record, a terminology graph and documents together — not from documents alone. Route through the graph first so clinician shorthand expands to everything it means, then resolve every answer to sources that carry provenance. If a system can't show the path it took, it isn't ready for a clinician.</p>
           </div>
         </article>
         <article class="case">
-          <div class="k">Clinical knowledge graph<br>Design &amp; production</div>
+          <div class="k">Boundaries</div>
           <div>
-            <p>A production Neo4j graph of SNOMED CT and ICD-10-CM with IS_A, FINDING_SITE and CAUSATIVE_AGENT relationships, a SNOMED-to-ICD crossmap, and sub-100 ms term expansion that turns “MI” into its full ontology footprint. In controlled evaluation, ontology-grounded retrieval measurably outperformed the vector-only baseline.</p>
+            <p>Agents orchestrate; servers guarantee. The model never writes a graph query — typed, parameter-bound templates do, which closes the injection class by construction. Guideline logic lives in CPG-on-FHIR and CQL and runs in code; the model reads the result, it doesn't decide it. Scopes enforce minimum necessary on the request side, and audit is fail-closed.</p>
           </div>
         </article>
         <article class="case">
-          <div class="k">Enterprise GenAI platform<br>Architecture &amp; production hardening</div>
+          <div class="k">Evidence</div>
           <div>
-            <p>A vendor RAG reference architecture on Kubernetes with a staged evaluation framework and Go/No-Go gates; a provider-agnostic LLM layer with zero-downtime model swaps; a multi-agent pipeline routing cited answers across enterprise sources; and an MCP tool server for governed AI tool interoperability — taken through production hardening to enterprise security sign-off.</p>
+            <p>Define the gate before the pilot: task benchmarks, citation precision and recall, a synthetic-conflict patient set, and an adversarial corpus with a zero-leakage target. Evaluation harnesses turn model choice from a vendor conversation into a measurement — and they're what lets a security and compliance team say yes.</p>
           </div>
         </article>
       </div>
@@ -286,11 +281,11 @@ footer{font-size:14px;color:var(--mute);padding:16px 0 40px}
     <div>
       <h2>Each stop added a layer the next one needed.</h2>
       <ul class="tl">
-        <li><span class="yr">2023 – present</span><b>Mayo Clinic — Technical Lead &amp; Architect, Enterprise GenAI Data Platform</b><p>Clinical knowledge graph, GenAI retrieval platform, MCP tooling, security hardening, executive-facing architecture.</p></li>
-        <li><span class="yr">2021 – 2023</span><b>Mayo Clinic — Architect, Radiology AI</b><p>FHIR R4 and cloud data architecture for radiology AI model training and deployment; DICOM pipelines; third-party AI platform governance.</p></li>
-        <li><span class="yr">2015 – 2020</span><b>Mayo Clinic — Technical Lead, Revenue Cycle</b><p>Legacy-to-Epic migration; re-architected a mission-critical billing message engine for a large throughput gain.</p></li>
-        <li><span class="yr">2012 – 2015</span><b>Mayo Clinic — Solutions Architect, Nursing Informatics</b><p>Clinical situational-awareness dashboard across multiple sites with nursing informatics leadership; HL7 integration at scale.</p></li>
-        <li><span class="yr">2008 – 2012</span><b>Mayo Clinic — ICU, Emergency &amp; Infectious Disease systems</b><p>AWARE ICU awareness platform data layer; infection-surveillance system with HL7 interfaces.</p></li>
+        <li><span class="yr">2023 – present</span><b>Mayo Clinic — Technical Lead &amp; Architect, Enterprise GenAI Data Platform</b><p>Clinical terminology graphs, grounded GenAI retrieval, agent tooling and security architecture.</p></li>
+        <li><span class="yr">2021 – 2023</span><b>Mayo Clinic — Architect, Radiology AI</b><p>Cloud and FHIR data architecture for imaging AI; third-party AI platform governance.</p></li>
+        <li><span class="yr">2015 – 2020</span><b>Mayo Clinic — Technical Lead, Revenue Cycle</b><p>EHR revenue-cycle migration and high-throughput message processing architecture.</p></li>
+        <li><span class="yr">2012 – 2015</span><b>Mayo Clinic — Solutions Architect, Nursing Informatics</b><p>Clinical awareness dashboards and HL7 integration for nursing workflows.</p></li>
+        <li><span class="yr">2008 – 2012</span><b>Mayo Clinic — Consultant, Critical Care &amp; Infectious Disease systems</b><p>Data layers for critical-care awareness and infection-surveillance systems.</p></li>
         <li><span class="yr">2004 – 2008</span><b>The World Bank — Treasury analytics</b><p>Portfolio analytics and trade-simulation models for member central banks.</p></li>
       </ul>
       <p style="margin-top:18px;font-size:16px;color:var(--ink-2)">MBA, Systems Management (NIT Warangal) · BE (University of Madras) · Google Cloud Professional Cloud Architect · HL7 FHIR R4 · Certified ScrumMaster</p>
