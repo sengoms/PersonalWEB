@@ -227,29 +227,29 @@ footer{font-size:14px;color:var(--mute);padding:16px 0 40px}
   <div class="wrap grid">
     <div class="rail">Selected work</div>
     <div>
-      <h2>Three pieces of work, described by what they decided rather than what they used.</h2>
+      <h2>Three pieces of work, described by the design decisions rather than the tools.</h2>
       <div class="work">
         <article class="case">
-          <div class="k">Clinical AI retrieval platform<br>Mayo Clinic, 2026<br>Architecture &amp; design review lead</div>
+          <div class="k">Grounded clinical question answering<br>Architecture pattern</div>
           <div>
-            <p>A clinically grounded question-answering platform over a longitudinal patient record. I designed the hybrid retrieval architecture (FHIR store, clinical knowledge graph, document vectors with graph-first routing), the nine-tool MCP pipeline for cited answers, and the security boundary — then led the vendor design review and wrote the CTO-facing design and delivery plan.</p>
+            <p>A clinically grounded question-answering architecture over a longitudinal patient record: hybrid retrieval across a FHIR store, a clinical knowledge graph and document vectors, with graph-first routing and every answer resolved to provenance-carrying sources. The tool surface is designed so that agents orchestrate and servers guarantee.</p>
             <ul>
-              <li>Closed the LLM-to-graph injection class by design: five typed, parameter-bound traversal templates replace free-form Cypher; guideline logic lives in CPG-on-FHIR and CQL, evaluated in code.</li>
-              <li>Resolved a four-way leadership disagreement on service boundaries with a decision record — agents orchestrate, servers guarantee — that kept minimum-necessary, audit and non-device CDS posture intact.</li>
-              <li>Defined the pilot gate: agent benchmarks, citation precision and recall, a synthetic-conflict patient set, and an adversarial corpus with zero-leakage targets.</li>
+              <li>The LLM never writes a graph query. Typed, parameter-bound traversal templates replace free-form Cypher, closing the model-to-graph injection class by construction.</li>
+              <li>Guideline and label logic lives in CPG-on-FHIR and CQL and is evaluated in code — the model reads the result, it does not decide it.</li>
+              <li>The evaluation gate is defined before the pilot: agent-task benchmarks, citation precision and recall, a synthetic-conflict patient set, and an adversarial corpus with zero-leakage targets.</li>
             </ul>
           </div>
         </article>
         <article class="case">
-          <div class="k">Clinical knowledge graph<br>Mayo Clinic, 2024–25<br>Design &amp; production</div>
+          <div class="k">Clinical knowledge graph<br>Design &amp; production</div>
           <div>
-            <p>A production Neo4j graph of SNOMED CT and ICD-10-CM with IS_A, FINDING_SITE and CAUSATIVE_AGENT relationships, a SNOMED-to-ICD crossmap, and sub-100 ms term expansion that turns “MI” into its full ontology footprint. In controlled evaluation, ontology-grounded retrieval measurably outperformed the vector-only baseline — the reproducible result that secured executive investment.</p>
+            <p>A production Neo4j graph of SNOMED CT and ICD-10-CM with IS_A, FINDING_SITE and CAUSATIVE_AGENT relationships, a SNOMED-to-ICD crossmap, and sub-100 ms term expansion that turns “MI” into its full ontology footprint. In controlled evaluation, ontology-grounded retrieval measurably outperformed the vector-only baseline.</p>
           </div>
         </article>
         <article class="case">
-          <div class="k">Enterprise GenAI platform<br>Mayo Clinic, 2023–25<br>Architecture &amp; production hardening</div>
+          <div class="k">Enterprise GenAI platform<br>Architecture &amp; production hardening</div>
           <div>
-            <p>An NVIDIA RAG Blueprint deployment on GKE with a six-phase evaluation framework and Go/No-Go gates; a provider-agnostic LLM layer with zero-downtime model swaps; a multi-agent pipeline routing cited answers across enterprise sources; and an MCP tool server proposed as the enterprise standard for AI tool interoperability. Promoted across four environments with dual-region HA, IAP/OAuth2, VPC Service Controls and Vault — to formal security sign-off.</p>
+            <p>A vendor RAG reference architecture on Kubernetes with a staged evaluation framework and Go/No-Go gates; a provider-agnostic LLM layer with zero-downtime model swaps; a multi-agent pipeline routing cited answers across enterprise sources; and an MCP tool server for governed AI tool interoperability — taken through production hardening to enterprise security sign-off.</p>
           </div>
         </article>
       </div>
@@ -273,7 +273,7 @@ footer{font-size:14px;color:var(--mute);padding:16px 0 40px}
         </li>
         <li>
           <a href="https://www.linkedin.com/in/senthilkumar-palaniappan">Agents orchestrate, servers guarantee</a><small>In progress</small>
-          <p class="sum">A way to settle the “thin MCP vs. composed tools” argument without giving up minimum-necessary, audit or CDS posture.</p>
+          <p class="sum">How to split an agent tool surface into primitives and composed tools without giving up minimum-necessary, audit or CDS posture.</p>
         </li>
       </ul>
     </div>
@@ -286,10 +286,10 @@ footer{font-size:14px;color:var(--mute);padding:16px 0 40px}
     <div>
       <h2>Each stop added a layer the next one needed.</h2>
       <ul class="tl">
-        <li><span class="yr">2023 – present</span><b>Mayo Clinic — Technical Lead &amp; Architect, Enterprise GenAI Data Platform</b><p>Clinical knowledge graph, GenAI retrieval platform, MCP tooling, security hardening, CTO-facing architecture.</p></li>
+        <li><span class="yr">2023 – present</span><b>Mayo Clinic — Technical Lead &amp; Architect, Enterprise GenAI Data Platform</b><p>Clinical knowledge graph, GenAI retrieval platform, MCP tooling, security hardening, executive-facing architecture.</p></li>
         <li><span class="yr">2021 – 2023</span><b>Mayo Clinic — Architect, Radiology AI</b><p>FHIR R4 and cloud data architecture for radiology AI model training and deployment; DICOM pipelines; third-party AI platform governance.</p></li>
-        <li><span class="yr">2015 – 2020</span><b>Mayo Clinic — Technical Lead, Revenue Cycle</b><p>Migration of 70+ legacy systems to Epic; re-architected a mission-critical billing message engine for a 30× throughput gain.</p></li>
-        <li><span class="yr">2012 – 2015</span><b>Mayo Clinic — Solutions Architect, Nursing Informatics</b><p>Clinical situational-awareness dashboard across three sites with the Chief Nursing Informatics Officer; HL7 integration at scale.</p></li>
+        <li><span class="yr">2015 – 2020</span><b>Mayo Clinic — Technical Lead, Revenue Cycle</b><p>Legacy-to-Epic migration; re-architected a mission-critical billing message engine for a large throughput gain.</p></li>
+        <li><span class="yr">2012 – 2015</span><b>Mayo Clinic — Solutions Architect, Nursing Informatics</b><p>Clinical situational-awareness dashboard across multiple sites with nursing informatics leadership; HL7 integration at scale.</p></li>
         <li><span class="yr">2008 – 2012</span><b>Mayo Clinic — ICU, Emergency &amp; Infectious Disease systems</b><p>AWARE ICU awareness platform data layer; infection-surveillance system with HL7 interfaces.</p></li>
         <li><span class="yr">2004 – 2008</span><b>The World Bank — Treasury analytics</b><p>Portfolio analytics and trade-simulation models for member central banks.</p></li>
       </ul>
