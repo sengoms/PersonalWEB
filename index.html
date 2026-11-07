@@ -229,6 +229,9 @@ footer{background:var(--ink);color:#bdcdb6;border-top:1px solid #ffffff20;font-s
 .table .row b{font-size:13px}.table .row p{font-size:15px}.posts small{font-size:11px}.posts .sum{font-size:14px}
 .tl .yr{font-size:11px}.tl b{font-size:15px}.tl p{font-size:14px}.graph-panel .caption{font-size:12px}.panel-top{font-size:10px}
 .career-strip .strip-label{font-size:10px}.contact .links a{font-size:13px}footer{font-size:12px}
+.hero h1{font-size:clamp(34px,3.7vw,48px);line-height:1.15;max-width:19ch}
+@media(max-width:860px){.hero h1{font-size:clamp(32px,5.6vw,44px)}}
+@media(max-width:540px){.hero h1{font-size:34px}}
 /* v5: looping animated graph (JS adds .anim; reduced-motion users get the static graph) */
 @media (prefers-reduced-motion:no-preference){
 .graph-panel.anim .graph .edge{stroke-dashoffset:400;animation:none}
