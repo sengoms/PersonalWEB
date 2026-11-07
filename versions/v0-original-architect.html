@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Senthilkumar Palaniappan — Clinical AI & Knowledge Graph Architecture</title>
+<meta name="description" content="Senior data and AI architect. Clinical knowledge graphs, grounded GenAI retrieval, FHIR interoperability, and AI readiness for health systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EEF1F3; --paper-2:#E4E9ED; --ink:#152238; --ink-2:#3E4C5E; --mute:#6B7788;
+  --teal:#1E6B68; --teal-2:#2A8C87; --ochre:#B8862B; --rule:#C9D1D8;
+  --serif:"Literata",Georgia,serif; --mono:"JetBrains Mono",ui-monospace,monospace;
+  --w:1080px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:18px;line-height:1.6;font-weight:400;-webkit-font-smoothing:antialiased}
+a{color:var(--teal);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--teal-2)}
+:focus-visible{outline:2px solid var(--ochre);outline-offset:3px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:#fff;padding:8px 12px}
+.skip:focus{left:8px;z-index:10}
+
+header{position:sticky;top:0;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);z-index:5}
+.nav{max-width:var(--w);margin:0 auto;padding:14px 24px;display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.brand{font-weight:600;font-size:17px;color:var(--ink);text-decoration:none;letter-spacing:.01em}
+.nav ul{list-style:none;margin:0;padding:0;display:flex;gap:26px;font-size:16px}
+.nav ul a{color:var(--ink-2);text-decoration:none}
+.nav ul a:hover{color:var(--teal)}
+
+.wrap{max-width:var(--w);margin:0 auto;padding:0 24px}
+section{padding:72px 0;border-bottom:1px solid var(--rule)}
+.grid{display:grid;grid-template-columns:200px 1fr;gap:40px}
+.rail{font-size:15px;color:var(--mute);font-style:italic;padding-top:6px}
+h1,h2,h3{font-weight:500;line-height:1.15;margin:0}
+h2{font-size:34px;margin-bottom:28px;letter-spacing:-.01em}
+h3{font-size:22px;margin-bottom:8px}
+p{margin:0 0 18px;max-width:64ch}
+.lede{font-size:21px;color:var(--ink-2);max-width:58ch}
+
+/* hero */
+.hero{padding:84px 0 64px}
+.hero .grid{grid-template-columns:1.05fr 1fr;align-items:center;gap:56px}
+.hero h1{font-size:50px;font-weight:300;letter-spacing:-.015em;margin-bottom:22px}
+.hero h1 em{font-style:italic;font-weight:400}
+.hero .who{font-size:17px;color:var(--mute);margin-bottom:34px}
+.cta{display:inline-flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 20px;border:1.5px solid var(--ink);color:var(--ink);text-decoration:none;font-size:16px;border-radius:2px}
+.btn.primary{background:var(--ink);color:#fff}
+.btn:hover{border-color:var(--teal);color:var(--teal)}
+.btn.primary:hover{background:var(--teal);color:#fff}
+
+.graph{width:100%;height:auto;display:block}
+.graph .edge{stroke:var(--ochre);stroke-width:1.5;fill:none;stroke-dasharray:400;stroke-dashoffset:400;animation:draw 1.1s ease-out forwards}
+.graph .edge.isa{stroke:var(--teal)}
+.graph .node{fill:var(--paper);stroke:var(--ink);stroke-width:1.5;opacity:0;animation:pop .5s ease-out forwards}
+.graph .node.code{stroke:var(--ochre)}
+.graph .lbl{font-family:var(--serif);font-size:14px;fill:var(--ink);opacity:0;animation:pop .5s ease-out forwards}
+.graph .code-lbl{font-family:var(--mono);font-size:12.5px;fill:var(--ink-2);opacity:0;animation:pop .5s ease-out forwards}
+.graph .elbl{font-family:var(--mono);font-size:10.5px;fill:var(--mute);opacity:0;animation:pop .5s ease-out forwards;letter-spacing:.04em}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes pop{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.graph .edge{stroke-dashoffset:0;animation:none}.graph .node,.graph .lbl,.graph .code-lbl,.graph .elbl{opacity:1;animation:none}}
+.caption{font-size:14px;color:var(--mute);font-style:italic;margin-top:10px;max-width:none}
+
+/* practice areas — ruled list */
+.areas{display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+.area{padding:22px 0;border-top:1px solid var(--rule)}
+.area p{font-size:17px;color:var(--ink-2);margin:0}
+.area .stack{font-family:var(--mono);font-size:12.5px;color:var(--mute);margin-top:10px;line-height:1.7}
+
+/* work */
+.work{display:grid;gap:36px}
+.case{display:grid;grid-template-columns:160px 1fr;gap:28px;padding-top:24px;border-top:1px solid var(--rule)}
+.case .k{font-size:15px;color:var(--mute);line-height:1.5}
+.case p{font-size:17px}
+.case ul{margin:0;padding-left:18px;color:var(--ink-2);font-size:16.5px}
+.case li{margin-bottom:6px}
+
+/* evidence */
+.ev{display:grid;grid-template-columns:1fr 1fr;gap:40px 48px}
+.ev figure{margin:0;padding-top:20px;border-top:1px solid var(--rule)}
+.ev svg{width:100%;height:auto;display:block}
+.ev figcaption{font-size:15px;color:var(--ink-2);margin-top:10px;line-height:1.5}
+.ev figcaption a{font-size:13.5px;color:var(--mute);display:block;margin-top:4px}
+.ev .big{font-size:40px;font-weight:300;letter-spacing:-.02em;line-height:1;margin:0 0 6px}
+.ev .big small{font-size:16px;color:var(--mute);letter-spacing:0;margin-left:8px;font-weight:400}
+.chart text{font-family:var(--serif);font-size:13px;fill:var(--ink-2)}
+.chart .v{font-family:var(--mono);font-size:12px;fill:var(--ink)}
+.chart .bar{fill:var(--teal)}
+.chart .bar.dim{fill:var(--rule)}
+.chart .bar.oc{fill:var(--ochre)}
+.bd{width:100%;height:auto;display:block;margin:14px 0 4px}
+.bd text{font-family:var(--serif);font-size:12.5px;fill:var(--ink)}
+.bd .m{font-family:var(--mono);font-size:10.5px;fill:var(--mute)}
+.bd .box{fill:var(--paper);stroke:var(--ink);stroke-width:1.2}
+.bd .box.g{stroke:var(--teal)}
+.bd .ln{stroke:var(--ink-2);stroke-width:1.2;fill:none}
+.bd .ln.no{stroke:var(--ochre);stroke-dasharray:4 3}
+.lit{list-style:none;margin:0;padding:0}
+.lit li{padding:14px 0;border-top:1px solid var(--rule);font-size:16px;color:var(--ink-2)}
+.lit a{color:var(--ink)}
+@media (max-width:860px){.ev{grid-template-columns:1fr}}
+
+/* writing */
+.posts{list-style:none;margin:0;padding:0}
+.posts li{padding:18px 0;border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:20px;align-items:baseline}
+.posts a{text-decoration:none;color:var(--ink);font-size:20px}
+.posts a:hover{color:var(--teal);text-decoration:underline}
+.posts small{color:var(--mute);font-size:14px;white-space:nowrap}
+.posts .sum{grid-column:1/-1;color:var(--ink-2);font-size:16px;margin:0}
+
+/* timeline */
+.tl{list-style:none;margin:0;padding:0;border-left:1.5px solid var(--rule);margin-left:4px}
+.tl li{position:relative;padding:0 0 26px 28px}
+.tl li::before{content:"";position:absolute;left:-6px;top:10px;width:10px;height:10px;border-radius:50%;background:var(--paper);border:1.5px solid var(--teal)}
+.tl .yr{font-family:var(--mono);font-size:12.5px;color:var(--mute);display:block;margin-bottom:2px}
+.tl b{font-weight:500}
+.tl p{font-size:16px;color:var(--ink-2);margin:4px 0 0}
+
+/* contact */
+.contact{padding:72px 0 56px;border-bottom:none}
+.contact .links{display:flex;gap:28px;flex-wrap:wrap;font-size:18px}
+footer{font-size:14px;color:var(--mute);padding:16px 0 40px}
+
+@media (max-width:860px){
+  body{font-size:17px}
+  .grid,.hero .grid{grid-template-columns:1fr;gap:16px}
+  .rail{padding-top:0}
+  .hero{padding:48px 0}
+  .hero h1{font-size:36px}
+  h2{font-size:28px}
+  section{padding:52px 0}
+  .areas{grid-template-columns:1fr}
+  .case{grid-template-columns:1fr;gap:6px}
+  .nav{flex-direction:column;gap:6px;align-items:flex-start;padding:12px 20px}
+  .nav ul{gap:14px;font-size:14px;flex-wrap:wrap}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header>
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="#">Senthilkumar Palaniappan</a>
+    <ul>
+      <li><a href="#work">What I work on</a></li>
+      <li><a href="#selected">Approach</a></li>
+      <li><a href="#evidence">Evidence</a></li>
+      <li><a href="#writing">Writing</a></li>
+      <li><a href="#path">Path</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+<section class="hero">
+  <div class="wrap grid">
+    <div>
+      <h1>Clinical AI that can show <em>why</em> it answered.</h1>
+      <p class="lede">I design the retrieval, knowledge-graph and security architecture that lets a health system put generative AI in front of clinicians — grounded in FHIR data and clinical terminology, with every answer traceable to its source.</p>
+      <p class="who">Senior data &amp; AI architect · 22 years in regulated enterprise systems, most of them in academic medicine · Rochester, MN</p>
+      <div class="cta">
+        <a class="btn primary" href="https://www.linkedin.com/in/senthilkumar-palaniappan" rel="me">Connect on LinkedIn</a>
+        <a class="btn" href="#selected">How I work</a>
+      </div>
+    </div>
+    <div>
+      <svg class="graph" viewBox="0 0 520 360" role="img" aria-labelledby="gt gd">
+        <title id="gt">A clinical knowledge graph</title>
+        <desc id="gd">A clinician's shorthand "MI" expands through IS_A edges to myocardial infarction and STEMI, maps to ICD-10 codes I21.0–I21.9, and connects by FINDING_SITE to the coronary artery.</desc>
+        <!-- edges -->
+        <path class="edge isa" d="M110 70 L250 70" style="animation-delay:.2s"/>
+        <path class="edge isa" d="M250 70 L250 180" style="animation-delay:.7s"/>
+        <path class="edge isa" d="M250 180 L140 270" style="animation-delay:1.2s"/>
+        <path class="edge" d="M250 180 L400 270" style="animation-delay:1.2s"/>
+        <path class="edge" d="M250 70 L430 130" style="animation-delay:1.6s"/>
+        <path class="edge" d="M140 270 L400 270" style="animation-delay:1.8s"/>
+        <!-- edge labels -->
+        <text class="elbl" x="150" y="62" style="animation-delay:.6s">SYNONYM_OF</text>
+        <text class="elbl" x="258" y="130" style="animation-delay:1.1s">IS_A ⟵</text>
+        <text class="elbl" x="160" y="222" style="animation-delay:1.6s">IS_A ⟵</text>
+        <text class="elbl" x="330" y="218" style="animation-delay:1.6s">MAPS_TO</text>
+        <text class="elbl" x="330" y="92" style="animation-delay:2s">FINDING_SITE</text>
+        <text class="elbl" x="232" y="286" style="animation-delay:2.2s">MAPS_TO</text>
+        <!-- nodes -->
+        <circle class="node" cx="110" cy="70" r="7" style="animation-delay:0s"/>
+        <text class="lbl" x="30" y="100" style="animation-delay:.1s">“MI”</text>
+        <text class="code-lbl" x="30" y="118" style="animation-delay:.1s">clinician query</text>
+
+        <circle class="node" cx="250" cy="70" r="7" style="animation-delay:.9s"/>
+        <text class="lbl" x="196" y="42" style="animation-delay:1s">Myocardial infarction</text>
+        <text class="code-lbl" x="196" y="30" style="animation-delay:1s">SNOMED 22298006</text>
+
+        <circle class="node" cx="250" cy="180" r="7" style="animation-delay:1.4s"/>
+        <text class="lbl" x="266" y="185" style="animation-delay:1.5s">Acute MI</text>
+        <text class="code-lbl" x="266" y="200" style="animation-delay:1.5s">SNOMED 57054005</text>
+
+        <circle class="node" cx="140" cy="270" r="7" style="animation-delay:1.9s"/>
+        <text class="lbl" x="60" y="300" style="animation-delay:2s">STEMI</text>
+        <text class="code-lbl" x="60" y="316" style="animation-delay:2s">SNOMED 401303003</text>
+
+        <circle class="node code" cx="400" cy="270" r="7" style="animation-delay:2.1s"/>
+        <text class="lbl" x="360" y="300" style="animation-delay:2.2s">ICD-10-CM</text>
+        <text class="code-lbl" x="360" y="316" style="animation-delay:2.2s">I21.0 – I21.9</text>
+
+        <circle class="node" cx="430" cy="130" r="7" style="animation-delay:2.3s"/>
+        <text class="lbl" x="380" y="160" style="animation-delay:2.4s">Coronary artery</text>
+        <text class="code-lbl" x="380" y="175" style="animation-delay:2.4s">body structure</text>
+      </svg>
+      <p class="caption">A clinician types “MI”. Vector search finds documents that say “MI”. A governed graph finds the ones coded STEMI or I21.x — and can show the path it took.</p>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap grid">
+    <div class="rail">What I work on</div>
+    <div>
+      <h2>Four problems health systems keep hitting on the way from AI pilot to production.</h2>
+      <div class="areas">
+        <div class="area">
+          <h3>Clinical knowledge graphs &amp; ontology engineering</h3>
+          <p>SNOMED CT, ICD-10-CM, RxNorm and LOINC as a governed, versioned graph that expands clinician shorthand, resolves codes across vocabularies, and explains every traversal.</p>
+          <div class="stack">Property graphs · Cypher · UMLS · FHIR ConceptMap · versioned crosswalks</div>
+        </div>
+        <div class="area">
+          <h3>Grounded GenAI retrieval platforms</h3>
+          <p>Hybrid retrieval over FHIR records, graphs and document indexes; multi-agent routing across enterprise sources; citations checked against sources after generation, not assumed.</p>
+          <div class="stack">GraphRAG · hybrid dense + sparse retrieval · reranking · multi-agent frameworks · provider-agnostic LLM layer</div>
+        </div>
+        <div class="area">
+          <h3>Agent tooling, identity &amp; the security boundary</h3>
+          <p>Tool surfaces for clinical agents built on open standards: MCP authorization, OAuth 2.1 token exchange, SMART on FHIR scopes for minimum-necessary access, and FHIR AuditEvent for every access.</p>
+          <div class="stack">MCP · OAuth 2.1 · SMART on FHIR v2 · RFC 8693 / 8707 / 9728 · FHIR AuditEvent / IHE BALP</div>
+        </div>
+        <div class="area">
+          <h3>AI readiness &amp; evaluation for regulated delivery</h3>
+          <p>Evaluation harnesses, adversarial corpora, gate criteria, and HIPAA and FDA CDS posture mapped to the architecture — the evidence that lets leadership, security and compliance say yes.</p>
+          <div class="stack">MedAgentBench · τ-bench pass^k · ALCE · CDS Hooks · CPG-on-FHIR / CQL · HIPAA 164.312 · FDA CDS guidance</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="selected">
+  <div class="wrap grid">
+    <div class="rail">How I approach it</div>
+    <div>
+      <h2>Three design positions I hold, whatever the stack.</h2>
+      <div class="work">
+        <article class="case">
+          <div class="k">Retrieval</div>
+          <div>
+            <p>Clinical questions are answered from a structured record, a terminology graph and documents together — not from documents alone. Route through the graph first so clinician shorthand expands to everything it means, then resolve every answer to sources that carry provenance. If a system can't show the path it took, it isn't ready for a clinician.</p>
+          </div>
+        </article>
+        <article class="case">
+          <div class="k">Boundaries</div>
+          <div>
+            <p>The model is an untrusted caller. Prompt injection is the top-ranked risk in the OWASP Top 10 for LLM applications, so anything the model emits is treated as input to be validated, never as a query to be executed. Access follows the standards the ecosystem already agreed on: SMART on FHIR v2 scopes for minimum-necessary data access, OAuth 2.1 and the MCP authorization specification for tool servers, and FHIR AuditEvent so every access is recorded.</p>
+          </div>
+        </article>
+        <article class="case">
+          <div class="k">Evidence</div>
+          <div>
+            <p>Define the gate before the pilot: task benchmarks, citation precision and recall, a synthetic-conflict patient set, and an adversarial corpus with a zero-leakage target. Evaluation harnesses turn model choice from a vendor conversation into a measurement — and they're what lets a security and compliance team say yes.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="evidence">
+  <div class="wrap grid">
+    <div class="rail">What the evidence says</div>
+    <div>
+      <h2>Four published results behind those positions.</h2>
+      <div class="ev">
+        <figure>
+          <p class="big">15.1%<small>of real clinician searches match a term</small></p>
+          <svg class="chart" viewBox="0 0 400 44" role="img" aria-label="Of 54,986 SNOMED CT browser queries, 15.1 percent matched a concept term lexically; 84.9 percent did not.">
+            <rect class="bar" x="0" y="8" width="60" height="18"/>
+            <rect class="bar dim" x="62" y="8" width="338" height="18"/>
+            <text class="v" x="0" y="42">lexical match</text>
+            <text class="v" x="400" y="42" text-anchor="end">out-of-vocabulary: 84.9%</text>
+          </svg>
+          <figcaption>Of 54,986 real queries typed into the SNOMED CT browser, only 15.1% matched any concept term. Clinicians don't type the ontology's words — which is why retrieval has to resolve meaning, not strings.
+            <a href="https://arxiv.org/abs/2511.16698">Dilworth et al., Hierarchical Retrieval with Out-of-Vocabulary Queries: A Case Study on SNOMED CT (arXiv 2511.16698)</a></figcaption>
+        </figure>
+        <figure>
+          <p class="big">0.98<small>recall for "myocardial infarction" by hierarchy</small></p>
+          <svg class="chart" viewBox="0 0 400 120" role="img" aria-label="Recall of SNOMED hierarchy-based queries: myocardial infarction 0.979, hypertension 0.979, heart failure 0.921, coronary artery disease 0.893, type 1 diabetes 0.741.">
+            <text x="0" y="14">Myocardial infarction</text><rect class="bar" x="150" y="4" width="215" height="12"/><text class="v" x="370" y="14">.979</text>
+            <text x="0" y="36">Hypertension</text><rect class="bar" x="150" y="26" width="215" height="12"/><text class="v" x="370" y="36">.979</text>
+            <text x="0" y="58">Heart failure</text><rect class="bar" x="150" y="48" width="203" height="12"/><text class="v" x="370" y="58">.921</text>
+            <text x="0" y="80">Coronary artery disease</text><rect class="bar" x="150" y="70" width="196" height="12"/><text class="v" x="370" y="80">.893</text>
+            <text x="0" y="102">Type 1 diabetes</text><rect class="bar oc" x="150" y="92" width="163" height="12"/><text class="v" x="370" y="102">.741</text>
+          </svg>
+          <figcaption>Querying a clinical warehouse by SNOMED subsumption instead of hand-built code lists kept precision above 0.97 and recall above 0.89 for most concepts — and the misses were traceable to specific hierarchy gaps, which is the point: a graph fails explainably.
+            <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1480260">Lieberman, Ricciardi, Masarie, Spackman — AMIA Annu Symp Proc 2003</a></figcaption>
+        </figure>
+        <figure>
+          <p class="big">50–90%<small>of LLM answers not fully supported by their own citations</small></p>
+          <svg class="chart" viewBox="0 0 400 44" role="img" aria-label="Between 50 and 90 percent of LLM medical responses were not fully supported by the sources they cited.">
+            <rect class="bar dim" x="0" y="8" width="400" height="18"/>
+            <rect class="bar oc" x="200" y="8" width="160" height="18"/>
+            <text class="v" x="200" y="42">50%</text><text class="v" x="360" y="42" text-anchor="end">90%</text>
+          </svg>
+          <figcaption>Across seven commercial LLMs on 800 medical questions, half to nine-tenths of responses were not fully supported — sometimes contradicted — by the sources they cited; search-enabled models still failed nearly half the time. Citations have to be enforced after generation, not requested in the prompt.
+            <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12003634/">Wu et al., An automated framework for assessing how well LLMs cite relevant medical references — Nature Communications 16:3615 (2025)</a></figcaption>
+        </figure>
+        <figure>
+          <p class="big">≈70%<small>best agent success rate on FHIR tasks</small></p>
+          <svg class="chart" viewBox="0 0 400 44" role="img" aria-label="Best large language model agent achieved roughly 70 percent success on MedAgentBench FHIR tasks.">
+            <rect class="bar dim" x="0" y="8" width="400" height="18"/>
+            <rect class="bar" x="0" y="8" width="279" height="18"/>
+            <text class="v" x="0" y="42">best model ≈ 69.7%</text><text class="v" x="400" y="42" text-anchor="end">300 physician-written tasks</text>
+          </svg>
+          <figcaption>On 300 clinician-written tasks against a FHIR server for 100 synthetic patients, the best frontier model succeeded about seven times in ten. An unsaturated benchmark is exactly what a pilot gate should be built on.
+            <a href="https://arxiv.org/abs/2501.14654">Jiang et al., MedAgentBench: A Realistic Virtual EHR Environment to Benchmark Medical LLM Agents (Stanford, 2025)</a></figcaption>
+        </figure>
+      </div>
+
+      <h3 style="margin-top:48px">In the literature</h3>
+      <p style="font-size:16.5px;color:var(--ink-2)">Early in my Mayo Clinic years I worked as a consultant on the data and business layer of AWARE, the ICU clinical-awareness viewer built by the Acute Care Informatics group. It went on to be studied, trialed and published — the kind of evidence trail I think every clinical system should leave.</p>
+      <ul class="lit">
+        <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3632280">Pickering, Herasevich, Ahmed, Gajic — Novel representation of clinical information in the ICU. Appl Clin Inform 2010;1:116–131</a></li>
+        <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5354075">Severe sepsis alert acknowledgement through AWARE vs. paging — PeerJ 2017</a></li>
+        <li><a href="https://clinicaltrials.gov/study/NCT02039297">ProCCESs AWARE multicenter study, NCT02039297 (Mayo Clinic, CMS-funded)</a></li>
+        <li><a href="https://www.mayo.edu/research/labs/acute-care-informatics">Mayo Clinic Acute Care Informatics Laboratory — AWARE, AMP and CEDAR</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="writing">
+  <div class="wrap grid">
+    <div class="rail">Writing</div>
+    <div>
+      <h2>Notes from the work, for people doing similar work.</h2>
+      <ul class="posts">
+        <li>
+          <a href="writing/knowledge-graphs-explained.html">Knowledge Graphs, Explained From Zero</a><small>30 Oct 2026</small>
+          <p class="sum">A beginner's guide to connected data: nodes, edges, traversal, why vocabulary matters, where graphs fit into AI retrieval, and a Python example you can run.</p>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/senthilkumar-palaniappan">Clinical RAG fails on vocabulary, not on the model</a><small>LinkedIn</small>
+          <p class="sum">Why a retrieval system that can't expand "MI" to STEMI and I21.x will miss the chart no matter which model sits behind it.</p>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/senthilkumar-palaniappan">Why clinical AI needs a knowledge graph, not just a vector database</a><small>In progress</small>
+          <p class="sum">Subsumption is set membership; similarity is a guess. What that difference means for recall, explainability and governance.</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="path">
+  <div class="wrap grid">
+    <div class="rail">Path</div>
+    <div>
+      <h2>Each stop added a layer the next one needed.</h2>
+      <ul class="tl">
+        <li><span class="yr">2023 – present</span><b>Mayo Clinic — Technical Lead &amp; Architect, Enterprise GenAI Data Platform</b><p>Clinical terminology graphs, grounded GenAI retrieval, agent tooling and security architecture.</p></li>
+        <li><span class="yr">2021 – 2023</span><b>Mayo Clinic — Architect, Radiology AI</b><p>Cloud and FHIR data architecture for imaging AI; third-party AI platform governance.</p></li>
+        <li><span class="yr">2015 – 2020</span><b>Mayo Clinic — Technical Lead, Revenue Cycle</b><p>EHR revenue-cycle migration and high-throughput message processing architecture.</p></li>
+        <li><span class="yr">2012 – 2015</span><b>Mayo Clinic — Solutions Architect, Nursing Informatics</b><p>Clinical awareness dashboards and HL7 integration for nursing workflows.</p></li>
+        <li><span class="yr">2008 – 2012</span><b>Mayo Clinic — Consultant, Critical Care &amp; Infectious Disease systems</b><p>Data layers for critical-care awareness and infection-surveillance systems.</p></li>
+        <li><span class="yr">2004 – 2008</span><b>The World Bank — Treasury analytics</b><p>Portfolio analytics and trade-simulation models for member central banks.</p></li>
+      </ul>
+      <p style="margin-top:18px;font-size:16px;color:var(--ink-2)">MBA, Systems Management (NIT Warangal) · BE (University of Madras) · Google Cloud Professional Cloud Architect · HL7 FHIR R4 · Certified ScrumMaster</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap grid">
+    <div class="rail">Contact</div>
+    <div>
+      <h2>If you're taking clinical AI from pilot to production, I'd like to hear what's in the way.</h2>
+      <div class="links">
+        <a href="https://www.linkedin.com/in/senthilkumar-palaniappan" rel="me">LinkedIn</a>
+        <a href="https://github.com/sengoms">GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer><div class="wrap">© 2026 Senthilkumar Palaniappan. Views are my own.</div></footer>
+</body>
+</html>

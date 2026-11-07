@@ -7,7 +7,7 @@
 <meta name="description" content="AI platform and governance leader in academic medicine. Takes clinical AI from pilot to production: clinical knowledge graphs, grounded GenAI retrieval, agent tooling on FHIR and MCP, evaluation gates, and the governance that lets security, compliance and finance say yes.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
   --paper:#EEF1F3; --paper-2:#E4E9ED; --ink:#152238; --ink-2:#3E4C5E; --mute:#6B7788;
@@ -150,6 +150,77 @@ footer{font-size:14px;color:var(--mute);padding:16px 0 40px}
   .nav{flex-direction:column;gap:6px;align-items:flex-start;padding:12px 20px}
   .nav ul{gap:14px;font-size:14px;flex-wrap:wrap}
 }
+
+/* Editorial identity */
+:root{--paper:#f6f4ee;--paper-2:#eeece4;--ink:#173d34;--ink-2:#4b5b53;--mute:#68756b;--teal:#246653;--teal-2:#347d65;--ochre:#aa7130;--rule:#d8ddd2;--sans:"DM Sans",Arial,sans-serif;--w:1200px}
+body{font-family:var(--sans);font-size:17px;line-height:1.75}
+::selection{background:#d1dfb6;color:#173d34}
+header{background:#f6f4eef2;backdrop-filter:blur(16px)}
+.nav{padding:21px 32px;align-items:center;gap:30px}
+.brand{font-size:15px;font-weight:650;display:flex;align-items:center;gap:12px;white-space:nowrap;letter-spacing:-.03em}
+.brand::before{content:"SP";font:500 13px var(--serif);letter-spacing:-.07em;background:var(--ink);color:var(--paper);width:34px;height:34px;border-radius:50%;display:grid;place-items:center}
+.nav ul{gap:27px;font-size:12px;font-weight:550;align-items:center}
+.nav ul li:last-child a{border:1px solid var(--rule);padding:9px 15px;border-radius:40px}
+.wrap{padding:0 32px}
+section{padding:100px 0;scroll-margin-top:95px}
+.grid{grid-template-columns:165px minmax(0,1fr);gap:54px}
+.rail{font:550 10px/1.6 var(--sans);letter-spacing:.15em;text-transform:uppercase;color:var(--teal);padding-top:10px}
+.rail::before{content:"";display:block;width:26px;height:2px;background:var(--ochre);margin-bottom:16px}
+h1,h2,h3{font-family:var(--serif)}
+h2{font-weight:400;font-size:clamp(30px,3.2vw,43px);line-height:1.23;max-width:25ch;margin-bottom:38px;letter-spacing:-.035em}
+h3{font-size:23px;font-weight:400;line-height:1.3;letter-spacing:-.025em}
+.hero{padding:78px 0 60px;overflow:hidden;border-bottom:0}
+.hero .grid{grid-template-columns:1.13fr 1fr;gap:55px;align-items:center}
+.eyebrow{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.17em;color:var(--teal);display:flex;align-items:center;gap:10px;margin:0 0 24px}
+.eyebrow::before{content:"";height:7px;width:7px;background:#7e9c63;border-radius:50%}
+.hero h1{font-size:clamp(40px,4.6vw,62px);line-height:1.13;font-weight:400;letter-spacing:-.045em;margin-bottom:26px}
+.hero h1 em{color:var(--teal);font-weight:400}
+.lede{font-size:16px;line-height:1.85;max-width:53ch;color:var(--ink-2)}
+.hero .who{font-size:11px;line-height:1.9;max-width:64ch;margin:22px 0 28px}
+.btn{font:550 12px var(--sans);padding:15px 22px;border-radius:40px;border-width:1px;transition:background .2s,color .2s,transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:var(--ink);border-color:var(--ink)}
+.btn.primary::after{content:" ↗";margin-left:16px}
+.graph-panel{background:#163e34;border-radius:4px;padding:29px 24px 23px;position:relative;background-image:radial-gradient(#bcd1b014 .8px,transparent .8px);background-size:18px 18px;box-shadow:0 25px 55px -32px #173d3466}
+.panel-top{display:flex;justify-content:space-between;align-items:center;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#d3ddc8;border-bottom:1px solid #ffffff24;padding-bottom:18px;margin-bottom:26px}
+.panel-top span:last-child{color:#bdcc9a;font-family:var(--mono);font-size:9px;letter-spacing:0}
+.graph .node{fill:#173e34;stroke:#d5e3bb;opacity:1;animation:none}
+.graph .node.code{stroke:#d9b976}
+.graph .lbl{fill:#f1f3e6;opacity:1;animation:none}
+.graph .code-lbl{fill:#c2d0b7;opacity:1;animation:none}
+.graph .elbl{fill:#adc2a5;opacity:1;animation:none;font-size:9px}
+.graph .edge{stroke:#d5b477;stroke-dashoffset:0;animation:none;opacity:.8}
+.graph .edge.isa{stroke:#91b99b}
+.graph-panel .caption{color:#c0cfba;font-family:var(--sans);font-style:normal;font-size:11px;line-height:1.8;padding-top:17px;border-top:1px solid #ffffff24;margin-top:20px}
+.career-strip{display:flex;justify-content:space-between;gap:24px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:24px 0 27px;margin-top:58px;align-items:center}
+.career-strip .strip-label{font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:var(--mute);max-width:120px}
+.career-strip span:not(.strip-label){font-family:var(--serif);font-size:17px;letter-spacing:-.02em}
+.areas{gap:0 38px}.area{padding:26px 0 30px}.area p{font-size:14px;line-height:1.85}.area .stack{font-size:10px;line-height:1.9;color:var(--teal);margin-top:17px}
+.area.wide{background:var(--paper-2);padding:28px 30px;margin-bottom:18px;border:1px solid var(--rule);border-radius:3px}
+#selected{background:var(--ink);color:var(--paper);border:0}
+#selected .rail{color:#bfcea7}#selected .rail::before{background:#c2a56b}
+#selected h2{max-width:24ch}
+.work{gap:0;counter-reset:position}
+.case{grid-template-columns:150px minmax(0,1fr);gap:28px;border-color:#ffffff26;padding:27px 0;counter-increment:position}
+.case .k{color:#c5d2b5;font-size:12px;display:flex;gap:16px;align-items:baseline}
+.case .k::before{content:"0" counter(position);font-family:var(--mono);font-size:10px;color:#bca779}
+.case p{font-size:14px;line-height:1.9;color:#d5dfd1;margin:0}
+.ev{gap:24px}.ev figure{background:#eeeee6;border:1px solid var(--rule);padding:27px;border-radius:3px;min-width:0}
+.ev .big{font-family:var(--serif);font-size:48px;color:var(--ink);margin-bottom:23px;line-height:1.1}
+.ev .big small{display:block;font-family:var(--sans);font-size:11px;line-height:1.6;margin:10px 0 0;letter-spacing:0;max-width:28ch;min-height:35px}
+.ev figcaption{font-size:12px;line-height:1.9}.ev figcaption a{font-size:10px;line-height:1.7;margin-top:15px}.ev .drove{font-style:normal;border-top:1px solid var(--rule);padding-top:13px;margin-top:16px;font-weight:500}
+.chart .bar.dim{fill:#d1d8cb}.chart .bar{fill:#40765b}.chart .bar.oc{fill:#b38a4c}
+.lit li{font-size:12px;padding:17px 0;line-height:1.8}.lit a{text-decoration:none}.lit a:hover{text-decoration:underline}
+#leadership{background:var(--paper-2)}
+.table{gap:0 40px}.table .row{padding:25px 0}.table .row b{font-size:12px;font-family:var(--sans);font-weight:650;margin-bottom:13px;letter-spacing:.015em}.table .row p{font-size:14px;line-height:1.85}
+.posts li{padding:26px 0;gap:8px 20px}.posts a,.posts .draft-title{font:400 25px/1.35 var(--serif);letter-spacing:-.025em}.posts small{font-size:10px;text-transform:uppercase;letter-spacing:.05em}.posts .sum{font-size:13px;max-width:65ch;line-height:1.85}
+.tl{margin-top:10px}.tl li{padding:0 0 35px 30px}.tl .yr{font-size:10px;margin-bottom:9px;color:var(--teal)}.tl b{font-size:14px;font-weight:600;line-height:1.8;display:block}.tl p{font-size:13px;line-height:1.9}.tl li::before{background:var(--paper);top:5px;width:8px;height:8px;left:-5px}
+.contact{background:var(--ink);color:var(--paper);padding:75px 0}.contact .rail{color:#c5d2b5}.contact h2{font-size:clamp(29px,3.2vw,43px);max-width:30ch}.contact .links{gap:12px}.contact .links a{font-size:12px;border:1px solid #d2dfc45c;padding:11px 22px;border-radius:30px;color:#e9efdd;text-decoration:none}.contact .links a::after{content:" ↗";margin-left:20px}.contact .links a:hover{background:#ffffff12}
+footer{background:var(--ink);color:#bdcdb6;border-top:1px solid #ffffff20;font-size:10px;padding:22px 0;letter-spacing:.02em}
+@media(min-width:861px) and (max-width:1100px){.nav ul{gap:16px}.hero .grid{gap:30px}.grid{gap:32px;grid-template-columns:135px minmax(0,1fr)}}
+@media(max-width:860px){.nav{flex-direction:row;padding:15px 24px;gap:15px}.nav ul{font-size:11px;gap:16px}.nav ul li:nth-child(2),.nav ul li:nth-child(3){display:none}.nav ul li:last-child a{padding:7px 12px}.brand{font-size:12px;gap:8px}.brand::before{width:28px;height:28px;font-size:11px}.wrap{padding:0 24px}.hero{padding:44px 0 0}.hero .grid{grid-template-columns:1fr;gap:36px}.hero h1{max-width:17ch;font-size:clamp(40px,7vw,60px)}.lede{max-width:65ch}.hero .who{max-width:75ch}.graph-panel{max-width:620px;width:100%;margin:0 auto}.grid{grid-template-columns:1fr;gap:24px}.rail::before{display:inline-block;vertical-align:middle;margin:0 12px 3px 0;width:18px}.rail{padding:0}.career-strip{margin-top:40px;flex-wrap:wrap;justify-content:flex-start;gap:15px 25px}.career-strip .strip-label{width:100%;max-width:none}.career-strip span:not(.strip-label){font-size:15px}section{padding:60px 0}h2{max-width:28ch}.areas{grid-template-columns:1fr 1fr;gap:0 25px}.ev{grid-template-columns:1fr 1fr}.ev figure{padding:20px}.table{grid-template-columns:1fr 1fr}.case{grid-template-columns:110px minmax(0,1fr);gap:15px}}
+@media(max-width:540px){.nav ul li:first-child{display:none}.nav{gap:8px}.brand{font-size:11px}.eyebrow{font-size:8px;letter-spacing:.12em}.hero h1{font-size:42px}.lede{font-size:15px}.hero .who{font-size:10px}.graph-panel{padding:22px 12px 16px}.panel-top{font-size:8px;margin:0 9px 20px}.panel-top span:last-child{font-size:8px}.graph-panel .caption{margin:15px 9px 0}.areas,.ev,.table{grid-template-columns:1fr}.area.wide{padding:23px}.case{grid-template-columns:1fr;gap:12px}.case p{font-size:13px}.ev .big small{min-height:0}.posts li{grid-template-columns:1fr;gap:12px}.posts small{grid-row:1}.posts a,.posts .draft-title{font-size:23px}h2{font-size:31px}.contact{padding:55px 0}.career-strip{padding-bottom:26px}.career-strip span:not(.strip-label){font-size:14px}}
+
 </style>
 </head>
 <body>
@@ -158,13 +229,11 @@ footer{font-size:14px;color:var(--mute);padding:16px 0 40px}
   <nav class="nav" aria-label="Primary">
     <a class="brand" href="#">Senthilkumar Palaniappan</a>
     <ul>
-      <li><a href="#work">What I work on</a></li>
-      <li><a href="#selected">How I lead</a></li>
+      <li><a href="#work">Expertise</a></li>
+      <li><a href="#selected">Approach</a></li>
       <li><a href="#evidence">Evidence</a></li>
-      <li><a href="#leadership">With the C-suite</a></li>
       <li><a href="#writing">Writing</a></li>
-      <li><a href="#path">Path</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact">Let’s connect ↗</a></li>
     </ul>
   </nav>
 </header>
@@ -173,6 +242,7 @@ footer{font-size:14px;color:var(--mute);padding:16px 0 40px}
 <section class="hero">
   <div class="wrap grid">
     <div>
+      <p class="eyebrow">Clinical AI · Architecture · Governance</p>
       <h1>Clinical AI from pilot to production, with the governance&nbsp;<em>built&nbsp;in</em>.</h1>
       <p class="lede">I lead the engineering of the knowledge and tool layer that lets clinical AI agents act safely on FHIR data: terminology-grounded knowledge graphs, hybrid retrieval, governed MCP tool surfaces, and the evaluation gates that let security, compliance and finance say yes — evidence a board can read.</p>
       <p class="who">AI platform &amp; governance leader · 22 years in regulated enterprise systems, 18 of them at Mayo Clinic across critical care, nursing, revenue cycle, radiology AI and enterprise GenAI · Rochester, MN · Views are my own</p>
@@ -181,7 +251,8 @@ footer{font-size:14px;color:var(--mute);padding:16px 0 40px}
         <a class="btn" href="#selected">How I lead</a>
       </div>
     </div>
-    <div>
+    <div class="graph-panel">
+      <div class="panel-top"><span>From language to clinical meaning</span><span>01 / Knowledge layer</span></div>
       <svg class="graph" viewBox="0 0 520 360" role="img" aria-labelledby="gt gd">
         <title id="gt">A clinical knowledge graph</title>
         <desc id="gd">A clinician's shorthand "MI" expands through IS_A edges to myocardial infarction and STEMI, maps to ICD-10 codes I21.0–I21.9, and connects by FINDING_SITE to the coronary artery.</desc>
@@ -227,6 +298,9 @@ footer{font-size:14px;color:var(--mute);padding:16px 0 40px}
       <p class="caption">A clinician types “MI”. Vector search finds documents that say “MI”. A governed graph finds the ones coded STEMI or I21.x — and can show the path it took.</p>
     </div>
   </div>
+  <div class="wrap"><div class="career-strip" aria-label="Experience across health systems">
+    <span class="strip-label">Across the health system</span><span>Critical care</span><span>Nursing</span><span>Revenue cycle</span><span>Radiology AI</span><span>Enterprise GenAI</span>
+  </div></div>
 </section>
 
 <section id="work">
