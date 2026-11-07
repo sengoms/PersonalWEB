@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Senthilkumar Palaniappan — Clinical AI & Knowledge Graph Architecture</title>
-<meta name="description" content="Senior data and AI architect. Clinical knowledge graphs, grounded GenAI retrieval, FHIR interoperability, and AI readiness for health systems.">
+<title>Senthilkumar Palaniappan — Clinical AI Platform, Governance &amp; Knowledge Graph Leadership</title>
+<meta name="description" content="AI platform and governance leader in academic medicine. Takes clinical AI from pilot to production: clinical knowledge graphs, grounded GenAI retrieval, agent tooling on FHIR and MCP, evaluation gates, and the governance that lets security, compliance and finance say yes.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -72,6 +72,8 @@ p{margin:0 0 18px;max-width:64ch}
 .area{padding:22px 0;border-top:1px solid var(--rule)}
 .area p{font-size:17px;color:var(--ink-2);margin:0}
 .area .stack{font-family:var(--mono);font-size:12.5px;color:var(--mute);margin-top:10px;line-height:1.7}
+.area.wide{grid-column:1/-1}
+.area.wide p{max-width:72ch}
 
 /* work */
 .work{display:grid;gap:36px}
@@ -87,6 +89,7 @@ p{margin:0 0 18px;max-width:64ch}
 .ev svg{width:100%;height:auto;display:block}
 .ev figcaption{font-size:15px;color:var(--ink-2);margin-top:10px;line-height:1.5}
 .ev figcaption a{font-size:13.5px;color:var(--mute);display:block;margin-top:4px}
+.ev .drove{display:block;margin-top:8px;color:var(--ink);font-style:italic}
 .ev .big{font-size:40px;font-weight:300;letter-spacing:-.02em;line-height:1;margin:0 0 6px}
 .ev .big small{font-size:16px;color:var(--mute);letter-spacing:0;margin-left:8px;font-weight:400}
 .chart text{font-family:var(--serif);font-size:13px;fill:var(--ink-2)}
@@ -105,6 +108,13 @@ p{margin:0 0 18px;max-width:64ch}
 .lit li{padding:14px 0;border-top:1px solid var(--rule);font-size:16px;color:var(--ink-2)}
 .lit a{color:var(--ink)}
 @media (max-width:860px){.ev{grid-template-columns:1fr}}
+
+/* leadership table */
+.table{display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+.table .row{padding:20px 0;border-top:1px solid var(--rule)}
+.table .row b{display:block;font-weight:500;font-size:19px;margin-bottom:6px}
+.table .row p{font-size:16.5px;color:var(--ink-2);margin:0}
+@media (max-width:860px){.table{grid-template-columns:1fr}}
 
 /* writing */
 .posts{list-style:none;margin:0;padding:0}
@@ -149,8 +159,9 @@ footer{font-size:14px;color:var(--mute);padding:16px 0 40px}
     <a class="brand" href="#">Senthilkumar Palaniappan</a>
     <ul>
       <li><a href="#work">What I work on</a></li>
-      <li><a href="#selected">Approach</a></li>
+      <li><a href="#selected">How I lead</a></li>
       <li><a href="#evidence">Evidence</a></li>
+      <li><a href="#leadership">With the C-suite</a></li>
       <li><a href="#writing">Writing</a></li>
       <li><a href="#path">Path</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -162,12 +173,12 @@ footer{font-size:14px;color:var(--mute);padding:16px 0 40px}
 <section class="hero">
   <div class="wrap grid">
     <div>
-      <h1>Clinical AI that can show <em>why</em> it answered.</h1>
-      <p class="lede">I design the retrieval, knowledge-graph and security architecture that lets a health system put generative AI in front of clinicians — grounded in FHIR data and clinical terminology, with every answer traceable to its source.</p>
-      <p class="who">Senior data &amp; AI architect · 22 years in regulated enterprise systems, most of them in academic medicine · Rochester, MN</p>
+      <h1>Clinical AI from pilot to production, with the governance built in and <em>evidence a board can read.</em></h1>
+      <p class="lede">I lead the engineering of the knowledge and tool layer that lets clinical AI agents act safely on FHIR data: terminology-grounded knowledge graphs, hybrid retrieval, governed MCP tool surfaces, and the evaluation gates that let security, compliance and finance say yes.</p>
+      <p class="who">AI platform &amp; governance leader · 22 years in regulated enterprise systems, 18 of them at Mayo Clinic across critical care, nursing, revenue cycle, radiology AI and enterprise GenAI · Rochester, MN · Views are my own</p>
       <div class="cta">
         <a class="btn primary" href="https://www.linkedin.com/in/senthilkumar-palaniappan" rel="me">Connect on LinkedIn</a>
-        <a class="btn" href="#selected">How I work</a>
+        <a class="btn" href="#selected">How I lead</a>
       </div>
     </div>
     <div>
@@ -222,8 +233,13 @@ footer{font-size:14px;color:var(--mute);padding:16px 0 40px}
   <div class="wrap grid">
     <div class="rail">What I work on</div>
     <div>
-      <h2>Four problems health systems keep hitting on the way from AI pilot to production.</h2>
+      <h2>Five problems health systems keep hitting on the way from AI pilot to production.</h2>
       <div class="areas">
+        <div class="area wide">
+          <h3>AI strategy, governance &amp; portfolio</h3>
+          <p>Intake and risk tiering, a living inventory of models and agents, gate criteria defined before the pilot, vendor and third-party AI assessment, and a posture mapped to the Joint Commission and CHAI responsible-use guidance, HIPAA and FDA CDS rules — so the portfolio scales a few things with measurable outcomes instead of running more pilots.</p>
+          <div class="stack">TJC / CHAI Responsible Use of AI · CHAI assurance guide · NIST AI RMF · FDA CDS guidance · HIPAA 164.312 · ONC HTI-1</div>
+        </div>
         <div class="area">
           <h3>Clinical knowledge graphs &amp; ontology engineering</h3>
           <p>SNOMED CT, ICD-10-CM, RxNorm and LOINC as a governed, versioned graph that expands clinician shorthand, resolves codes across vocabularies, and explains every traversal.</p>
@@ -241,7 +257,7 @@ footer{font-size:14px;color:var(--mute);padding:16px 0 40px}
         </div>
         <div class="area">
           <h3>AI readiness &amp; evaluation for regulated delivery</h3>
-          <p>Evaluation harnesses, adversarial corpora, gate criteria, and HIPAA and FDA CDS posture mapped to the architecture — the evidence that lets leadership, security and compliance say yes.</p>
+          <p>Evaluation harnesses, adversarial corpora, synthetic-conflict patient sets and gate criteria mapped to the architecture — the evidence that turns model choice into a measurement and lets leadership sign off.</p>
           <div class="stack">MedAgentBench · τ-bench pass^k · ALCE · CDS Hooks · CPG-on-FHIR / CQL · HIPAA 164.312 · FDA CDS guidance</div>
         </div>
       </div>
@@ -251,9 +267,9 @@ footer{font-size:14px;color:var(--mute);padding:16px 0 40px}
 
 <section id="selected">
   <div class="wrap grid">
-    <div class="rail">How I approach it</div>
+    <div class="rail">How I lead</div>
     <div>
-      <h2>Three design positions I hold, whatever the stack.</h2>
+      <h2>Four positions I hold, whatever the stack or the vendor.</h2>
       <div class="work">
         <article class="case">
           <div class="k">Retrieval</div>
@@ -271,6 +287,12 @@ footer{font-size:14px;color:var(--mute);padding:16px 0 40px}
           <div class="k">Evidence</div>
           <div>
             <p>Define the gate before the pilot: task benchmarks, citation precision and recall, a synthetic-conflict patient set, and an adversarial corpus with a zero-leakage target. Evaluation harnesses turn model choice from a vendor conversation into a measurement — and they're what lets a security and compliance team say yes.</p>
+          </div>
+        </article>
+        <article class="case">
+          <div class="k">Value</div>
+          <div>
+            <p>Name the clinical or business outcome before the pilot starts, and decide then what evidence would retire it. Measure clinician time returned, safety events and adoption alongside dollars, because hard financial return on clinical AI lags by years. Scale the few things that clear the gate, and stop the ones that don't — a portfolio of pilots is a cost, not a strategy.</p>
           </div>
         </article>
       </div>
@@ -293,6 +315,7 @@ footer{font-size:14px;color:var(--mute);padding:16px 0 40px}
             <text class="v" x="400" y="42" text-anchor="end">out-of-vocabulary: 84.9%</text>
           </svg>
           <figcaption>Of 54,986 real queries typed into the SNOMED CT browser, only 15.1% matched any concept term. Clinicians don't type the ontology's words — which is why retrieval has to resolve meaning, not strings.
+            <span class="drove">What it drove: route every clinical query through the terminology graph before any index is searched.</span>
             <a href="https://arxiv.org/abs/2511.16698">Dilworth et al., Hierarchical Retrieval with Out-of-Vocabulary Queries: A Case Study on SNOMED CT (arXiv 2511.16698)</a></figcaption>
         </figure>
         <figure>
@@ -305,6 +328,7 @@ footer{font-size:14px;color:var(--mute);padding:16px 0 40px}
             <text x="0" y="102">Type 1 diabetes</text><rect class="bar oc" x="150" y="92" width="163" height="12"/><text class="v" x="370" y="102">.741</text>
           </svg>
           <figcaption>Querying a clinical warehouse by SNOMED subsumption instead of hand-built code lists kept precision above 0.97 and recall above 0.89 for most concepts — and the misses were traceable to specific hierarchy gaps, which is the point: a graph fails explainably.
+            <span class="drove">What it drove: treat subsumption, not similarity, as the unit of recall a governance committee can audit.</span>
             <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1480260">Lieberman, Ricciardi, Masarie, Spackman — AMIA Annu Symp Proc 2003</a></figcaption>
         </figure>
         <figure>
@@ -315,6 +339,7 @@ footer{font-size:14px;color:var(--mute);padding:16px 0 40px}
             <text class="v" x="200" y="42">50%</text><text class="v" x="360" y="42" text-anchor="end">90%</text>
           </svg>
           <figcaption>Across seven commercial LLMs on 800 medical questions, half to nine-tenths of responses were not fully supported — sometimes contradicted — by the sources they cited; search-enabled models still failed nearly half the time. Citations have to be enforced after generation, not requested in the prompt.
+            <span class="drove">What it drove: a post-generation citation check as a release gate, with precision and recall reported to the review board.</span>
             <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12003634/">Wu et al., An automated framework for assessing how well LLMs cite relevant medical references — Nature Communications 16:3615 (2025)</a></figcaption>
         </figure>
         <figure>
@@ -325,6 +350,7 @@ footer{font-size:14px;color:var(--mute);padding:16px 0 40px}
             <text class="v" x="0" y="42">best model ≈ 69.7%</text><text class="v" x="400" y="42" text-anchor="end">300 physician-written tasks</text>
           </svg>
           <figcaption>On 300 clinician-written tasks against a FHIR server for 100 synthetic patients, the best frontier model succeeded about seven times in ten. An unsaturated benchmark is exactly what a pilot gate should be built on.
+            <span class="drove">What it drove: agent tools are scoped, audited and reversible by design, because the model will be wrong three times in ten.</span>
             <a href="https://arxiv.org/abs/2501.14654">Jiang et al., MedAgentBench: A Realistic Virtual EHR Environment to Benchmark Medical LLM Agents (Stanford, 2025)</a></figcaption>
         </figure>
       </div>
@@ -337,6 +363,23 @@ footer{font-size:14px;color:var(--mute);padding:16px 0 40px}
         <li><a href="https://clinicaltrials.gov/study/NCT02039297">ProCCESs AWARE multicenter study, NCT02039297 (Mayo Clinic, CMS-funded)</a></li>
         <li><a href="https://www.mayo.edu/research/labs/acute-care-informatics">Mayo Clinic Acute Care Informatics Laboratory — AWARE, AMP and CEDAR</a></li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<section id="leadership">
+  <div class="wrap grid">
+    <div class="rail">With the C-suite</div>
+    <div>
+      <h2>What each leader at the table gets from the way I build.</h2>
+      <div class="table">
+        <div class="row"><b>CIO</b><p>One governed platform instead of a pilot per department: shared retrieval, terminology, identity and audit layers that every clinical AI use case builds on, with a tiered intake so low-risk work moves fast.</p></div>
+        <div class="row"><b>CMIO &amp; clinical leaders</b><p>Answers that expand clinician shorthand correctly and show the path they took, so clinicians can trust, check and correct them. Clinical input shapes the gate, not just the demo.</p></div>
+        <div class="row"><b>CISO &amp; compliance</b><p>The model treated as an untrusted caller. Minimum-necessary access through SMART on FHIR scopes, OAuth 2.1 and MCP authorization, an AuditEvent for every access, and an adversarial corpus with a zero-leakage target before go-live.</p></div>
+        <div class="row"><b>CFO &amp; the board</b><p>Outcomes named before spend, measured after, and reported in their terms: clinician time returned, safety events avoided, adoption, and the cost of the pilots we chose to stop.</p></div>
+        <div class="row"><b>Partners &amp; vendors</b><p>Clear architecture ownership, open standards at every boundary, and evaluation gates that make model and vendor choice a measurement rather than a negotiation.</p></div>
+        <div class="row"><b>Engineering teams</b><p>Direction, design authority and cover. I lead partner engineering teams day to day, hold the architecture, and take the security and compliance conversations so builders can build.</p></div>
+      </div>
     </div>
   </div>
 </section>
@@ -370,14 +413,15 @@ footer{font-size:14px;color:var(--mute);padding:16px 0 40px}
     <div>
       <h2>Each stop added a layer the next one needed.</h2>
       <ul class="tl">
-        <li><span class="yr">2023 – present</span><b>Mayo Clinic — Technical Lead &amp; Architect, Enterprise GenAI Data Platform</b><p>Clinical terminology graphs, grounded GenAI retrieval, agent tooling and security architecture.</p></li>
-        <li><span class="yr">2021 – 2023</span><b>Mayo Clinic — Architect, Radiology AI</b><p>Cloud and FHIR data architecture for imaging AI; third-party AI platform governance.</p></li>
-        <li><span class="yr">2015 – 2020</span><b>Mayo Clinic — Technical Lead, Revenue Cycle</b><p>EHR revenue-cycle migration and high-throughput message processing architecture.</p></li>
+        <li><span class="yr">2023 – present</span><b>Mayo Clinic — Senior Data Engineer, serving as Technical Lead &amp; Architect, Enterprise GenAI Data Platform</b><p>Lead a partner engineering team building the clinical knowledge layer beneath enterprise generative AI: FHIR data vectorized and organized as a terminology-grounded knowledge graph, exposed to agents as governed MCP tools. Own the architecture, the security boundary and the evaluation gates; coordinate delivery across data, security and clinical stakeholders.</p></li>
+        <li><span class="yr">2021 – 2023</span><b>Mayo Clinic — Architect, Radiology AI</b><p>Governance of third-party AI platforms entering clinical imaging workflows, and the cloud and FHIR data architecture that let them run inside the enterprise boundary.</p></li>
+        <li><span class="yr">2015 – 2020</span><b>Mayo Clinic — Technical Lead, Revenue Cycle</b><p>Technical lead through an enterprise EHR revenue-cycle migration; architecture for high-throughput message processing where an outage is a financial event.</p></li>
         <li><span class="yr">2012 – 2015</span><b>Mayo Clinic — Solutions Architect, Nursing Informatics</b><p>Clinical awareness dashboards and HL7 integration for nursing workflows.</p></li>
         <li><span class="yr">2008 – 2012</span><b>Mayo Clinic — Consultant, Critical Care &amp; Infectious Disease systems</b><p>Data layers for critical-care awareness and infection-surveillance systems.</p></li>
         <li><span class="yr">2004 – 2008</span><b>The World Bank — Treasury analytics</b><p>Portfolio analytics and trade-simulation models for member central banks.</p></li>
       </ul>
-      <p style="margin-top:18px;font-size:16px;color:var(--ink-2)">MBA, Systems Management (NIT Warangal) · BE (University of Madras) · Google Cloud Professional Cloud Architect · HL7 FHIR R4 · Certified ScrumMaster</p>
+      <p style="margin-top:18px;font-size:16px;color:var(--ink-2)">The thread: clinical systems taught me what clinicians need, revenue cycle taught me what finance needs, imaging AI taught me how to govern someone else's model, and enterprise GenAI brings all three together.</p>
+      <p style="font-size:16px;color:var(--ink-2)">MBA, Systems Management (NIT Warangal) · BE (University of Madras) · Google Cloud Professional Cloud Architect · HL7 FHIR R4 · Certified ScrumMaster</p>
     </div>
   </div>
 </section>
@@ -386,7 +430,7 @@ footer{font-size:14px;color:var(--mute);padding:16px 0 40px}
   <div class="wrap grid">
     <div class="rail">Contact</div>
     <div>
-      <h2>If you're taking clinical AI from pilot to production, I'd like to hear what's in the way.</h2>
+      <h2>If you're a CIO, CMIO, CDO or AI leader deciding how to govern and scale clinical AI, I'd like to compare notes.</h2>
       <div class="links">
         <a href="https://www.linkedin.com/in/senthilkumar-palaniappan" rel="me">LinkedIn</a>
         <a href="https://github.com/sengoms">GitHub</a>
