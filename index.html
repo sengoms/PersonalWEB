@@ -263,7 +263,7 @@ footer{background:var(--ink);color:#bdcdb6;border-top:1px solid #ffffff20;font-s
 .fig-wrap svg{display:block;width:100%;min-width:720px;height:auto}
 .ig text{font-family:var(--sans);font-size:13px;fill:var(--ink)}
 .ig .t{font-size:14px;font-weight:600}
-.ig .m{font-family:var(--mono);font-size:11px;fill:var(--mute)}
+.ig .m{font-family:var(--mono);font-size:10.5px;fill:var(--mute)}
 .ig .cap{font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;fill:var(--teal)}
 .ig .box{fill:#fbfaf6;stroke:var(--ink);stroke-width:1.2}
 .ig .box.g{stroke:var(--teal);fill:#eaf1e8}
@@ -277,6 +277,10 @@ footer{background:var(--ink);color:#bdcdb6;border-top:1px solid #ffffff20;font-s
 .ig .dot{fill:var(--paper);stroke:var(--teal);stroke-width:1.6}
 .ig .dot.me{fill:var(--ochre);stroke:var(--ochre)}
 .fig-note{font:400 12.5px/1.7 var(--sans);color:var(--mute);margin:0 0 6px}
+.src{margin:14px 0 10px;padding:0 0 0 0;list-style:none;border-top:1px solid var(--rule)}
+.src li{font:400 12.5px/1.7 var(--sans);color:var(--ink-2);padding:9px 0;border-bottom:1px solid var(--rule)}
+.src li b{font-family:var(--mono);font-weight:500;color:var(--teal);margin-right:6px}
+.src a{color:var(--ink)}
 @media(max-width:860px){.sw-item{grid-template-columns:minmax(0,1fr);gap:10px}}
 
 /* gate stepper (dark band) */
@@ -436,67 +440,107 @@ footer{background:var(--ink);color:#bdcdb6;border-top:1px solid #ffffff20;font-s
         <article class="sw-item" data-reveal>
           <div class="k">Enterprise GenAI<span>2023 – present · technical lead</span></div>
           <div>
-            <h3 class="rv">The clinical knowledge layer beneath enterprise generative AI</h3>
-            <p class="rv">One FHIR record becomes two things at once: vectorized text for search, and a terminology-grounded graph for meaning. Both are reached only through governed tool surfaces, inside a security boundary built on standards the ecosystem already agreed on, and nothing ships until it clears the evaluation gate.</p>
+            <h3 class="rv">From a physician's question to a governed answer</h3>
+            <p class="rv">A clinician asks in their own words. The question is normalized to clinical concepts, expanded through the terminology graph, and then answered two ways at once: a deterministic query over the structured FHIR record, and a search over clinical notes whose mentions were linked to the same concepts when they were indexed. Everything that comes back carries its source. Citations are checked after generation, and the answer returns with the path it took. The numbers in brackets point to the published work each step rests on.</p>
             <div class="fig-wrap rv">
-              <svg class="ig" viewBox="0 0 920 420" role="img" aria-label="Flow diagram: a FHIR record is vectorized and organized as a terminology graph; both are exposed through governed MCP tools to clinical agents; a security boundary and an evaluation gate run beneath the whole flow.">
-                <text class="cap" x="24" y="34">From the record to a governed answer</text>
+              <svg class="ig" viewBox="0 0 920 490" role="img" aria-label="Flow diagram. A physician asks a question in their own words. It is normalized to SNOMED, RxNorm and LOINC concepts, expanded through the terminology graph by subsumption, synonyms and crosswalks, then answered two ways in parallel: a deterministic FHIR query with the expanded code set, and a hybrid search over clinical notes linked to the same concepts. Results are fused with their sources, the answer is generated and its citations checked, and it returns to the physician with the path shown and an audit event written. A security boundary and an evaluation gate run beneath.">
+                <defs>
+                  <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#3E4C5E"/></marker>
+                </defs>
+                <text class="cap" x="24" y="34">From a physician's question to a governed answer</text>
                 <text class="m" x="896" y="34" text-anchor="end">01 / knowledge layer</text>
 
-                <!-- FHIR record -->
-                <rect class="box" x="24" y="150" width="160" height="90" rx="3"/>
-                <text class="t" x="40" y="180">FHIR record</text>
-                <text class="m" x="40" y="200">Conditions · Meds</text>
-                <text class="m" x="40" y="216">Observations · Notes</text>
+                <!-- step 1: physician asks -->
+                <rect class="box o" x="24" y="66" width="170" height="84" rx="3"/>
+                <text class="t" x="38" y="92">1 · Physician asks</text>
+                <text class="m" x="38" y="112">"MI history,</text>
+                <text class="m" x="38" y="126">on a statin,</text>
+                <text class="m" x="38" y="140">recent chest pain?"</text>
 
-                <!-- vector + graph -->
-                <rect class="box" x="246" y="84" width="220" height="70" rx="3"/>
-                <text class="t" x="262" y="112">Vectorized text</text>
-                <text class="m" x="262" y="132">hybrid dense + sparse index</text>
+                <!-- step 2: normalize -->
+                <rect class="box" x="206" y="66" width="176" height="84" rx="3"/>
+                <text class="t" x="220" y="92">2 · Normalize</text>
+                <text class="m" x="220" y="112">SNOMED · RxNorm · LOINC</text>
+                <text class="m" x="220" y="128">85% of queries are not</text>
+                <text class="m" x="220" y="142">in the vocabulary  [1]</text>
 
-                <rect class="box g" x="246" y="186" width="220" height="90" rx="3"/>
-                <text class="t" x="262" y="214">Terminology graph</text>
-                <text class="m" x="262" y="234">SNOMED CT · ICD-10-CM</text>
-                <text class="m" x="262" y="250">RxNorm · LOINC · crosswalks</text>
+                <!-- step 3: expand -->
+                <rect class="box g" x="394" y="66" width="214" height="84" rx="3"/>
+                <text class="t" x="408" y="92">3 · Expand via graph</text>
+                <text class="m" x="408" y="112">subsumption · synonyms</text>
+                <text class="m" x="408" y="128">MI → STEMI, NSTEMI, I21.x</text>
+                <text class="m" x="408" y="142">recall ≥ 0.9, explained  [2]</text>
 
-                <!-- tools -->
-                <rect class="box g" x="538" y="150" width="170" height="90" rx="3"/>
-                <text class="t" x="554" y="180">Governed MCP tools</text>
-                <text class="m" x="554" y="200">scoped · audited</text>
-                <text class="m" x="554" y="216">reversible by design</text>
+                <!-- step 4a: FHIR query -->
+                <rect class="box" x="620" y="38" width="276" height="74" rx="3"/>
+                <text class="t" x="634" y="60">4a · Query FHIR, deterministically</text>
+                <text class="m" x="634" y="77">expanded code set over Condition,</text>
+                <text class="m" x="634" y="91">Medication, Observation resources</text>
+                <text class="m" x="634" y="105">fails 0.09 vs 0.36 for retrieval  [3]</text>
 
-                <!-- agents -->
-                <rect class="box" x="780" y="150" width="116" height="90" rx="3"/>
-                <text class="t" x="796" y="180">Clinical</text>
-                <text class="t" x="796" y="198">agents</text>
-                <text class="m" x="796" y="220">answer + path</text>
+                <!-- step 4b: notes -->
+                <rect class="box" x="620" y="122" width="276" height="74" rx="3"/>
+                <text class="t" x="634" y="144">4b · Search clinical notes</text>
+                <text class="m" x="634" y="161">hybrid vector search over notes;</text>
+                <text class="m" x="634" y="175">mentions linked to the same</text>
+                <text class="m" x="634" y="189">concepts at index time  [4][5]</text>
+
+                <!-- step 5: fuse -->
+                <rect class="box g" x="620" y="236" width="276" height="60" rx="3"/>
+                <text class="t" x="634" y="258">5 · Fuse and ground</text>
+                <text class="m" x="634" y="276">every item carries a FHIR resource id</text>
+                <text class="m" x="634" y="290">or a note span; graph-anchored  [6]</text>
+
+                <!-- step 6: generate + check -->
+                <rect class="box" x="394" y="236" width="214" height="60" rx="3"/>
+                <text class="t" x="408" y="258">6 · Generate, then check</text>
+                <text class="m" x="408" y="276">citations verified after the</text>
+                <text class="m" x="408" y="290">answer, never assumed  [7]</text>
+
+                <!-- step 7: answer -->
+                <rect class="box o" x="24" y="236" width="358" height="60" rx="3"/>
+                <text class="t" x="38" y="258">7 · Answer, with the path shown</text>
+                <text class="m" x="38" y="276">graph traversal + sources beside the answer;</text>
+                <text class="m" x="38" y="290">one AuditEvent written for the access</text>
 
                 <!-- connectors -->
-                <path class="ln" d="M184 195 L210 195 L210 119 L246 119"/>
-                <path class="ln" d="M184 195 L210 195 L210 231 L246 231"/>
-                <path class="ln" d="M466 119 L502 119 L502 195 L538 195"/>
-                <path class="ln" d="M466 231 L502 231 L502 195"/>
-                <path class="ln" d="M708 195 L780 195"/>
-                <path class="ln o" d="M356 154 L356 186"/>
-                <text class="m" x="364" y="174">expands meaning</text>
-                <text class="m" x="744" y="186" text-anchor="middle">asks →</text>
-                <text class="m" x="744" y="212" text-anchor="middle" fill="var(--ochre)">← answers</text>
+                <path class="ln" marker-end="url(#ah)" d="M194 108 L206 108"/>
+                <path class="ln" marker-end="url(#ah)" d="M382 108 L394 108"/>
+                <path class="ln" marker-end="url(#ah)" d="M608 108 L614 108 L614 75 L620 75"/>
+                <path class="ln" marker-end="url(#ah)" d="M608 108 L614 108 L614 157 L620 157"/>
+                <path class="ln" marker-end="url(#ah)" d="M896 75 L908 75 L908 266 L896 266"/>
+                <path class="ln" marker-end="url(#ah)" d="M758 196 L758 236"/>
+                <path class="ln" marker-end="url(#ah)" d="M620 266 L608 266"/>
+                <path class="ln" marker-end="url(#ah)" d="M394 266 L382 266"/>
+                <path class="ln o" d="M104 150 L104 236"/>
+                <text class="m" x="112" y="196" fill="var(--ochre)">back to the physician</text>
 
                 <!-- moving token -->
                 <circle class="tok" r="5">
-                  <animateMotion dur="7s" repeatCount="indefinite" path="M184 195 L210 195 L210 231 L246 231 L466 231 L502 231 L502 195 L538 195 L708 195 L780 195"/>
+                  <animateMotion dur="9s" repeatCount="indefinite" path="M194 108 L382 108 L394 108 L608 108 L614 108 L614 157 L620 157 L758 157 L758 196 L758 236 L758 266 L620 266 L608 266 L394 266 L382 266 L200 266"/>
                 </circle>
 
                 <!-- bands -->
-                <rect class="band" x="24" y="306" width="872" height="40" rx="3"/>
-                <text class="band-t" x="40" y="331">Security boundary</text>
-                <text class="band-m" x="178" y="331">SMART on FHIR scopes · OAuth 2.1 · MCP authorization · AuditEvent per call · model is an untrusted caller</text>
-                <rect class="band" x="24" y="356" width="872" height="40" rx="3"/>
-                <text class="band-t" x="40" y="381">Evaluation gate</text>
-                <text class="band-m" x="178" y="381">task benchmarks · citation precision &amp; recall · synthetic-conflict patients · adversarial corpus, zero leakage</text>
+                <rect class="band" x="24" y="330" width="872" height="40" rx="3"/>
+                <text class="band-t" x="40" y="355">Security boundary</text>
+                <text class="band-m" x="178" y="355">SMART on FHIR scopes · OAuth 2.1 · MCP authorization · AuditEvent per call · model is an untrusted caller</text>
+                <rect class="band" x="24" y="380" width="872" height="40" rx="3"/>
+                <text class="band-t" x="40" y="405">Evaluation gate</text>
+                <text class="band-m" x="178" y="405">task benchmarks · citation precision &amp; recall · synthetic-conflict patients · adversarial corpus, zero leakage</text>
+                <text class="m" x="24" y="460">Steps 2 and 3 are where the ontology and graph act on the question. Step 4b is where they act on the notes.</text>
+                <text class="m" x="24" y="476">Shown at the level of public standards and published results; no internal design.</text>
               </svg>
             </div>
-            <p class="fig-note rv">Built with a partner engineering team. Shown at the level of public standards; no internal design.</p>
+            <ol class="src rv">
+              <li><b>[1]</b> Dilworth et al., 2025, <a href="https://arxiv.org/abs/2511.16698">Hierarchical Retrieval with Out-of-Vocabulary Queries: A Case Study on SNOMED CT</a>. Of 54,986 real SNOMED CT browser queries, 15.1% matched a concept term; 84.9% did not. Clinicians don't type the ontology's words.</li>
+              <li><b>[2]</b> Lieberman, Ricciardi, Masarie, Spackman, 2003, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1480260">The use of SNOMED CT simplifies querying of a clinical data warehouse</a>, AMIA. Subsumption queries kept precision above 0.97 and recall above 0.89 for most concepts, with misses traceable to specific hierarchy gaps.</li>
+              <li><b>[3]</b> FHIRPath-QA, 2026, <a href="https://arxiv.org/html/2602.23479">arXiv 2602.23479</a>. Executing deterministic FHIRPath queries over MIMIC-IV on FHIR cut the failure rate on clinician-phrased questions from 0.36 to 0.09 versus retrieval-first prompting, at a fraction of the tokens. Also Kothari &amp; Gupta, 2025, <a href="https://arxiv.org/pdf/2501.13687">two-stage FHIR retrieval and answering</a>.</li>
+              <li><b>[4]</b> Clinical entity linking to SNOMED CT: ClinLinker, 2024, <a href="https://arxiv.org/pdf/2404.06367">arXiv 2404.06367</a>, retrieve-then-rerank normalization of note mentions to SNOMED codes; and a 2025 study of <a href="https://pure.fh-ooe.at/en/studentTheses/integration-of-snomed-ct-and-large-language-models-for-medical-in/">agentic SNOMED CT linking with LLMs</a>, raising correct top-1 links from 51% to 65% on the SNOMED CT Entity Linking Challenge.</li>
+              <li><b>[5]</b> MediGRAF, 2026, <a href="https://arxiv.org/html/2602.00009v1">Unlocking Electronic Health Records: A Hybrid Graph RAG Approach to Safe Clinical AI for Patient QA</a>. Pairs a graph database with vector search over clinical notes and an LLM that writes graph queries. Evaluated on 10 MIMIC-IV patients, so a design precedent rather than evidence. See also <a href="https://sol.sbc.org.br/index.php/bracis/article/view/40804">GraphRAG on FHIR-formatted EHR, BRACIS 2025</a>.</li>
+              <li><b>[6]</b> Wu et al., 2024, <a href="https://arxiv.org/pdf/2408.04187">Medical Graph RAG: Towards Safe Medical Large Language Model via Graph Retrieval-Augmented Generation</a>. Links document chunks to controlled vocabularies and credible sources so that every claim in the answer can be traced back to where it came from.</li>
+              <li><b>[7]</b> Wu et al., 2025, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12003634/">An automated framework for assessing how well LLMs cite relevant medical references</a>, Nature Communications 16:3615. Across seven commercial LLMs on 800 medical questions, 50 to 90% of responses were not fully supported by the sources they cited.</li>
+            </ol>
+            <p class="fig-note rv">Built with a partner engineering team. The standards in the bands are public: SMART on FHIR v2, OAuth 2.1, the MCP authorization specification, FHIR AuditEvent.</p>
           </div>
         </article>
 
