@@ -443,7 +443,7 @@ footer{background:var(--ink);color:#bdcdb6;border-top:1px solid #ffffff20;font-s
             <h3 class="rv">From a physician's question to a governed answer</h3>
             <p class="rv">A clinician asks in their own words. The question is normalized to clinical concepts, expanded through the terminology graph, and then answered two ways at once: a deterministic query over the structured FHIR record, and a search over clinical notes whose mentions were linked to the same concepts when they were indexed. Everything that comes back carries its source. Citations are checked after generation, and the answer returns with the path it took. The numbers in brackets point to the published work each step rests on.</p>
             <div class="fig-wrap rv">
-              <svg class="ig" viewBox="0 0 920 490" role="img" aria-label="Flow diagram. A physician asks a question in their own words. It is normalized to SNOMED, RxNorm and LOINC concepts, expanded through the terminology graph by subsumption, synonyms and crosswalks, then answered two ways in parallel: a deterministic FHIR query with the expanded code set, and a hybrid search over clinical notes linked to the same concepts. Results are fused with their sources, the answer is generated and its citations checked, and it returns to the physician with the path shown and an audit event written. A security boundary and an evaluation gate run beneath.">
+              <svg class="ig" viewBox="0 0 920 490" role="img" aria-label="Flow diagram. A physician asks: any history of MI, on a statin, last LDL? It is normalized to SNOMED, RxNorm and LOINC concepts, expanded through the terminology graph by subsumption, synonyms and crosswalks, then answered two ways in parallel: a deterministic FHIR query with the expanded code set, and a hybrid search over clinical notes linked to the same concepts. Results are fused with their sources, the answer is generated and its citations checked, and it returns to the physician with the path shown and an audit event written. A security boundary and an evaluation gate run beneath.">
                 <defs>
                   <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#3E4C5E"/></marker>
                 </defs>
@@ -453,9 +453,9 @@ footer{background:var(--ink);color:#bdcdb6;border-top:1px solid #ffffff20;font-s
                 <!-- step 1: physician asks -->
                 <rect class="box o" x="24" y="66" width="170" height="84" rx="3"/>
                 <text class="t" x="38" y="92">1 · Physician asks</text>
-                <text class="m" x="38" y="112">"MI history,</text>
-                <text class="m" x="38" y="126">on a statin,</text>
-                <text class="m" x="38" y="140">recent chest pain?"</text>
+                <text class="m" x="38" y="112">"Any hx of MI?</text>
+                <text class="m" x="38" y="126">On a statin?</text>
+                <text class="m" x="38" y="140">Last LDL?"</text>
 
                 <!-- step 2: normalize -->
                 <rect class="box" x="206" y="66" width="176" height="84" rx="3"/>
@@ -527,7 +527,8 @@ footer{background:var(--ink);color:#bdcdb6;border-top:1px solid #ffffff20;font-s
                 <rect class="band" x="24" y="380" width="872" height="40" rx="3"/>
                 <text class="band-t" x="40" y="405">Evaluation gate</text>
                 <text class="band-m" x="178" y="405">task benchmarks · citation precision &amp; recall · synthetic-conflict patients · adversarial corpus, zero leakage</text>
-                <text class="m" x="24" y="460">Steps 2 and 3 are where the ontology and graph act on the question. Step 4b is where they act on the notes.</text>
+                <text class="m" x="24" y="446">The example asks three things in three vocabularies: a diagnosis (SNOMED: MI → STEMI, NSTEMI, I21.x), a drug class (RxNorm: statin → every ingredient), a lab (LOINC: LDL).</text>
+                <text class="m" x="24" y="461">Steps 2 and 3 are where the ontology and graph act on the question. Step 4b is where they act on the notes, where "hx of MI" usually lives.</text>
                 <text class="m" x="24" y="476">Shown at the level of public standards and published results; no internal design.</text>
               </svg>
             </div>
