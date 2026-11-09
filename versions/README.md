@@ -11,5 +11,6 @@ Archived snapshots of `index.html`, kept so each positioning pass can be compare
 | `v4-hybrid.html` | 8 Nov 2026 | Recommended. v2 design, v1 concrete copy trimmed for an executive reader, v3 collapsible stacks, larger type, Experience restored to nav, mobile grid tracks set to minmax(0,1fr). |
 | `v5-infographics.html` | 8 Nov 2026 | v4 plus: headline "concept to pilot to production" at a smaller size; looping animated knowledge-graph panel; new "Selected work" section with a knowledge-layer flow diagram and the AWARE evidence trail; six-step concept-to-production gate in "How I lead"; layered career strata above the timeline. All reveal on scroll and respect reduced motion. |
 | `v6-physician-flow.html` | 8 Nov 2026 | Knowledge-layer diagram redrawn as the physician-question flow: normalize, expand via graph, deterministic FHIR query and note search in parallel, fuse, generate and check citations, answer with the path. Seven numbered, quoted sources beneath. Smaller three-line hero headline with ochre arrows. |
+| `v7-ventures.html` | 9 Nov 2026 | v6 plus a "Ventures" section between Writing and Path, with a nav link. First entry: Hybrid VFX USA, linking to the full case study at `ventures/hybrid-vfx-usa.html`. "Evidence" nav link hidden between 861 and 1000 px so eight links fit. |
 
-Each version is also a git tag (`v0` to `v6`) on the commit where it was the live `index.html`.
+Each version is also a git tag (`v0` to `v7`) on the commit where it was the live `index.html`.

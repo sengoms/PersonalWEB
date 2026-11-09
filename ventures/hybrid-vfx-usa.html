@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hybrid VFX USA — Cross-Border Market Entry Case Study</title>
+<meta name="description" content="A case study in leading U.S. market entry for a Chennai-based VFX and AI film-making studio, from legal structuring and incubator strategy to partnership modelling and three-year financials.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#E63946;--dkred:#B83341;--gold:#E09F3E;--green:#0E9F6E;
+    --slate:#1F2937;--dim:#4B5563;--grey:#9CA3AF;
+    --white:#FFFFFF;--panel:#F7F9FC;--cream:#FBFAF5;--soft-red:#FDECEE;
+    --soft-gold:#FDF4E0;--soft-green:#E0F5EC;--divider:#E5E7EB;
+    --radius:8px;--shadow:0 1px 3px rgba(0,0,0,0.04),0 1px 2px rgba(0,0,0,0.03);
+    --shadow-md:0 4px 12px rgba(0,0,0,0.06),0 2px 4px rgba(0,0,0,0.04);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:'Inter',system-ui,sans-serif;color:var(--slate);line-height:1.6;background:var(--white);font-size:16px}
+  h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.25;margin:0 0 .5em;font-weight:700}
+  h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;letter-spacing:-.02em}
+  h2{font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-.015em}
+  h3{font-size:1.25rem;font-weight:600}
+  h4{font-size:1rem;font-weight:600;color:var(--red);text-transform:uppercase;letter-spacing:.08em;font-size:.75rem}
+  p{margin:0 0 1em}
+  a{color:var(--red);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .15s}
+  a:hover{border-color:var(--red)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 1.5rem}
+  .wrap-narrow{max-width:800px;margin:0 auto;padding:0 1.5rem}
+
+  /* --- Nav --- */
+  nav.topnav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--divider)}
+  nav.topnav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{font-weight:700;font-size:.9rem;letter-spacing:.06em;color:var(--slate);display:flex;align-items:center;gap:.5rem}
+  .brand::before{content:"";width:8px;height:20px;background:var(--red);border-radius:2px}
+  .navlinks{display:flex;gap:1.5rem;font-size:.85rem}
+  .navlinks a{color:var(--dim);border:none}
+  .navlinks a:hover{color:var(--red)}
+  @media(max-width:720px){.navlinks{display:none}}
+
+  /* --- Hero --- */
+  .hero{background:var(--cream);padding:5rem 0 4rem;border-bottom:3px solid var(--red);position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;top:0;left:0;width:6px;height:100%;background:var(--red)}
+  .hero .kicker{color:var(--red);font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;margin-bottom:1rem}
+  .hero h1{max-width:900px;margin-bottom:1rem}
+  .hero .lede{font-size:1.15rem;color:var(--dim);max-width:720px;margin-bottom:2.5rem}
+  .hero .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:3rem}
+  .stat{background:var(--white);padding:1.5rem;border:1px solid var(--divider);border-radius:var(--radius);box-shadow:var(--shadow)}
+  .stat .big{font-size:2rem;font-weight:800;color:var(--red);line-height:1.1}
+  .stat .lbl{font-size:.7rem;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;margin-top:.5rem;font-weight:600}
+
+  /* --- Section --- */
+  section.block{padding:4.5rem 0;border-bottom:1px solid var(--divider)}
+  section.block.alt{background:var(--panel)}
+  .sec-head{margin-bottom:2.5rem;max-width:760px}
+  .sec-head .tag{color:var(--red);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;margin-bottom:.75rem}
+  .sec-head p{color:var(--dim);font-size:1.05rem;margin:0}
+
+  /* --- Cards --- */
+  .grid{display:grid;gap:1.25rem}
+  .grid-2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+  .grid-3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .grid-4{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+  .card{background:var(--white);border:1px solid var(--divider);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow);transition:transform .15s,box-shadow .15s}
+  .card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+  .card .num{font-size:2rem;font-weight:800;color:var(--red);line-height:1}
+  .card h3{margin-top:.5rem;margin-bottom:.4rem}
+  .card .mini{font-size:.7rem;color:var(--red);text-transform:uppercase;letter-spacing:.1em;font-weight:700;margin-bottom:.4rem}
+  .card p{font-size:.95rem;color:var(--slate);margin:0}
+  .card .acc{height:3px;background:var(--red);margin:-1.5rem -1.5rem 1.25rem;border-radius:var(--radius) var(--radius) 0 0}
+
+  /* --- Pillar card --- */
+  .pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+  .pillar{background:var(--panel);padding:1.5rem;border-radius:var(--radius);border-top:3px solid var(--red)}
+  .pillar h4{margin-bottom:.75rem}
+  .pillar p{font-size:.9rem;color:var(--slate);margin:0}
+
+  /* --- Team cards --- */
+  .team-row{background:var(--white);border:1px solid var(--divider);border-left:4px solid var(--red);border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem;display:grid;grid-template-columns:200px 1fr;gap:1.5rem;align-items:start}
+  @media(max-width:600px){.team-row{grid-template-columns:1fr;gap:.5rem}}
+  .team-row .name{font-weight:700;font-size:1.05rem;color:var(--slate)}
+  .team-row .role{font-size:.85rem;color:var(--dkred);font-style:italic;margin-top:.15rem}
+  .team-row .meta{font-size:.85rem;color:var(--slate);margin-bottom:.35rem}
+  .team-row .meta b{color:var(--red);font-size:.7rem;letter-spacing:.08em;margin-right:.5rem}
+  .team-row .credits{color:var(--dim)}
+
+  /* --- Table --- */
+  .tbl-wrap{overflow-x:auto;margin:1rem 0}
+  table{width:100%;border-collapse:collapse;font-size:.9rem;background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+  th,td{padding:.8rem 1rem;text-align:left;border-bottom:1px solid var(--divider);vertical-align:top}
+  th{background:var(--cream);font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700;color:var(--slate)}
+  tr:last-child td{border-bottom:none}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+  tr.total td{background:var(--soft-red);font-weight:700;color:var(--dkred)}
+  tr.section td{background:var(--panel);font-weight:700;color:var(--red);font-size:.75rem;text-transform:uppercase;letter-spacing:.08em}
+
+  /* --- Severity badges --- */
+  .sev{display:inline-block;padding:.2rem .6rem;border-radius:4px;font-size:.7rem;font-weight:700;letter-spacing:.08em}
+  .sev-high{background:var(--soft-red);color:var(--red);border:1px solid var(--red)}
+  .sev-med{background:var(--soft-gold);color:var(--gold);border:1px solid var(--gold)}
+  .sev-low{background:var(--soft-green);color:var(--green);border:1px solid var(--green)}
+
+  /* --- Timeline --- */
+  .timeline{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .phase{background:var(--white);border:1px solid var(--divider);border-radius:var(--radius);padding:1.25rem;box-shadow:var(--shadow)}
+  .phase .when{font-size:.8rem;font-weight:700;color:var(--dkred);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.5rem}
+  .phase .what{font-size:.9rem;color:var(--slate)}
+
+  /* --- Recommendation --- */
+  .reco{background:var(--soft-red);border:1px solid var(--red);border-radius:var(--radius);padding:1.5rem;margin-top:2rem}
+  .reco strong{color:var(--dkred)}
+
+  /* --- Callout --- */
+  .cal{background:var(--soft-green);border-left:4px solid var(--green);padding:1rem 1.25rem;border-radius:0 var(--radius) var(--radius) 0;margin:1.5rem 0}
+  .cal .cal-tag{font-size:.7rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.3rem}
+
+  /* --- Chart (bar via CSS) --- */
+  .bars{display:grid;gap:.75rem;margin:1rem 0}
+  .bar-row{display:grid;grid-template-columns:70px 1fr 60px;align-items:center;gap:.75rem;font-size:.85rem}
+  .bar-row .lbl{font-weight:600;color:var(--slate)}
+  .bar-row .num{color:var(--dkred);font-weight:700;text-align:right;font-variant-numeric:tabular-nums}
+  .bar-outer{background:var(--panel);border-radius:4px;overflow:hidden;height:22px;position:relative}
+  .bar-inner{height:100%;background:var(--red);border-radius:4px;transition:width .4s}
+  .bar-inner.gold{background:var(--gold)}
+  .bar-inner.grey{background:var(--grey)}
+
+  /* --- Equity model viz --- */
+  .equity-split{display:flex;height:30px;border-radius:4px;overflow:hidden;margin:.5rem 0;border:1px solid var(--divider)}
+  .equity-split span{display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:var(--white)}
+  .equity-india{background:var(--slate)}
+  .equity-me{background:var(--red)}
+  .equity-gm{background:var(--gold)}
+
+  /* --- Footer --- */
+  footer{background:var(--cream);padding:3rem 0;border-top:3px solid var(--red)}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:.85rem;color:var(--dim)}
+  footer .brand-foot{font-weight:700;color:var(--slate);letter-spacing:.06em}
+
+  /* --- Status banner --- */
+  .status{display:inline-flex;align-items:center;gap:.5rem;background:var(--soft-gold);border:1px solid var(--gold);border-radius:999px;padding:.35rem .9rem;font-size:.75rem;font-weight:600;color:var(--dkred);margin-bottom:1.5rem}
+  .status::before{content:"";width:8px;height:8px;background:var(--gold);border-radius:50%;animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+
+  /* --- TOC --- */
+  .toc{background:var(--panel);border-left:3px solid var(--red);padding:1.25rem 1.5rem;border-radius:0 var(--radius) var(--radius) 0;margin:2rem 0;max-width:500px}
+  .toc h4{color:var(--red);margin-bottom:.75rem}
+  .toc ol{margin:0;padding-left:1.5rem;font-size:.9rem}
+  .toc li{margin-bottom:.35rem}
+  .toc a{color:var(--slate);border:none}
+  .toc a:hover{color:var(--red)}
+
+  /* --- Print --- */
+  @media print{
+    nav.topnav{display:none}
+    .hero{padding:2rem 0}
+    section.block{page-break-inside:avoid;padding:2rem 0}
+    .card,.team-row,.phase{break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="topnav">
+  <div class="wrap">
+    <div class="brand">HYBRID VFX USA</div>
+    <div class="navlinks">
+      <a href="#opportunity">Opportunity</a>
+      <a href="#atlanta">Atlanta</a>
+      <a href="#team">Team</a>
+      <a href="#partnership">Partnership</a>
+      <a href="#financials">Financials</a>
+      <a href="#ask">The Ask</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="wrap">
+    <div class="status">Work in progress · Nov 2026 · Confidential case study</div>
+    <div class="kicker">Portfolio case study · Cross-border market entry</div>
+    <h1>Standing up Hybrid VFX USA in Atlanta</h1>
+    <p class="lede">Leading U.S. operations for a Chennai-based VFX and AI film-making studio entering the Atlanta film market — from entity structuring and incubator strategy through partnership modelling, three-year financials, and the live board proposal.</p>
+    <div class="stats">
+      <div class="stat"><div class="big">$2.8B</div><div class="lbl">U.S. VFX Market, 2025</div></div>
+      <div class="stat"><div class="big">$2.0B</div><div class="lbl">Georgia Production Spend, FY26</div></div>
+      <div class="stat"><div class="big">30%</div><div class="lbl">GA Film Tax Credit, uncapped</div></div>
+      <div class="stat"><div class="big">$150K</div><div class="lbl">Year-1 Seed (Incubator path)</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- Executive summary -->
+<section class="block" id="summary">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">01 · Executive Summary</div>
+      <h2>Why now, why Atlanta, and what the board is being asked to approve</h2>
+      <p>A $150K seed capital commitment unlocks a $2.8B addressable U.S. VFX market, anchored by a 90/10 Delaware C-Corp structure and a hired Atlanta GM running day-to-day operations.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <h4>The Opportunity</h4>
+        <p>The U.S. VFX market grows $2.8B → $4.9B by 2034 (6.2% CAGR). Streaming commissioning and offshore delivery drive need for an India-anchored, U.S.-fronted model.</p>
+      </div>
+      <div class="pillar">
+        <h4>Why Atlanta</h4>
+        <p>#1 U.S. production state: $2.0B direct spend, 280 productions in FY26, 113,900 industry jobs. A 30% uncapped film credit plus a brand-new 20% post-production credit effective Jan 2026.</p>
+      </div>
+      <div class="pillar">
+        <h4>Hybrid's Edge</h4>
+        <p>Team has shipped Avatar: The Way of Water, Avengers, Black Panther, Dune, Mission Impossible, Spider-Man under Framestore, MPC, ILM, Sony Imageworks, Scanline, DNEG, Digital Domain.</p>
+      </div>
+      <div class="pillar">
+        <h4>The Ask</h4>
+        <p>Approve $150K seed via ODI. Delaware C-Corp, 90% owned by Hybrid India, 10% founder equity vesting to U.S. Ops lead. Break-even target: Month 9.</p>
+      </div>
+    </div>
+    <div class="reco">
+      <strong>RECOMMENDATION:</strong> Approve Phase-1 investment; incorporate Delaware C-Corp owned by Hybrid Studio (India); open at ATDC Tech Square by Q1 2027; targeting first revenue by Month 4.
+    </div>
+  </div>
+</section>
+
+<!-- Market opportunity -->
+<section class="block alt" id="opportunity">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">02 · Market Opportunity</div>
+      <h2>The U.S. VFX market is on a 10-year growth trajectory</h2>
+      <p>Streaming commissioning, virtual production, and AI-enabled pipelines are the structural tailwinds. Offshore delivery capacity is where the growth is concentrated.</p>
+    </div>
+
+    <div class="grid grid-2">
+      <div>
+        <h3 style="color:var(--slate);margin-bottom:1rem">U.S. VFX market — 6.2% CAGR 2025–2034</h3>
+        <div class="bars">
+          <div class="bar-row"><div class="lbl">2025</div><div class="bar-outer"><div class="bar-inner" style="width:57%"></div></div><div class="num">$2.8B</div></div>
+          <div class="bar-row"><div class="lbl">2027</div><div class="bar-outer"><div class="bar-inner" style="width:65%"></div></div><div class="num">$3.2B</div></div>
+          <div class="bar-row"><div class="lbl">2029</div><div class="bar-outer"><div class="bar-inner" style="width:73%"></div></div><div class="num">$3.6B</div></div>
+          <div class="bar-row"><div class="lbl">2031</div><div class="bar-outer"><div class="bar-inner" style="width:82%"></div></div><div class="num">$4.1B</div></div>
+          <div class="bar-row"><div class="lbl">2033</div><div class="bar-outer"><div class="bar-inner" style="width:93%"></div></div><div class="num">$4.6B</div></div>
+          <div class="bar-row"><div class="lbl">2034</div><div class="bar-outer"><div class="bar-inner" style="width:100%"></div></div><div class="num">$4.9B</div></div>
+        </div>
+      </div>
+      <div class="grid grid-2" style="align-content:start">
+        <div class="card"><div class="num">65%</div><p>Of global VFX demand now comes from streaming / OTT platforms</p></div>
+        <div class="card"><div class="num">$220B</div><p>Global animation + VFX market in 2026, 11.9% CAGR to 2031</p></div>
+        <div class="card"><div class="num">+30%</div><p>YoY growth in offshore VFX delivery centres as U.S. studios cut domestic cost</p></div>
+        <div class="card"><div class="num">$800M</div><p>Economic impact of one Netflix title (Stranger Things) over its Georgia run</p></div>
+      </div>
+    </div>
+    <p style="margin-top:1.5rem;font-size:.8rem;color:var(--grey);font-style:italic">Sources: IMARC Group 2025–2034 U.S. VFX Report · Mordor Intelligence · Meticulous Research · Georgia Film Office FY26</p>
+  </div>
+</section>
+
+<!-- Atlanta -->
+<section class="block" id="atlanta">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">03 · Why Atlanta</div>
+      <h2>Atlanta is where the work is</h2>
+      <p>Georgia has out-produced California and New York on multiple major metrics since 2016. The structural moat is a 20-year incentive runway, 4M+ sq ft of soundstage, and Marvel Studios' long-standing production base.</p>
+    </div>
+
+    <div class="grid grid-4">
+      <div class="card"><div class="acc"></div><div class="num">$2.0B</div><div class="mini">FY26 spend</div><p>Film & TV production spend in Georgia FY26</p></div>
+      <div class="card"><div class="acc"></div><div class="num">280</div><div class="mini">Productions</div><p>In Georgia across FY26</p></div>
+      <div class="card"><div class="acc" style="background:var(--gold)"></div><div class="num" style="color:var(--gold)">113.9K</div><div class="mini" style="color:var(--gold)">Jobs</div><p>Atlanta metro industry employment</p></div>
+      <div class="card"><div class="acc" style="background:var(--gold)"></div><div class="num" style="color:var(--gold)">$17.2B</div><div class="mini" style="color:var(--gold)">Output</div><p>Annual industry economic output</p></div>
+    </div>
+
+    <h3 style="margin-top:2.5rem;color:var(--red)">Hollywood South — the structural facts</h3>
+    <div class="grid grid-2" style="margin-top:1rem">
+      <div class="card">
+        <h3>4M+ sq ft of purpose-built soundstage</h3>
+        <p>Trilith (Marvel), Tyler Perry Studios (330 acres), Cinespace (Stranger Things, Black Panther), EUE/Screen Gems, Assembly.</p>
+      </div>
+      <div class="card">
+        <h3>10,000+ statewide filming locations</h3>
+        <p>Deep, experienced crew base built over 20 years of incentive programs.</p>
+      </div>
+      <div class="card">
+        <h3>Marvel Studios' production HQ</h3>
+        <p>Primary production base since 2014 — Avengers: Infinity War, Endgame, Black Panther all shot here.</p>
+      </div>
+      <div class="card">
+        <h3>VFX studios are pouring in</h3>
+        <p>FuseFX opened Buckhead office; Crafty Apes HQ is in Atlanta; Whiskytree (Lucasfilm, Marvel, Apple) opened a Georgia facility citing "extreme demand."</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:2.5rem">The Georgia Film Tax Credit is the keystone</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Credit</th><th>Amount</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><td><b>Base Film Tax Credit</b></td><td class="num"><b>20%</b></td><td>Transferable, no annual cap, no sunset clause</td></tr>
+          <tr><td><b>Georgia Entertainment Promotion Uplift</b></td><td class="num"><b>+10%</b></td><td>For embedding the Georgia promo logo in title credits</td></tr>
+          <tr><td><b>Post-Production Credit (NEW, Jan 1 2026)</b></td><td class="num"><b>20%</b></td><td>HB129 — on $500K+ post-production spend, even if filmed out of state</td></tr>
+          <tr><td><b>Post-Production Georgia-filmed uplift</b></td><td class="num"><b>+10%</b></td><td>Additional credit if the project was shot in Georgia</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cal">
+      <div class="cal-tag">WHY THIS MATTERS</div>
+      The 20% post-production credit effective January 1, 2026 only works if the entity delivering the work is a Georgia-registered post-production company. That is the single strongest reason to domicile in Atlanta, not just Delaware. Clients can claim 20–30% back on Hybrid spend above $500K — a built-in pricing advantage small Indian vendors without a U.S. entity cannot access.
+    </div>
+  </div>
+</section>
+
+<!-- Team -->
+<section class="block alt" id="team">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">04 · Hybrid's Edge</div>
+      <h2>The team has already shipped the films clients want made</h2>
+      <p>Four department heads with combined 47 years at the world's top VFX houses — Framestore, MPC, ILM, Sony Imageworks, Scanline, DNEG, Digital Domain.</p>
+    </div>
+
+    <div class="team-row">
+      <div><div class="name">SHALINI</div><div class="role">Head of Production · 15 yrs</div></div>
+      <div>
+        <div class="meta"><b>PROJECTS:</b>Alice in Wonderland · Amazing Spider-Man · Green Lantern · I Am Legend · Men in Black 3 · Terminator · Fast & Furious</div>
+        <div class="meta credits"><b>DELIVERED AT:</b>Sony Pictures Imageworks · Framestore · MPC · Scanline · EL Ranchito</div>
+      </div>
+    </div>
+    <div class="team-row">
+      <div><div class="name">BHARATHI</div><div class="role">Paint Supervisor · 11 yrs</div></div>
+      <div>
+        <div class="meta"><b>PROJECTS:</b>Avatar: Way of Water · Avengers: Infinity War · Black Panther · Aquaman · Spider-Man: Homecoming · Alita · Godzilla vs. Kong</div>
+        <div class="meta credits"><b>DELIVERED AT:</b>ILM · MPC · Framestore · DNEG · Scanline · Digital Domain · Barnstorm</div>
+      </div>
+    </div>
+    <div class="team-row">
+      <div><div class="name">MUHAMMED ASHIQUE</div><div class="role">Roto Supervisor · 11 yrs</div></div>
+      <div>
+        <div class="meta"><b>PROJECTS:</b>The Batman · Spider-Man: No Way Home · Justice League · Mission Impossible · Dune · The Marvels · Black Adam · Damsel</div>
+        <div class="meta credits"><b>DELIVERED AT:</b>Scanline · Digital Domain · Framestore · Method · Barnstorm · Zoic · RSP</div>
+      </div>
+    </div>
+    <div class="team-row">
+      <div><div class="name">PUNNIYAKOOTI</div><div class="role">MatchMove / Roto Anim · 10 yrs</div></div>
+      <div>
+        <div class="meta"><b>PROJECTS:</b>Blue Beetle · Black Adam · Wakanda Forever · Amazing Spider-Man 2 · Ted Lasso · Alice in Wonderland</div>
+        <div class="meta credits"><b>DELIVERED AT:</b>Sony · Digital Domain · Framestore · Method · Barnstorm</div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:2.5rem">Hybrid's rate card beats Atlanta competitors by 55–65%</h3>
+    <p style="color:var(--dim);margin-bottom:1rem">On-shore pricing from Atlanta VFX houses typically runs $150–$250/hr; Hybrid delivers the same craft at $70–$110.</p>
+    <div class="bars">
+      <div class="bar-row"><div class="lbl">Roto (Hybrid)</div><div class="bar-outer"><div class="bar-inner gold" style="width:30%"></div></div><div class="num">$70–85</div></div>
+      <div class="bar-row"><div class="lbl">Roto (ATL avg)</div><div class="bar-outer"><div class="bar-inner grey" style="width:68%"></div></div><div class="num">$175</div></div>
+      <div class="bar-row"><div class="lbl">Paint (Hybrid)</div><div class="bar-outer"><div class="bar-inner gold" style="width:33%"></div></div><div class="num">$75–90</div></div>
+      <div class="bar-row"><div class="lbl">Paint (ATL avg)</div><div class="bar-outer"><div class="bar-inner grey" style="width:75%"></div></div><div class="num">$195</div></div>
+      <div class="bar-row"><div class="lbl">Match Move (Hybrid)</div><div class="bar-outer"><div class="bar-inner gold" style="width:38%"></div></div><div class="num">$80–100</div></div>
+      <div class="bar-row"><div class="lbl">Match Move (ATL avg)</div><div class="bar-outer"><div class="bar-inner grey" style="width:81%"></div></div><div class="num">$210</div></div>
+      <div class="bar-row"><div class="lbl">Roto Anim (Hybrid)</div><div class="bar-outer"><div class="bar-inner gold" style="width:42%"></div></div><div class="num">$90–110</div></div>
+      <div class="bar-row"><div class="lbl">Roto Anim (ATL avg)</div><div class="bar-outer"><div class="bar-inner grey" style="width:88%"></div></div><div class="num">$230</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Segments & GTM -->
+<section class="block" id="gtm">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">05 · Go-to-Market</div>
+      <h2>Four addressable segments, three networks already activated</h2>
+      <p>Priority 1 is overflow from Atlanta VFX houses during peak windows — the shortest sales cycle and strongest first-revenue path.</p>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="card">
+        <div class="mini">Priority 1 · Fastest revenue</div>
+        <h3>VFX House Overflow</h3>
+        <p>Atlanta VFX houses (Crafty Apes, FuseFX, Trilith Creative, Shade VFX) hit capacity during Marvel / Netflix peak windows. We become their India-based overflow partner.</p>
+        <p style="color:var(--red);font-weight:700;margin-top:.5rem">Addressable: ~$120–180M/yr</p>
+      </div>
+      <div class="card">
+        <div class="mini">Priority 2 · Volume play</div>
+        <h3>Mid-Budget Streamers</h3>
+        <p>Netflix, Prime Video, Max originals in the $5M–$40M episode range need high-volume roto/paint/matchmove. Georgia tax credit makes the Atlanta billing structure uniquely attractive.</p>
+        <p style="color:var(--red);font-weight:700;margin-top:.5rem">Addressable: ~$80–140M/yr</p>
+      </div>
+      <div class="card">
+        <div class="mini">Priority 3 · Relationship play</div>
+        <h3>Independent Features</h3>
+        <p>77 independent features shot in Georgia in FY26 at $1–8M budgets each. Full post-VFX package with Georgia-DOR-audited pricing unlocks the post-prod credit.</p>
+        <p style="color:var(--red);font-weight:700;margin-top:.5rem">Addressable: ~$40–70M/yr</p>
+      </div>
+      <div class="card">
+        <div class="mini">Opportunistic · High margin</div>
+        <h3>Commercial / Brand</h3>
+        <p>54 commercials filmed in Georgia FY26 plus Atlanta's brand-content ecosystem (Coca-Cola, Delta, Home Depot, UPS). Quick turnarounds, premium rates.</p>
+        <p style="color:var(--red);font-weight:700;margin-top:.5rem">Addressable: ~$25–45M/yr</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:2.5rem">Networks already activated pre-incorporation</h3>
+    <div class="grid grid-2" style="margin-top:1rem">
+      <div class="card"><h3>Tamil Tech Entrepreneurs (TTE)</h3><p>Diaspora entrepreneur network — direct intros to production leads and financiers with Hybrid cultural affinity.</p></div>
+      <div class="card"><h3>Indo-American Chamber of Commerce (IACC)</h3><p>Formal trade body — opens doors to Fortune 500 brand-content buyers and Georgia state economic development.</p></div>
+      <div class="card"><h3>FeTNA (Federation of Tamil Sangams)</h3><p>Community network across GA, FL, TX — grassroots trust and introductions to small-to-mid producers.</p></div>
+      <div class="card"><h3>Local trade groups</h3><p>Georgia Production Partnership, Atlanta Film Society, Women in Film & TV Atlanta — industry-specific pipeline.</p></div>
+    </div>
+
+    <h3 style="margin-top:2.5rem">90-day launch plan</h3>
+    <div class="timeline" style="margin-top:1rem">
+      <div class="phase"><div class="when">Days 1–30</div><div class="what">Conflict-of-interest disclosure filed with current employer · incorporate Delaware C-Corp · register foreign-qualified in Georgia · open U.S. bank account · ODI Form FC filed with AD bank.</div></div>
+      <div class="phase"><div class="when">Days 31–60</div><div class="what">ATDC Tech Square desk + small secured review room · sign first two pilot clients from Priority-1 overflow pipeline · recruit Atlanta GM.</div></div>
+      <div class="phase"><div class="when">Days 61–90</div><div class="what">Deliver first paid shots · publish first Hybrid-USA case study · attend ATL Film Festival, SCAD AnimationFest, SIGGRAPH Atlanta chapter.</div></div>
+      <div class="phase"><div class="when">Day 90+</div><div class="what">Move to Georgia DOR post-production credit application · target 3rd pilot client · onboard GM, begin reserved-matter board cadence.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Partnership model -->
+<section class="block alt" id="partnership">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">06 · Partnership Model</div>
+      <h2>The sweat equity I bring in, modeled as a partnership</h2>
+      <p>As a full-time employee at a major U.S. healthcare employer, I am proposing this as <b>part-time secondary work</b>, not a full-time GM role. A conflict-of-interest review at my current employer is a hard precondition. The structure below is scaled for a 12–15 hour/week commitment on evenings, weekends, and PTO.</p>
+    </div>
+
+    <h3>What I bring in (Year 1, implied market value)</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Contribution</th><th>What it is</th><th class="num">Implied Yr-1 value</th></tr></thead>
+        <tbody>
+          <tr><td><b>Pre-activated networks</b></td><td>TTE, IACC, FeTNA, GPP, Atlanta Film Society intros already in flight</td><td class="num">$25,000</td></tr>
+          <tr><td><b>Local market knowledge</b></td><td>Atlanta studio map, incubator landscape, GA DOR process, economic development contacts</td><td class="num">$15,000</td></tr>
+          <tr><td><b>Part-time operating time</b></td><td>12–15 hrs/wk on strategy, BD, board, oversight (evenings, weekends, PTO)</td><td class="num">$40,000</td></tr>
+          <tr><td><b>Personal risk</b></td><td>Employer CoI exposure, reputation, opportunity cost on other side work</td><td class="num">$25,000</td></tr>
+          <tr><td><b>Immigration flexibility</b></td><td>Green-card status removes visa constraints for hiring and sponsorship</td><td class="num">$15,000</td></tr>
+          <tr><td><b>Pre-work already done</b></td><td>Board deck, MoU, comparison matrices, Atlanta MOA — ~120 hrs completed</td><td class="num">$20,000</td></tr>
+          <tr class="total"><td colspan="2">TOTAL implied Year-1 sweat</td><td class="num">~$140,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-top:2.5rem">Recommended partnership structure</h3>
+    <p style="color:var(--dim)">Hybrid India stays the 90% controlling parent; I take 10% as part-time founding partner and Board Chair. Full-time Atlanta GM is hired by Month 4 and runs day-to-day operations. No cash salary to me — keeps the CoI disclosure clean.</p>
+
+    <div class="equity-split" style="height:40px">
+      <span class="equity-india" style="flex:90">Hybrid Studio (India) · 90%</span>
+      <span class="equity-me" style="flex:10">Me · 10%</span>
+    </div>
+
+    <div class="tbl-wrap" style="margin-top:1.25rem">
+      <table>
+        <thead><tr><th>Term</th><th>Proposed</th></tr></thead>
+        <tbody>
+          <tr><td><b>Role title</b></td><td>Founding Partner & Board Chair (not CEO; not an employee)</td></tr>
+          <tr><td><b>Equity grant</b></td><td>10% of common stock of Hybrid VFX USA, Inc.</td></tr>
+          <tr><td><b>Hybrid India ownership</b></td><td>90% of common stock, with liquidation preference on $150K seed</td></tr>
+          <tr><td><b>Day-to-day operations</b></td><td>Full-time Atlanta GM hired by Month 4, reports to the Board</td></tr>
+          <tr><td><b>Vesting</b></td><td>4 years, monthly, 1-year cliff</td></tr>
+          <tr><td><b>Acceleration</b></td><td>Double-trigger on change-of-control</td></tr>
+          <tr><td><b>Cash compensation from US entity</b></td><td>$0 — no salary, no consulting fee. Preserves clean CoI position.</td></tr>
+          <tr><td><b>EBITDA bonus pool</b></td><td>7% of US entity EBITDA above $250K threshold, paid annually</td></tr>
+          <tr><td><b>Board composition</b></td><td>3 seats — I serve as Chair (1), Hybrid India appointees (2)</td></tr>
+          <tr><td><b>CoI precondition</b></td><td>No grant, filing, or public naming until my employer's CoI approval letter is in hand</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-top:2.5rem">Five-year cap table trajectory</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Milestone</th><th class="num">Hybrid India</th><th class="num">Me (vested)</th><th class="num">Me (unvested)</th><th class="num">Atlanta GM pool</th></tr></thead>
+        <tbody>
+          <tr><td>At grant (Month 0)</td><td class="num">90%</td><td class="num">0%</td><td class="num">10%</td><td class="num">0%</td></tr>
+          <tr><td>End of Year 1 (M12)</td><td class="num">84%</td><td class="num">2.5%</td><td class="num">7.5%</td><td class="num">6%</td></tr>
+          <tr><td>End of Year 2 (M24)</td><td class="num">84%</td><td class="num">5%</td><td class="num">5%</td><td class="num">6%</td></tr>
+          <tr><td>End of Year 3 (M36)</td><td class="num">84%</td><td class="num">7.5%</td><td class="num">2.5%</td><td class="num">6%</td></tr>
+          <tr><td>Full vest (M48)</td><td class="num">84%</td><td class="num">10%</td><td class="num">0%</td><td class="num">6%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cal">
+      <div class="cal-tag">5-YEAR EXIT SCENARIO</div>
+      At a Year-5 sale at 4x EBITDA ($10M enterprise value): Hybrid India recovers $150K seed + takes 84% of remaining $9.85M = ~$8.3M. I take 10% = ~$985K, plus ~$245K cumulative EBITDA bonuses. <strong>Total 5-year compensation: ~$1.23M for ~12–15 hrs/week with zero cash salary.</strong>
+    </div>
+  </div>
+</section>
+
+<!-- Incubator strategy -->
+<section class="block" id="incubator">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">07 · Office Strategy</div>
+      <h2>Start at an incubator, not a vanity office</h2>
+      <p>Year-1 office goes to Georgia Tech's ATDC at Tech Square with a small secured review room. Saves $25–55K versus a Buckhead lease and buys a "Georgia Tech affiliated" credibility signal.</p>
+    </div>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Option</th><th class="num">Monthly cost (USD)</th><th>Location</th><th>Fit</th></tr></thead>
+        <tbody>
+          <tr><td><b>ATDC at Tech Square</b></td><td class="num">~$100 + co-working</td><td>Midtown (Georgia Tech)</td><td>Strongest credibility — Georgia Tech incubator</td></tr>
+          <tr><td>Atlanta Tech Village</td><td class="num">$250–750</td><td>Buckhead</td><td>Largest SE tech community; FuseFX is next door</td></tr>
+          <tr><td>Switchyards</td><td class="num">$100–129</td><td>Multiple ATL locations</td><td>Cheapest credible address; design-forward</td></tr>
+          <tr><td>Hypepotamus / Flatiron City</td><td class="num">~$200</td><td>Downtown</td><td>Media / creative tilt</td></tr>
+          <tr><td>Industrious / WeWork Midtown</td><td class="num">$450–800</td><td>Midtown / Buckhead</td><td>Corporate look; good for client meetings</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cal">
+      <div class="cal-tag">THE VFX-SPECIFIC CONSTRAINT</div>
+      Hybrid cannot operate from open coworking alone. Client content falls under TPN and MPA content-security expectations. The working setup is a two-layer footprint: <b>ATDC membership</b> at ~$100–150/month for BD, admin, and meetings, plus <b>one locked, dedicated review room</b> (100–200 sqft, color-calibrated, VPN-only) at $500–900/month.
+    </div>
+  </div>
+</section>
+
+<!-- Financials -->
+<section class="block alt" id="financials">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">08 · Financials</div>
+      <h2>Year-1 investment: $150,000. Three-year payback.</h2>
+      <p>Fully loaded cost to establish, operate, and achieve first revenues via ATDC Tech Square. Full-time Atlanta GM carries day-to-day; part-time founding partner takes no cash salary.</p>
+    </div>
+
+    <h3>Year-1 cost breakdown</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Category</th><th>Line item</th><th class="num">Low</th><th class="num">High</th></tr></thead>
+        <tbody>
+          <tr class="section"><td colspan="4">Legal & setup</td></tr>
+          <tr><td></td><td>Delaware C-Corp incorporation + registered agent</td><td class="num">$160</td><td class="num">$550</td></tr>
+          <tr><td></td><td>Georgia foreign qualification + GA DOR registration</td><td class="num">$225</td><td class="num">$400</td></tr>
+          <tr><td></td><td>Bylaws, Shareholders Agreement, IP Licence from India</td><td class="num">$2,000</td><td class="num">$5,000</td></tr>
+          <tr><td></td><td>U.S. corporate counsel (year-1 retainer)</td><td class="num">$4,000</td><td class="num">$8,000</td></tr>
+          <tr><td></td><td>Indian FEMA/ODI counsel + AD-bank fees + Form FC</td><td class="num">$1,200</td><td class="num">$3,500</td></tr>
+          <tr><td></td><td>Transfer-pricing study</td><td class="num">$1,500</td><td class="num">$4,000</td></tr>
+          <tr class="section"><td colspan="4">Office & infra</td></tr>
+          <tr><td></td><td>ATDC Tech Square membership + secured review room</td><td class="num">$8,000</td><td class="num">$15,000</td></tr>
+          <tr><td></td><td>Office fit-out + IT + review-room build</td><td class="num">$2,000</td><td class="num">$5,000</td></tr>
+          <tr><td></td><td>Secure review infra (color-calibrated display, VPN, MFA)</td><td class="num">$4,500</td><td class="num">$9,000</td></tr>
+          <tr><td></td><td>TPN / MPA Content Security audit prep</td><td class="num">$3,500</td><td class="num">$7,500</td></tr>
+          <tr class="section"><td colspan="4">People</td></tr>
+          <tr><td></td><td>Part-time founding partner (equity only, no salary)</td><td class="num">$0</td><td class="num">$0</td></tr>
+          <tr><td></td><td>Atlanta GM hire (Months 4–12)</td><td class="num">$55,000</td><td class="num">$85,000</td></tr>
+          <tr><td></td><td>Finance/admin fractional CPA + bookkeeping</td><td class="num">$6,000</td><td class="num">$14,000</td></tr>
+          <tr class="section"><td colspan="4">Sales & marketing</td></tr>
+          <tr><td></td><td>Website, brand, case studies, 1 reel</td><td class="num">$4,000</td><td class="num">$10,000</td></tr>
+          <tr><td></td><td>Event sponsorships (SCAD, ATL Film Fest, IACC gala)</td><td class="num">$8,000</td><td class="num">$15,000</td></tr>
+          <tr><td></td><td>Trade memberships</td><td class="num">$2,500</td><td class="num">$5,000</td></tr>
+          <tr><td></td><td>Travel (LA/NYC pitch trips, 4 per year)</td><td class="num">$6,000</td><td class="num">$12,000</td></tr>
+          <tr class="section"><td colspan="4">Contingency</td></tr>
+          <tr><td></td><td>Reserve (10% of above)</td><td class="num">$10,860</td><td class="num">$19,895</td></tr>
+          <tr class="total"><td colspan="2">TOTAL Year-1 setup</td><td class="num">$119,445</td><td class="num">$218,845</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-top:2.5rem">Three-year trajectory</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Metric</th><th class="num">Year 1</th><th class="num">Year 2</th><th class="num">Year 3</th></tr></thead>
+        <tbody>
+          <tr><td><b>Revenue ($K)</b></td><td class="num">$220</td><td class="num">$1,400</td><td class="num">$3,200</td></tr>
+          <tr><td>Costs ($K)</td><td class="num">$150</td><td class="num">$950</td><td class="num">$2,050</td></tr>
+          <tr><td>Active clients</td><td class="num">3</td><td class="num">12</td><td class="num">22</td></tr>
+          <tr><td>U.S. headcount</td><td class="num">1 (GM)</td><td class="num">3</td><td class="num">6</td></tr>
+          <tr><td>Chennai shots delivered</td><td class="num">4,500</td><td class="num">28,000</td><td class="num">62,000</td></tr>
+          <tr><td>Gross margin</td><td class="num">18%</td><td class="num" style="color:var(--green);font-weight:700">32%</td><td class="num" style="color:var(--green);font-weight:700">36%</td></tr>
+          <tr><td><b>EBITDA ($K)</b></td><td class="num"><b>$70</b></td><td class="num" style="color:var(--green);font-weight:700">$450</td><td class="num" style="color:var(--green);font-weight:700">$1,150</td></tr>
+          <tr><td><b>Payback to parent</b></td><td class="num">—</td><td class="num" style="color:var(--green);font-weight:700">Month 15</td><td class="num" style="color:var(--green);font-weight:700">Full</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cal">
+      <div class="cal-tag">PAYBACK</div>
+      Hybrid India recovers its $150K seed by Month 15. From Year 3 onward, the U.S. entity is a recurring annual contribution of $1.1M+ to group EBITDA.
+    </div>
+  </div>
+</section>
+
+<!-- Risks -->
+<section class="block" id="risks">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">09 · Risks & Mitigation</div>
+      <h2>Seven material risks, how each one closes</h2>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Sev</th><th>Risk</th><th>Mitigation</th></tr></thead>
+        <tbody>
+          <tr><td><span class="sev sev-high">HIGH</span></td><td><b>Employer CoI approval denied or delayed</b></td><td>Pre-filed before any binding step. Equity grant and director appointment conditioned on written approval. Fallback is unpaid outside advisor role with no equity.</td></tr>
+          <tr><td><span class="sev sev-med">MED</span></td><td><b>Client ramp slower than modelled</b></td><td>Priority-1 overflow segment chosen for shortest sales cycle (vendor-to-vendor). Three pre-identified pilot targets from TTE/IACC network.</td></tr>
+          <tr><td><span class="sev sev-low">LOW</span></td><td><b>Rupee/USD depreciation hurts India margin</b></td><td>Billing in USD; India invoice priced in USD per TP study — pass-through risk minimised.</td></tr>
+          <tr><td><span class="sev sev-low">LOW</span></td><td><b>Georgia tax credit sunsets or caps</b></td><td>Uncapped since 2008; every legislative attempt to cap has failed. Even without credit, Atlanta soundstage density keeps spend flowing.</td></tr>
+          <tr><td><span class="sev sev-med">MED</span></td><td><b>FEMA/ODI compliance gap</b></td><td>CA engagement pre-remittance; UIN before first wire; APR+FLA calendar locked in from day 1.</td></tr>
+          <tr><td><span class="sev sev-low">LOW</span></td><td><b>Talent poaching by Atlanta competitors</b></td><td>Core delivery team stays in Chennai; U.S. hires start with GM, not creatives, limiting IP exposure.</td></tr>
+          <tr><td><span class="sev sev-med">MED</span></td><td><b>Content security / TPN certification delay</b></td><td>Secure-review infra built in Year 1 budget; TPN audit prep baked in; interim air-gapped review workflow for pilot clients.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- The Ask -->
+<section class="block alt" id="ask">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">10 · The Ask</div>
+      <h2>Three decisions needed from the Hybrid India Board</h2>
+    </div>
+
+    <div class="grid grid-3">
+      <div class="card" style="position:relative;padding-top:2.5rem">
+        <div style="position:absolute;top:1rem;left:1.5rem;font-size:2.5rem;font-weight:800;color:var(--red);line-height:1">01</div>
+        <h3 style="margin-top:1.5rem">Approve Seed Capital</h3>
+        <p>$150K via ODI to Hybrid VFX USA, Inc. upon receipt of RBI UIN. Tranche 1 ($80K) at incorporation; Tranche 2 ($70K) at Month 4 milestone (GM hired, first client signed).</p>
+      </div>
+      <div class="card" style="position:relative;padding-top:2.5rem">
+        <div style="position:absolute;top:1rem;left:1.5rem;font-size:2.5rem;font-weight:800;color:var(--red);line-height:1">02</div>
+        <h3 style="margin-top:1.5rem">Authorise Incorporation</h3>
+        <p>Delaware C-Corporation, 90% owned by Hybrid Studio (India) and 10% founder equity (vesting, CoI precondition), foreign-qualified in Georgia.</p>
+      </div>
+      <div class="card" style="position:relative;padding-top:2.5rem">
+        <div style="position:absolute;top:1rem;left:1.5rem;font-size:2.5rem;font-weight:800;color:var(--red);line-height:1">03</div>
+        <h3 style="margin-top:1.5rem">Commit Leadership Bandwidth</h3>
+        <p>Shalini as production liaison for first three pilots; Bharathi and Ashique as named supervisors in client-facing materials; Board sponsor assigned for monthly review.</p>
+      </div>
+    </div>
+
+    <div class="reco">
+      A YES on these three opens Hybrid to a $2.8B market at a payback period under 15 months.
+    </div>
+  </div>
+</section>
+
+<!-- Deliverables so far -->
+<section class="block" id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">11 · Work in Progress</div>
+      <h2>Deliverables produced to date</h2>
+      <p>The analysis above is backed by a working set of documents covering legal structuring, financial modelling, and partnership design — all in iterative review with Indian counsel, U.S. counsel, and the Hybrid Studio board.</p>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="card"><h4>Legal & Structure</h4><h3>Draft Memorandum of Understanding</h3><p>Covering commitments of each party, capitalisation, IP, governance, dispute resolution.</p></div>
+      <div class="card"><h4>Comparative Analysis</h4><h3>LLC vs. U.S. Subsidiary Matrix</h3><p>Five-sheet comparison covering tax, legal, cost, timeline, and funds-transfer operations end to end.</p></div>
+      <div class="card"><h4>Board Materials</h4><h3>Market Opportunity Analysis (14-slide deck)</h3><p>Deloitte-style slide deck for the Hybrid Studio board of directors, covering opportunity, Atlanta edge, team, financials, risk, and the ask.</p></div>
+      <div class="card"><h4>Working Notes</h4><h3>Partnership Model & Incubator Strategy</h3><p>Live working documents on equity structure, sweat-equity modelling, and office/incubator path with ATDC as the lead option.</p></div>
+    </div>
+
+    <div class="cal">
+      <div class="cal-tag">STATUS</div>
+      All materials are in revision; this page is a snapshot. Next milestones: employer CoI filing, Indian board decision on seed capital, Delaware incorporation, ATDC application.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand-foot">HYBRID VFX USA</div>
+    <div>Case study · Nov 2026 · All content confidential — do not distribute without permission</div>
+  </div>
+</footer>
+
+</body>
+</html>

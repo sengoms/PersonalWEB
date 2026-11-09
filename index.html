@@ -310,6 +310,18 @@ footer{background:var(--ink);color:#bdcdb6;border-top:1px solid #ffffff20;font-s
 .layer.l4{margin-left:5%}.layer.l3{margin-left:10%}.layer.l2{margin-left:15%}.layer.l1{margin-left:20%}
 .strata-note{font-size:12.5px;color:var(--mute);margin:0 0 10px}
 @media(max-width:860px){.layer{grid-template-columns:80px minmax(0,1fr)}.layer .add{grid-column:2;text-align:left;max-width:none}.layer.l4,.layer.l3,.layer.l2,.layer.l1{margin-left:0}}
+
+/* ventures */
+#ventures{background:var(--paper-2)}
+#ventures h3 a{color:var(--ink);text-decoration:none}
+#ventures h3 a:hover{color:var(--teal);text-decoration:underline}
+.vfacts{list-style:none;margin:22px 0 26px;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.vfacts li{border-top:1px solid var(--rule);padding-top:14px}
+.vfacts b{display:block;font:400 30px/1.1 var(--serif);letter-spacing:-.02em;color:var(--ink)}
+.vfacts span{display:block;margin-top:8px;font:400 12px/1.6 var(--sans);color:var(--mute)}
+@media(max-width:860px){.vfacts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.nav ul a{white-space:nowrap}
+@media(min-width:861px) and (max-width:1000px){.nav ul li:nth-child(4){display:none}}
 </style>
 </head>
 <body>
@@ -323,6 +335,7 @@ footer{background:var(--ink);color:#bdcdb6;border-top:1px solid #ffffff20;font-s
       <li><a href="#selected">Approach</a></li>
       <li><a href="#evidence">Evidence</a></li>
       <li><a href="#writing">Writing</a></li>
+      <li><a href="#ventures">Ventures</a></li>
       <li><a href="#path">Experience</a></li>
       <li><a href="#contact">Let’s connect ↗</a></li>
     </ul>
@@ -738,6 +751,29 @@ footer{background:var(--ink);color:#bdcdb6;border-top:1px solid #ffffff20;font-s
           <p class="sum">Subsumption is set membership; similarity is a guess. What that difference means for recall, explainability and governance.</p>
         </li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<section id="ventures">
+  <div class="wrap grid">
+    <div class="rail">Ventures</div>
+    <div>
+      <h2>Outside healthcare: taking a film studio into a new market.</h2>
+      <article class="sw-item">
+        <div class="k">Film &amp; VFX<span>2026 · work in progress</span></div>
+        <div>
+          <h3><a href="ventures/hybrid-vfx-usa.html">Hybrid VFX USA</a></h3>
+          <p>A case study in leading U.S. market entry for a Chennai-based VFX and AI film-making studio, anchored in Atlanta: entity structuring, incubator strategy, the partnership model, three-year financials and the board proposal. Proposed as part-time work alongside my day job; the materials are still in revision.</p>
+          <ul class="vfacts">
+            <li><b>$2.8B</b><span>U.S. VFX market, 2025</span></li>
+            <li><b>$2.0B</b><span>Georgia production spend, FY26</span></li>
+            <li><b>30%</b><span>Georgia film tax credit, uncapped</span></li>
+            <li><b>$150K</b><span>Year-1 seed, incubator path</span></li>
+          </ul>
+          <a class="btn" href="ventures/hybrid-vfx-usa.html">Read the case study</a>
+        </div>
+      </article>
     </div>
   </div>
 </section>
