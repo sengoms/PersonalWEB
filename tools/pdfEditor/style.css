@@ -1,0 +1,61 @@
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body { display: flex; flex-direction: column; font: 13px/1.3 "Segoe UI", system-ui, sans-serif; color: #1d2330; background: #e9ebef; }
+
+#bar { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; padding: 6px 10px; background: #fff; border-bottom: 1px solid #cfd3da; }
+.grp { display: flex; gap: 4px; align-items: center; }
+button, select, input[type=number] { font: inherit; height: 28px; padding: 0 9px; border: 1px solid #c3c8d1; border-radius: 5px; background: #f7f8fa; color: inherit; cursor: pointer; }
+button:hover { background: #eceff3; }
+button:disabled { opacity: .45; cursor: default; }
+button.primary { background: #2563eb; border-color: #1d4fd0; color: #fff; }
+button.primary:hover { background: #1d4fd0; }
+button.on { background: #dbe6ff; border-color: #2563eb; }
+input[type=number] { width: 56px; cursor: text; padding: 0 4px; }
+input[type=color] { width: 30px; height: 28px; padding: 1px; border: 1px solid #c3c8d1; border-radius: 5px; background: #fff; }
+#zoomLbl { min-width: 42px; text-align: center; }
+
+main { flex: 1; display: flex; min-height: 0; }
+#thumbs { width: 164px; overflow-y: auto; background: #f4f5f7; border-right: 1px solid #cfd3da; padding: 8px; }
+.thumb { margin: 0 auto 8px; padding: 5px; border: 2px solid transparent; border-radius: 6px; text-align: center; cursor: pointer; user-select: none; }
+.thumb canvas { display: block; margin: 0 auto 3px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.3); max-width: 100%; }
+.thumb.sel { border-color: #2563eb; background: #dbe6ff; }
+.thumb.dropBefore { box-shadow: 0 -3px 0 #2563eb; }
+.thumb.dropAfter { box-shadow: 0 3px 0 #2563eb; }
+
+#viewer { flex: 1; overflow: auto; padding: 16px; }
+#empty { margin: 14vh auto; text-align: center; }
+#empty h1 { font-weight: 600; margin: 0 0 8px; }
+.dim { color: #6b7280; }
+.page { position: relative; margin: 0 auto 16px; background: #fff; box-shadow: 0 1px 6px rgba(0,0,0,.3); }
+.page > canvas { position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
+.page .annotationLayer { z-index: 1; }
+
+.overlay { position: absolute; inset: 0; z-index: 2; pointer-events: none; overflow: hidden; }
+.overlay:not(.tool-select) { pointer-events: auto; cursor: crosshair; touch-action: none; }
+.overlay.tool-text { cursor: text; }
+.overlay svg { position: absolute; left: 0; top: 0; pointer-events: none; }
+.annot { position: absolute; transform-origin: 0 0; }
+.tool-select .annot { pointer-events: auto; cursor: move; }
+.tool-select polyline.annot { pointer-events: stroke; }
+polyline.annot { position: static; }
+polyline.sel { filter: drop-shadow(0 0 2px #2563eb) drop-shadow(0 0 1px #2563eb); }
+div.annot.sel { outline: 1.5px dashed #2563eb; outline-offset: 1px; }
+.annot.text { white-space: pre; line-height: 1.2; padding: 0; min-width: 4px; }
+.annot.text.editing { pointer-events: auto; cursor: text; outline: 1.5px solid #2563eb; outline-offset: 1px; }
+.annot.highlight { mix-blend-mode: multiply; opacity: .4; }
+.annot.image img { width: 100%; height: 100%; display: block; pointer-events: none; }
+.handle { position: absolute; right: -6px; bottom: -6px; width: 11px; height: 11px; background: #fff; border: 1.5px solid #2563eb; border-radius: 2px; cursor: nwse-resize; }
+.rubber { position: absolute; border: 1px dashed #2563eb; background: rgba(37,99,235,.12); }
+.tl { position: absolute; transform-origin: 0 0; pointer-events: auto; cursor: text; border-radius: 2px; }
+.tl:hover { background: rgba(37,99,235,.18); outline: 1px solid #2563eb; }
+
+dialog { border: 1px solid #c3c8d1; border-radius: 8px; padding: 16px; }
+dialog h2 { margin: 0 0 10px; font-size: 16px; }
+#sigPad { display: block; border: 1px solid #c3c8d1; border-radius: 5px; background: #fff; touch-action: none; cursor: crosshair; }
+.row { display: flex; gap: 6px; margin-top: 10px; }
+.grow { flex: 1; }
+#toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); background: #1d2330; color: #fff; padding: 8px 14px; border-radius: 6px; opacity: 0; transition: opacity .2s; pointer-events: none; max-width: 80vw; z-index: 10; }
+#toast.show { opacity: .95; }
+body.dragover #viewer { outline: 3px dashed #2563eb; outline-offset: -8px; }
+#home { color: #4b5563; text-decoration: none; font-weight: 600; white-space: nowrap; }
+#home:hover { color: #2563eb; }

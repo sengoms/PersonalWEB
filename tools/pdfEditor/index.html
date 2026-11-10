@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PDF Editor</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A free PDF editor that runs entirely in your browser: merge, split, reorder, annotate, sign and fill forms. Files never leave your computer.">
+<link rel="stylesheet" href="vendor/pdf_viewer.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header id="bar">
+  <a id="home" href="../../#tools" title="Back to the site">&larr; Senthilkumar Palaniappan</a>
+  <div class="grp">
+    <button id="bOpen" title="Open a PDF (Ctrl+O)">Open</button>
+    <button id="bAdd" title="Append another PDF to this one (merge)">Add PDF</button>
+    <button id="bSave" class="primary" title="Save the edited PDF (Ctrl+S)">Save</button>
+  </div>
+  <div class="grp">
+    <button id="bUndo" title="Undo (Ctrl+Z)">Undo</button>
+    <button id="bRedo" title="Redo (Ctrl+Y)">Redo</button>
+  </div>
+  <div class="grp" id="tools">
+    <button data-tool="select" title="Select, move and resize; fill form fields">Select</button>
+    <button data-tool="text" title="Click on the page to add text">Text</button>
+    <button data-tool="edittext" title="Click a line of existing text to replace it">Edit text</button>
+    <button data-tool="highlight" title="Drag to highlight">Highlight</button>
+    <button data-tool="whiteout" title="Drag to cover an area">Whiteout</button>
+    <button data-tool="draw" title="Draw freehand">Draw</button>
+    <button data-tool="image" title="Place an image">Image</button>
+    <button data-tool="sign" title="Place your signature">Sign</button>
+    <button id="bSigEdit" title="Draw or replace your saved signature">&#9998;</button>
+  </div>
+  <div class="grp" id="props">
+    <input type="color" id="pColor" value="#000000" title="Colour">
+    <select id="pFont" title="Font">
+      <option value="sans">Helvetica</option>
+      <option value="serif">Times</option>
+      <option value="mono">Courier</option>
+    </select>
+    <input type="number" id="pSize" value="12" min="4" max="144" step="1" title="Font size (pt)">
+    <button id="pBold" title="Bold"><b>B</b></button>
+    <button id="pItalic" title="Italic"><i>I</i></button>
+    <label title="Pen width (pt)">Pen <input type="number" id="pWidth" value="2" min="0.5" max="20" step="0.5"></label>
+    <button id="bDel" title="Delete the selected item (Del)">Delete item</button>
+  </div>
+  <div class="grp">
+    <button id="bRotL" title="Rotate selected pages left">&#8634;</button>
+    <button id="bRotR" title="Rotate selected pages right">&#8635;</button>
+    <button id="bDelPages" title="Delete selected pages">Delete pages</button>
+    <button id="bExtract" title="Save selected pages as a new PDF (split)">Extract pages</button>
+  </div>
+  <div class="grp">
+    <button id="bZoomOut" title="Zoom out">&minus;</button>
+    <span id="zoomLbl">125%</span>
+    <button id="bZoomIn" title="Zoom in">+</button>
+    <button id="bFit" title="Fit page width">Fit</button>
+  </div>
+</header>
+<main>
+  <aside id="thumbs"></aside>
+  <section id="viewer">
+    <div id="empty">
+      <h1>PDF Editor</h1>
+      <p>Open a PDF, or drop one anywhere in this window.</p>
+      <p class="dim">Everything runs on this computer. Files are never uploaded.</p>
+    </div>
+  </section>
+</main>
+<dialog id="sigDlg">
+  <h2>Draw your signature</h2>
+  <canvas id="sigPad" width="560" height="200"></canvas>
+  <div class="row">
+    <button id="sigClear">Clear</button>
+    <span class="grow"></span>
+    <button id="sigCancel">Cancel</button>
+    <button id="sigOk" class="primary">Use signature</button>
+  </div>
+</dialog>
+<div id="toast"></div>
+<input type="file" id="fOpen" accept="application/pdf,.pdf" hidden>
+<input type="file" id="fAdd" accept="application/pdf,.pdf" multiple hidden>
+<input type="file" id="fImg" accept="image/*" hidden>
+<script src="vendor/pdf.min.js"></script>
+<script src="vendor/pdf-lib.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

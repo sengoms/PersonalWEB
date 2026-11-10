@@ -321,7 +321,9 @@ footer{background:var(--ink);color:#bdcdb6;border-top:1px solid #ffffff20;font-s
 .vfacts span{display:block;margin-top:8px;font:400 12px/1.6 var(--sans);color:var(--mute)}
 @media(max-width:860px){.vfacts{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .nav ul a{white-space:nowrap}
-@media(min-width:861px) and (max-width:1000px){.nav ul li:nth-child(4){display:none}}
+@media(min-width:861px) and (max-width:1100px){.nav ul li:nth-child(4){display:none}}
+@media(min-width:861px) and (max-width:920px){.nav ul li:nth-child(3){display:none}}
+@media(max-width:540px){.nav ul li:nth-child(4){display:none}}
 </style>
 </head>
 <body>
@@ -336,6 +338,7 @@ footer{background:var(--ink);color:#bdcdb6;border-top:1px solid #ffffff20;font-s
       <li><a href="#evidence">Evidence</a></li>
       <li><a href="#writing">Writing</a></li>
       <li><a href="#ventures">Ventures</a></li>
+      <li><a href="#tools">Tools</a></li>
       <li><a href="#path">Experience</a></li>
       <li><a href="#contact">Let’s connect ↗</a></li>
     </ul>
@@ -772,6 +775,23 @@ footer{background:var(--ink);color:#bdcdb6;border-top:1px solid #ffffff20;font-s
             <li><b>$150K</b><span>Year-1 seed, incubator path</span></li>
           </ul>
           <a class="btn" href="ventures/hybrid-vfx-usa.html">Read the case study</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="tools">
+  <div class="wrap grid">
+    <div class="rail">Tools</div>
+    <div>
+      <h2>Small tools I built for myself, free to use.</h2>
+      <article class="sw-item">
+        <div class="k">Documents<span>2026 · runs in your browser</span></div>
+        <div>
+          <h3><a href="tools/pdfEditor/">pdfEditor</a></h3>
+          <p>A PDF editor that works entirely on your own computer. Merge, split, reorder and rotate pages; add text, highlights, drawings, images and a signature; fill in forms; and retype existing lines of text. Nothing is uploaded: the file never leaves your browser. Built on the open-source PDF.js and pdf-lib libraries.</p>
+          <a class="btn" href="tools/pdfEditor/">Open pdfEditor</a>
         </div>
       </article>
     </div>
