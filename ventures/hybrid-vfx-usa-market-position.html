@@ -38,7 +38,22 @@ td b{font-weight:600}
 .ex svg{display:block;width:100%;height:auto;font-family:var(--sans)}
 .ex figcaption{font-size:12px;color:var(--mute);margin-top:8px;font-family:var(--mono)}
 .note{font-size:13px;color:var(--mute);margin-top:44px;padding-top:14px;border-top:1px solid var(--rule)}
-@media (max-width:600px){.wrap{padding:36px 18px 60px}h2{font-size:24px}table{font-size:12.5px}}
+.tp{margin:0 0 40px;border:1px solid var(--rule);border-radius:6px;background:#fbfaf6}
+.tp>summary{list-style:none;cursor:pointer;padding:16px 20px;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;justify-content:space-between}
+.tp>summary::-webkit-details-marker{display:none}
+.tp>summary::after{content:"Show ▸";font-weight:500;color:var(--mute);letter-spacing:.02em;text-transform:none}
+.tp[open]>summary::after{content:"Hide ▾"}
+.tp[open]>summary{border-bottom:1px solid var(--rule)}
+.tp .tpbody{padding:8px 22px 24px}
+.tp .tpnote{font-size:12.5px;color:var(--mute);margin:10px 0 18px;font-style:italic}
+.tp h4{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);margin:22px 0 8px}
+.tp ul{list-style:none;padding-left:0;max-width:72ch}
+.tp li{position:relative;padding-left:20px;margin-bottom:10px;font-size:15px;line-height:1.6}
+.tp li::before{content:"";position:absolute;left:0;top:10px;width:7px;height:7px;background:var(--ochre);border-radius:50%}
+.tp .say{color:var(--ink)}
+.tp .cue{display:block;font-size:12px;color:var(--mute);font-family:var(--mono);margin-bottom:2px;padding-left:0}
+.tp li.cued::before{top:28px}
+@media (max-width:600px){.wrap{padding:36px 18px 60px}h2{font-size:24px}table{font-size:12.5px}.tp li{font-size:14px}}
 </style>
 </head>
 <body>
@@ -47,6 +62,45 @@ td b{font-weight:600}
 <h1>Entering the Atlanta VFX market from Chennai</h1>
 <p class="sub">Where the demand is, where Hybrid fits, and what it takes to win the first ten clients</p>
 <p class="byline"><b>11 November 2026</b> · Senthilkumar Palaniappan · Working draft for the Hybrid Studio board · Reply and pilot rates, shot volumes and the funnel are planning estimates</p>
+<details class="tp">
+<summary>Board talking points · what to say out loud</summary>
+<div class="tpbody">
+<p class="tpnote">Presenter notes, not part of the paper. The lines to speak when you walk the Hybrid board or founders through this. The negotiating floor and concession ladder are deliberately left out — keep them in your head.</p>
+<h4>Open with the turn, not the pitch</h4>
+<ul>
+<li><span class='say'>&ldquo;Georgia spend halved since 2022 — but that's exactly why now. The tentpoles left; 280 productions and 83% more independents stayed. Those buyers choose on price and turnaround. That's us.&rdquo;</span></li><li><span class='say'>&ldquo;Marvel moved to London. The stages didn't. Superman and Warner Bros. TV shoot there now, and the whole slate traded down to the work we're built for.&rdquo;</span></li>
+</ul>
+<h4>The one-sentence position</h4>
+<ul>
+<li><span class='say'>&ldquo;We're the only vendor that's cheap and credentialed. Remote shops match our price but not our shield or our contract. Atlanta houses match our credentials at twice the price. That quadrant is empty — we own it.&rdquo;</span></li>
+</ul>
+<h4>Lead every buyer conversation with the Gold Shield</h4>
+<ul>
+<li><span class='say'>&ldquo;Hybrid 360 Art Tech holds TPN Gold Shield status through August 2027 — the third-party assessment the studios demand. Most Indian vendors our size can't show that. It's our opening line, not a footnote.&rdquo;</span></li><li class='cued'><span class='cue'>pre-empt the renewal question</span><span class='say'>&ldquo;Expiry lands inside Year 1, so the renewal is a Month-1 booking, not a 2027 worry.&rdquo;</span></li>
+</ul>
+<h4>The money, framed as the parent's return</h4>
+<ul>
+<li><span class='say'>&ldquo;For $100K — not $150K — you reach a $2.8B market. $60K at incorporation, $40K only after two pilots have paid. Your exposure to a failed pilot is $60K.&rdquo;</span></li><li><span class='say'>&ldquo;We never dip below $28K cash, and $62K of your seed is still in the bank at Month 12. At zero revenue the seed still covers the whole year.&rdquo;</span></li>
+</ul>
+<h4>Not a vanity office</h4>
+<ul>
+<li><span class='say'>&ldquo;ATDC at Georgia Tech, one locked review room — $13K, not a $44–90K lease. Same security, Georgia address, Tech-affiliated credibility.&rdquo;</span></li><li><span class='say'>&ldquo;The GM is hired at Month 7, against first revenue — not before it. I carry months one through six on evenings and weekends, no salary, clean conflict-of-interest position.&rdquo;</span></li>
+</ul>
+<h4>Disarm the objection before they raise it</h4>
+<ul>
+<li><span class='say'>&ldquo;The post-production tax credit is real but it's a Year-2 lever — earned on Georgia payroll. I will not promise clients a credit on Chennai work until a Georgia CPA signs off. We sell on price and turnaround.&rdquo;</span></li><li><span class='say'>&ldquo;One risk is high and it's mine: my employer's conflict-of-interest approval. Nothing binds until that letter is in hand.&rdquo;</span></li>
+</ul>
+<h4>The hook that actually wins the first client</h4>
+<ul>
+<li><span class='say'>&ldquo;Send me ten shots at 6pm Atlanta. They're back by 8am, in your pipeline, free. Chennai works while Atlanta sleeps. That overnight test is worth more than any deck.&rdquo;</span></li>
+</ul>
+<h4>Close on the ask</h4>
+<ul>
+<li><span class='say'>&ldquo;Three decisions: approve the seed in two tranches, incorporate the Delaware C-Corp 75/25, and name Shalini, Bharathi and Ashique on the first three pilots.&rdquo;</span></li><li><span class='say'>&ldquo;Forty targets in ninety days gets us to two paid pilots by Month 6 — and if it doesn't, we stop at $60K.&rdquo;</span></li>
+</ul>
+</div>
+</details>
+
 <h2>Executive summary</h2>
 <p>Hybrid VFX USA should enter Atlanta as the low-cost, studio-credentialed prep vendor for a market that has shifted from tentpoles to volume, and it can do so for a $100K seed.</p>
 <ul><li><b>The market moved in Hybrid's favour.</b> Georgia film and TV spend fell to $2.0B in FY26 (July 2025 to June 2026), a ten-year low, while the production count rose from 245 to 280 and independent production grew 83%. Marvel's decade at Trilith ended with <i>Thunderbolts</i> in 2025. Today's buyer is a series, unscripted or independent producer who decides on price and turnaround.</li><li><b>Hybrid's edge is studio credentials at offshore cost.</b> Department heads with credits delivered at ILM, Framestore, Scanline and Sony Imageworks; roto, paint and matchmove at $70 to $110 an hour against $175 to $230 in Atlanta; overnight delivery because Chennai works while Atlanta sleeps; a TPN Gold Shield facility, status valid to August 2027. Few small Indian vendors can show the last two together.</li><li><b>Four segments, in this order.</b> Atlanta post houses, brands and agencies first (NDA only, shortest cycles); independents and TV movies alongside; VFX-house overflow from day one on the Gold Shield; streamer series in Year 2 through the houses that win them. The first 90 days target 40 named buyers and are sized to produce 2 to 3 paid pilots by Month 6.</li><li><b>The ask is $100K, not $150K.</b> A Georgia Tech ATDC membership with one secured review room cuts the office line from $44K to $90K down to $13K, and the Atlanta GM is hired at Month 7 against first revenue. Two tranches: $60K at incorporation, $40K at Month 7 against gates. On the revenue plan, about $62K of the seed is still in the bank at Month 12.</li><li><b>The Georgia post-production credit is a Year-2 lever, not a Year-1 pitch.</b> It is earned on Georgia payroll and spend by the Georgia post company; Chennai work does not qualify.</li></ul>
